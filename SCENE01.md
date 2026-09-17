@@ -3,7 +3,7 @@
 The video, built in code. No Vyond, no Hedra, no subscription, no new
 vendor.
 
-Scenes 1 to 7 of twelve are built. Scene 1 is the only pure talking head
+Scenes 1 to 8 of twelve are built. Scene 1 is the only pure talking head
 in the film and was built first to prove the lip-sync pipeline. Scene 2 is
 the first pure motion-graphics scene, which is what most of the remaining
 ones are. Scene 3 is the hero beat and one of only two scenes that needs
@@ -21,6 +21,7 @@ scenes/scene04.js          "The idea"                  1:16-1:43
 scenes/scene05.js          "Simple for the person asking" 1:43-2:06
 scenes/scene06.js          "One place to get help"     2:06-2:36
 scenes/scene07.js          "Thirty seconds that save time" 2:36-2:54
+scenes/scene08.js          "Visibility for leaders"    2:54-3:25
 assets/nora.png            Nora, background removed, 819x1063
 data/narration.json        the script: every scene's lines and where they land
 data/visemes-sceneNN.json  lip-sync track, per scene
@@ -304,6 +305,33 @@ lower path gets a clock whose hands turn with no readout on the face, so
 the contrast is visual and there is no implied time saving for anyone to
 dispute. Scene 3's clock does show a time, but that one is a story beat
 rather than a comparison.
+
+## Scene 8 notes
+
+The strategic heart of the submission. Every other scene explains
+something; this one hands leadership a decision.
+
+Two build notes govern it, and both are load-bearing.
+
+**Illustrative figures, clearly labelled.** Every number is invented —
+none are the trial's real values — and the panel carries a "Sample
+figures" chip on its face for the whole scene.
+
+**The animation must not resolve the question.** The two options appear
+side by side with identical weight and nothing highlights either. That
+extends to layout: option one's body copy originally wrapped to a second
+line, which made its card taller than option two's. A card that is
+visibly bigger is a thumb on the scale, so the copy was shortened and
+both cards carry the same `min-height`.
+
+The tile set follows the real product rather than the storyboard's five.
+Response overdue and resolution overdue are separate clocks, which is
+sharper than "answered on time": acknowledging a request and finishing it
+are different failures with different fixes.
+
+Group labels are deliberately absent. The dashboard reads "All groups"
+and the workload bars are unnamed people, because naming teams was ruled
+out and the breadth argument does not need them.
 
 ## Scaling to the rest of the storyboard
 
