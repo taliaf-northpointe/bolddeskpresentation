@@ -175,14 +175,17 @@
       ]
     },
     {
-      "n": 12, "id": "scene12", "title": "The bigger idea", "slot": 31.0, "nora": true,
+      "n": 12, "id": "scene12", "title": "The bigger idea", "slot": 33.0, "nora": true,
       "chunks": [
-        { "at": 0.4, "phrases": [
-          "That is why this is bigger than a ticketing system.",
-          "It is a customer experience idea, an employee experience idea, and an opportunity to help Northpointe work better together.",
-          "It is all of us against the problem, not against each other.",
-          "BoldDesk could help us move from managing inboxes to managing experiences." ] },
-        { "at": 24.0, "phrases": [
+        { "at": 0.3, "phrases": [
+          "That's why this is bigger than a ticketing system." ] },
+        { "at": 5.0, "phrases": [
+          "It's a customer experience idea, an employee experience idea, and an opportunity to help Northpointe work better together." ] },
+        { "at": 14.2, "phrases": [
+          "It's all of us against the problem, not against each other." ] },
+        { "at": 19.4, "phrases": [
+          "BoldDesk could move us from managing inboxes to managing experiences." ] },
+        { "at": 24.9, "phrases": [
           "I'm Nora. Thanks for listening, and I'll see you at the help desk." ] }
       ]
     }
