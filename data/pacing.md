@@ -7,22 +7,21 @@ narration does not fit the slot: shorten the line or lengthen the scene.
 
 | Scene | Title | Slot | Speech ends | Margin | Words | wpm |
 |---:|---|---:|---:|---:|---:|---:|
-| 1 | A human question | 20s | 15.6s | +4.4s | 42 | 169 |
-| 2 | The work behind the work | 24s | 20.0s | +4.0s | 40 | 123 |
-| 3 | The customer feels the delay | 32s | 28.2s | +3.8s | 48 | 104 |
-| 4 | The idea | 27s | 24.5s | +2.5s | 56 | 140 |
-| 5 | Simple for the person asking | 23s | 19.7s | +3.3s | 39 | 122 |
-| 6 | One place to get help | 30s | 27.8s | +2.2s | 67 | 147 |
-| 7 | Thirty seconds that save time | 18s | 15.3s | +2.7s | 30 | 121 |
-| 7A | Change is hard (optional insert) *(optional)* | 25s | 21.9s | +3.1s | 63 | 176 |
-| 8 | Visibility for leaders | 31s | 28.4s | +2.6s | 66 | 141 |
-| 9 | Continuity, teamwork, and the record | 30s | 27.7s | +2.3s | 64 | 141 |
-| 10 | Automation gives time back | 25s | 23.5s | +1.5s | 54 | 140 |
-| 11 | Room to grow | 17s | 15.5s | +1.5s | 37 | 147 |
-| 12 | The bigger idea | 33s | 29.0s | +4.0s | 61 | 128 |
+| 1 | Open | 37s *(natural)* | 36.0s | — | 96 | 163 |
+| 2 | Why BoldDesk? | 28s *(natural)* | 26.5s | — | 71 | 166 |
+| 3 | The shared mailbox | 41s *(natural)* | 39.7s | — | 102 | 157 |
+| 4 | Better experience for everyone | 53s *(natural)* | 51.6s | — | 133 | 157 |
+| 5 | Nothing changes for the person emailing you | 40s *(natural)* | 39.3s | — | 97 | 151 |
+| 6 | One place for everything | 52s *(natural)* | 51.3s | — | 145 | 173 |
+| 7 | Knowledge that works for everyone | 28s *(natural)* | 26.8s | — | 67 | 155 |
+| 8 | Visibility | 60s *(natural)* | 59.0s | — | 149 | 154 |
+| 9 | Better communication. Better accountability. Better customer experience. | 28s *(natural)* | 27.5s | — | 78 | 176 |
+| 10 | Built to connect | 53s *(natural)* | 52.1s | — | 126 | 148 |
+| 11 | And down the road… | 34s *(natural)* | 32.5s | — | 85 | 161 |
+| 12 | Why it matters | 42s *(natural)* | 40.9s | — | 108 | 161 |
+| 13 | All of us against the problem | 25s *(natural)* | 24.4s | — | 64 | 163 |
+| 14 | Closing | 29s *(natural)* | 28.4s | — | 61 | 132 |
 
-## Notes
+*natural*: no slot authored yet, so the section is as long as Ava's read plus 1s. Use these lengths when building the scenes.
 
-- Scene 7: chunk at 12.60s pushed to 12.67s (previous chunk ran long)
-
-Film length without optional scenes: 5:10.
+Film length without optional scenes: 9:10.

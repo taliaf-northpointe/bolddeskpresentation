@@ -129,11 +129,75 @@ def pcm_seconds(pcm):
     return len(pcm) / 2 / SR
 
 
+# ---------------------------------------------------------------- delivery
+# Per-line tone, the way the game gives each of Nora's lines a mood instead
+# of one flat setting. A tone is a pitch and a speed offset from the base
+# rate in narration.json. A chunk can name its tone; otherwise it is read
+# off the text. Each chunk also gets a small deterministic wobble (seeded by
+# its position) so two lines with the same tone never sound identical.
+TONES = {
+    #            pitch Hz   rate %    what it is for
+    "warm":     {"pitch":  0, "rate":  0},   # the default: friendly narrator
+    "greeting": {"pitch": +6, "rate": -2},   # hello, nice to meet you
+    "question": {"pitch": +9, "rate": -2},   # anything with a ? lifts
+    "bright":   {"pitch": +8, "rate": +4},   # exclamations, good news
+    "punch":    {"pitch": +3, "rate": -8},   # short declaratives, one idea each
+    "list":     {"pitch": +3, "rate": -3},   # items in a run, lightly lifted
+    "serious":  {"pitch": -4, "rate": -7},   # caveats, governance, cost
+    "resolve":  {"pitch": -2, "rate": -6},   # the thesis line, said plainly
+    "close":    {"pitch": +4, "rate": -5},   # the sign-off, smile in the voice
+}
+WOBBLE_PITCH = 2.0   # ± Hz
+WOBBLE_RATE = 2.0    # ± %
+PRE_BEAT = {"question": 0.10, "punch": 0.15, "resolve": 0.30, "close": 0.20}
+
+SERIOUS_WORDS = re.compile(r"\b(security|governance|carefully|evaluate|difficult|harder|"
+                           r"waiting|lost|wondering|hard)\b", re.I)
+
+
+def pick_tone(text, hint=None):
+    """Explicit tone wins; otherwise read it off the line."""
+    if hint:
+        return hint
+    t = text.strip()
+    n = len(re.findall(r"[A-Za-z0-9']+", t))
+    if t.endswith("!"):
+        return "bright"
+    if "?" in t:
+        return "question"
+    if SERIOUS_WORDS.search(t) and n > 6:
+        return "serious"
+    if n <= 4:
+        return "punch"
+    if n <= 8 and (t.startswith(("It might", "That might", "Maybe", "Better", "More "))):
+        return "list"
+    return "warm"
+
+
+def wobble(seed_text, k):
+    """Deterministic ±jitter so renders are reproducible."""
+    import hashlib
+    h = hashlib.md5(f"{seed_text}#{k}".encode()).digest()
+    a = (int.from_bytes(h[:2], "big") / 0xFFFF) * 2 - 1
+    b = (int.from_bytes(h[2:4], "big") / 0xFFFF) * 2 - 1
+    return a * WOBBLE_PITCH, b * WOBBLE_RATE
+
+
+def delivery_for(text, base_rate, sid, k, hint=None):
+    """-> (tone, rate_str, pitch_str) for one chunk."""
+    tone = pick_tone(text, hint)
+    tn = TONES.get(tone, TONES["warm"])
+    wp, wr = wobble(sid, k)
+    rate = int(round(float(base_rate.rstrip("%")) + tn["rate"] + wr))
+    pitch = int(round(tn["pitch"] + wp))
+    return tone, f"{rate:+d}%", f"{pitch:+d}Hz"
+
+
 # ---------------------------------------------------------------- engines
-async def edge_chunk(text, voice, rate):
+async def edge_chunk(text, voice, rate, pitch="+0Hz"):
     """-> (pcm, words[{t,d,w}], visemes or None). Times relative to chunk start."""
     import edge_tts
-    comm = edge_tts.Communicate(text, voice, rate=rate, boundary="WordBoundary")
+    comm = edge_tts.Communicate(text, voice, rate=rate, pitch=pitch, boundary="WordBoundary")
     words = []
     with tempfile.NamedTemporaryFile(suffix=".mp3", delete=False) as f:
         tmp = f.name
@@ -149,7 +213,7 @@ async def edge_chunk(text, voice, rate):
     return pcm, words, None
 
 
-def azure_chunk(text, voice, rate):
+def azure_chunk(text, voice, rate, pitch="+0Hz"):
     """Same contract as edge_chunk, with Azure's real viseme events."""
     try:
         import azure.cognitiveservices.speech as speechsdk
@@ -175,7 +239,7 @@ def azure_chunk(text, voice, rate):
     ssml = (f'<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" '
             f'xmlns:mstts="https://www.w3.org/2001/mstts" xml:lang="en-US">'
             f'<voice name="{voice}"><mstts:viseme type="redlips_front"/>'
-            f'<prosody rate="{rate}">{esc}</prosody></voice></speak>')
+            f'<prosody rate="{rate}" pitch="{pitch}">{esc}</prosody></voice></speak>')
     result = synth.speak_ssml_async(ssml).get()
     if result.reason == speechsdk.ResultReason.Canceled:
         d = result.cancellation_details
@@ -247,25 +311,38 @@ def thin(events):
 
 
 # ---------------------------------------------------------------- scene
+NATURAL_TAIL = 1.0      # room after the last word when no slot is authored
+DEFAULT_PAUSE = 0.45    # breath between chunks that have no `at`
+
+
 def synth_scene(sc, engine, voice, rate):
-    slot = float(sc["slot"])
+    slot = float(sc["slot"]) if sc.get("slot") is not None else None
     pcm = b""
     words_all, cues_all, vis_all, notes = [], [], [], []
     cursor = 0.0
+    speech_end = 0.0
     total_words = 0
     speech_start = None
 
-    for ch in sc["chunks"]:
+    delivery = []
+    for k, ch in enumerate(sc["chunks"]):
         text = " ".join(ch["phrases"])
+        tone, c_rate, c_pitch = delivery_for(text, rate, sc["id"], k, ch.get("tone"))
         if engine == "edge":
-            cpcm, words, vis = asyncio.run(edge_chunk(text, voice, rate))
+            cpcm, words, vis = asyncio.run(edge_chunk(text, voice, c_rate, c_pitch))
         else:
-            cpcm, words, vis = azure_chunk(text, voice, rate)
+            cpcm, words, vis = azure_chunk(text, voice, c_rate, c_pitch)
 
-        at = float(ch["at"])
-        if at < cursor - 1e-3:
-            notes.append(f"chunk at {at:.2f}s pushed to {cursor:.2f}s (previous chunk ran long)")
-            at = cursor
+        if ch.get("at") is not None:
+            at = float(ch["at"])
+            if at < cursor - 1e-3:
+                notes.append(f"chunk at {at:.2f}s pushed to {cursor:.2f}s (previous chunk ran long)")
+                at = cursor
+        else:
+            # a breath, plus a beat before lines whose tone asks for one
+            at = max(cursor, speech_end + float(ch.get("pause", DEFAULT_PAUSE)) + PRE_BEAT.get(tone, 0.0))
+        delivery.append({"at": round(at, 2), "tone": tone, "rate": c_rate, "pitch": c_pitch,
+                         "text": text})
         pcm += silence(at - pcm_seconds(pcm)) + cpcm
         cursor = pcm_seconds(pcm)
 
@@ -287,33 +364,39 @@ def synth_scene(sc, engine, voice, rate):
         cursor = speech_end + 0.15
         pcm = pcm[: int(cursor * SR) * 2] if pcm_seconds(pcm) > cursor else pcm
 
-    speech_len = cursor
-    over = speech_len - slot
-    if over > 0:
-        notes.append(f"speech runs {over:.2f}s past the {slot:.1f}s slot — trimmed in the film WAV")
-        pcm = pcm[: int(slot * SR) * 2]
-    else:
+    speech_len = speech_end
+    natural = slot is None
+    if natural:
+        slot = round(speech_len + NATURAL_TAIL, 1)
         pcm += silence(slot - pcm_seconds(pcm))
+    else:
+        over = cursor - slot
+        if over > 0:
+            notes.append(f"speech runs {over:.2f}s past the {slot:.1f}s slot — trimmed in the film WAV")
+            pcm = pcm[: int(slot * SR) * 2]
+        else:
+            pcm += silence(slot - pcm_seconds(pcm))
 
     n = sc["n"]
-    tag = sc["id"].replace("scene", "")
-    write_wav(os.path.join(ASSETS, f"{sc['id']}.wav"), pcm)
-    with open(os.path.join(DATA, f"words-scene{tag}.json"), "w") as f:
+    sid = sc["id"]
+    write_wav(os.path.join(ASSETS, f"{sid}.wav"), pcm)
+    with open(os.path.join(DATA, f"words-{sid}.json"), "w") as f:
         json.dump(words_all, f, indent=0)
-    with open(os.path.join(DATA, f"cues-scene{tag}.json"), "w") as f:
+    with open(os.path.join(DATA, f"cues-{sid}.json"), "w") as f:
         json.dump(cues_all, f, indent=0)
     if sc.get("nora"):
         track = thin([{"t": 0.0, "id": 0}] + vis_all)
-        with open(os.path.join(DATA, f"visemes-scene{tag}.json"), "w") as f:
+        with open(os.path.join(DATA, f"visemes-{sid}.json"), "w") as f:
             json.dump(track, f, indent=0)
 
     spoken = speech_len - (speech_start or 0)
     wpm = total_words / spoken * 60 if spoken > 0 else 0
     return {
-        "n": n, "id": sc["id"], "title": sc["title"], "slot": slot,
+        "n": n, "id": sid, "title": sc["title"], "slot": slot, "natural": natural,
         "words": total_words, "start": speech_start or 0, "end": speech_len,
         "margin": slot - speech_len, "wpm": wpm, "notes": notes,
-        "pcm": pcm, "optional": sc.get("optional", False),
+        "pcm": pcm, "optional": sc.get("optional", False), "delivery": delivery,
+        "card": sc.get("card"),
     }
 
 
@@ -333,8 +416,13 @@ def write_report(rows, engine, voice, rate):
     for r in rows:
         flag = " ⚠" if r["margin"] < 0 else ""
         opt = " *(optional)*" if r["optional"] else ""
-        lines.append(f"| {r['n'] if r['n'] < 70 else '7A'} | {r['title']}{opt} | {r['slot']:.0f}s | "
-                     f"{r['end']:.1f}s | {r['margin']:+.1f}s{flag} | {r['words']} | {r['wpm']:.0f} |")
+        slot = f"{r['slot']:.0f}s" + (" *(natural)*" if r.get("natural") else "")
+        margin = "—" if r.get("natural") else f"{r['margin']:+.1f}s{flag}"
+        lines.append(f"| {r['n'] if r['n'] < 70 else '7A'} | {r['title']}{opt} | {slot} | "
+                     f"{r['end']:.1f}s | {margin} | {r['words']} | {r['wpm']:.0f} |")
+    if any(r.get("natural") for r in rows):
+        lines += ["", "*natural*: no slot authored yet, so the section is as long as Ava's read "
+                  f"plus {NATURAL_TAIL:.0f}s. Use these lengths when building the scenes."]
     notes = [(r, n) for r in rows for n in r["notes"]]
     if notes:
         lines += ["", "## Notes", ""]
@@ -343,6 +431,43 @@ def write_report(rows, engine, voice, rate):
     film = sum(r["slot"] for r in rows if not r["optional"])
     lines += ["", f"Film length without optional scenes: {int(film // 60)}:{int(film % 60):02d}."]
     path = os.path.join(DATA, "pacing.md")
+    with open(path, "w", encoding="utf-8") as f:
+        f.write("\n".join(lines) + "\n")
+    return path
+
+
+def write_delivery(rows, base_rate):
+    """One table of every line: where it starts, its tone, pitch and rate."""
+    lines = [
+        "# Delivery",
+        "",
+        f"Base rate `{base_rate}`. Each line's tone sets a pitch and speed offset,",
+        "plus a small deterministic wobble so identical tones still differ.",
+        "Set `tone` on a chunk in narration.json to override what was read off the text.",
+        "",
+        "| Tone | Pitch | Rate | Used for |",
+        "|---|---:|---:|---|",
+        "| warm | 0 | 0 | default narrator |",
+        "| greeting | +6 Hz | -2% | hello, nice to meet you |",
+        "| question | +9 Hz | -2% | any line with a ? |",
+        "| bright | +8 Hz | +4% | exclamations, good news |",
+        "| punch | +3 Hz | -8% | short declaratives, a beat before |",
+        "| list | +3 Hz | -3% | items in a run |",
+        "| serious | -4 Hz | -7% | caveats, governance, cost |",
+        "| resolve | -2 Hz | -6% | the thesis, said plainly, a beat before |",
+        "| close | +4 Hz | -5% | the sign-off |",
+        "",
+    ]
+    for r in rows:
+        lines += [f"## {r['id']} · {r['title']}", ""]
+        if r.get("card"):
+            lines += [f"*{r['card']}*", ""]
+        lines += ["| At | Tone | Pitch | Rate | Line |", "|---:|---|---:|---:|---|"]
+        for d in r["delivery"]:
+            txt = d["text"] if len(d["text"]) <= 90 else d["text"][:87] + "…"
+            lines.append(f"| {d['at']:.1f}s | {d['tone']} | {d['pitch']} | {d['rate']} | {txt} |")
+        lines.append("")
+    path = os.path.join(DATA, "delivery.md")
     with open(path, "w", encoding="utf-8") as f:
         f.write("\n".join(lines) + "\n")
     return path
@@ -416,8 +541,9 @@ def main():
         r = synth_scene(sc, a.engine, voice, rate)
         rows.append(r)
         flag = "  <-- OVER" if r["margin"] < 0 else ""
-        print(f"  scene {r['n']:>2}  {r['end']:5.1f}s of {r['slot']:4.1f}s  "
-              f"margin {r['margin']:+5.1f}s  {r['words']:3d} words  {r['wpm']:3.0f} wpm{flag}")
+        fit = "natural      " if r.get("natural") else f"margin {r['margin']:+5.1f}s"
+        print(f"  {r['id']:>8}  {r['end']:5.1f}s of {r['slot']:5.1f}s  "
+              f"{fit}  {r['words']:3d} words  {r['wpm']:3.0f} wpm{flag}")
         for n in r["notes"]:
             print(f"           note: {n}")
 
@@ -425,6 +551,7 @@ def main():
         path, secs = write_film(rows)
         print(f"film   {path}  ({int(secs // 60)}:{int(secs % 60):02d})")
         print(f"pacing {write_report(rows, a.engine, voice, rate)}")
+        print(f"delivery {write_delivery(rows, rate)}")
     if a.preview:
         for p in mux_previews(rows):
             print(f"voiced {p}")
