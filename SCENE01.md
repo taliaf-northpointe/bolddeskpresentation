@@ -3,7 +3,7 @@
 The video, built in code. No Vyond, no Hedra, no subscription, no new
 vendor.
 
-Scenes 1 to 10 of twelve are built. Scene 1 is the only pure talking head
+Scenes 1 to 11 of twelve are built. Scene 1 is the only pure talking head
 in the film and was built first to prove the lip-sync pipeline. Scene 2 is
 the first pure motion-graphics scene, which is what most of the remaining
 ones are. Scene 3 is the hero beat and one of only two scenes that needs
@@ -24,6 +24,7 @@ scenes/scene07.js          "Thirty seconds that save time" 2:36-2:54
 scenes/scene08.js          "Visibility for leaders"    2:54-3:25
 scenes/scene09.js          "Continuity and the record" 3:25-3:55
 scenes/scene10.js          "Automation gives time back" 3:55-4:20
+scenes/scene11.js          "Room to grow"              4:20-4:37
 assets/nora.png            Nora, background removed, 819x1063
 data/narration.json        the script: every scene's lines and where they land
 data/visemes-sceneNN.json  lip-sync track, per scene
@@ -372,6 +373,25 @@ being argued is connected work, not the integration.
 
 Ends by growing a long thread with a sparkle on it, which is the object
 Scene 11 opens on and compresses.
+
+## Scene 11 notes
+
+The shortest scene in the film, deliberately. The build note asks for
+brief and clearly labelled future-facing so the pitch does not
+overpromise.
+
+The caveat is the point of the scene, not a softener on it. Naming the
+security and data-governance review — with a shield beside it — is how
+the capability gets mentioned without inheriting the objection, and it
+signals to anyone in the room who thinks about data handling that the
+question has already been considered.
+
+Nora is on camera because a future possibility should come from the
+guide rather than from a caption. The thread she compresses is the same
+object Scene 10 ended on, and the summary then joins three small cards —
+portal, dashboard, automation — because the storyboard asks for one
+connected composition. Small cards rather than the full panels: this is a
+reminder, not a recap.
 
 ## Scaling to the rest of the storyboard
 
