@@ -1,0 +1,17 @@
+# render output
+build/
+*.wav
+*.mp3
+
+# python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# node
+node_modules/
+
+# os
+.DS_Store
+Thumbs.db
