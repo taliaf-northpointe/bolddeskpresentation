@@ -91,11 +91,14 @@
     {
       "n": 6, "id": "scene06", "title": "One place to get help", "slot": 30.0, "nora": false,
       "chunks": [
-        { "at": 0.4, "phrases": [
-          "The portal gives employees one place to open a request and check what is already in progress.",
-          "It also holds a shared knowledge base any team can contribute to.",
-          "Answer a question once, and what one team knows becomes something the whole bank can use.",
-          "It is mobile friendly too, so someone could ask for help from a phone between meetings instead of waiting until they are back at a desk." ] }
+        { "at": 0.3, "phrases": [
+          "The portal gives employees one place to open a request and check what's already in progress." ] },
+        { "at": 7.4, "phrases": [
+          "It also holds a shared knowledge base any team can contribute to." ] },
+        { "at": 13.0, "phrases": [
+          "Answer a question once, and what one team knows becomes something the whole bank can use." ] },
+        { "at": 20.4, "phrases": [
+          "It's mobile friendly too. Someone can ask for help from a phone between meetings, instead of waiting until they're back at a desk." ] }
       ]
     },
     {
