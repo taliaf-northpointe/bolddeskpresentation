@@ -3,7 +3,7 @@
 The video, built in code. No Vyond, no Hedra, no subscription, no new
 vendor.
 
-Scenes 1 to 6 of twelve are built. Scene 1 is the only pure talking head
+Scenes 1 to 7 of twelve are built. Scene 1 is the only pure talking head
 in the film and was built first to prove the lip-sync pipeline. Scene 2 is
 the first pure motion-graphics scene, which is what most of the remaining
 ones are. Scene 3 is the hero beat and one of only two scenes that needs
@@ -20,6 +20,7 @@ scenes/scene03.js          "The customer feels the delay" 0:44-1:16
 scenes/scene04.js          "The idea"                  1:16-1:43
 scenes/scene05.js          "Simple for the person asking" 1:43-2:06
 scenes/scene06.js          "One place to get help"     2:06-2:36
+scenes/scene07.js          "Thirty seconds that save time" 2:36-2:54
 assets/nora.png            Nora, background removed, 819x1063
 data/visemes-sceneNN.json  lip-sync track, per scene
 scripts/synth_azure.py     Ava audio + the real viseme track
@@ -253,6 +254,22 @@ shorter version lands at ~125.
 Two layout lessons: `scaleY` on a card squashes its type, so a collapsing
 panel should animate height and fade sub-labels rather than scale — and
 in this case the simpler answer was a taller shell and no collapse at all.
+
+## Scene 7 notes
+
+Two lanes, same request. The upper one spends thirty seconds up front and
+goes straight through; the lower one collects five questions that only
+exist because the first message was vague, and crawls.
+
+This pays off Scene 3 at the other end. The round-trip there was "Which
+system?"; the form here has Application as a required field.
+
+Build note honoured on the metric. The upper path carries a specific
+"+30 seconds" because that is exactly what the narration claims. The
+lower path gets a clock whose hands turn with no readout on the face, so
+the contrast is visual and there is no implied time saving for anyone to
+dispute. Scene 3's clock does show a time, but that one is a story beat
+rather than a comparison.
 
 ## Scaling to the rest of the storyboard
 
