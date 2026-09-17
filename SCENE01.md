@@ -18,8 +18,12 @@ scenes/scene02.js          "The work behind the work"  0:20-0:44
 scenes/scene03.js          "The customer feels the delay" 0:44-1:16
 scenes/scene04.js          "The idea"                  1:16-1:43
 assets/nora.png            Nora, background removed, 819x1063
+data/narration.json        the script: every scene's lines and where they land
 data/visemes-sceneNN.json  lip-sync track, per scene
-scripts/synth_azure.py     Ava audio + the real viseme track
+data/cues-sceneNN.json     phrase timings from Ava's actual read
+data/pacing.md             speech length against each scene's slot
+scripts/synth.py           Ava reads the film: audio, words, cues, visemes
+scripts/synth_azure.py     earlier Scene-1-only Azure script; synth.py supersedes it
 scripts/fake_visemes.py    synthetic track, for testing before audio exists
 scripts/render.py          frame-by-frame capture, muxed to MP4
 build/                     output
@@ -66,27 +70,57 @@ to end, and hands each one its local time.
 Adding a scene is three steps: write `scenes/sceneNN.js`, import it in
 `index.html`, add it to the `SCENES` array. Nothing else knows the order.
 
-## Getting the real voice
+## Getting the voice
+
+The voice is Ava — the same "Microsoft Ava Online (Natural)" the Nora
+game picks in Edge. Two routes reach her; both go through one script.
 
 ```
-pip install azure-cognitiveservices-speech
-export AZURE_SPEECH_KEY=...
-export AZURE_SPEECH_REGION=eastus
-python3 scripts/synth_azure.py
+python -m pip install -r scripts/requirements.txt
+python scripts/synth.py                  # every scene, no key needed
+python scripts/synth.py --scene 4        # one scene
+python scripts/synth.py --preview        # also drop the voice onto samples/*.mp4
+python scripts/synth.py --engine azure   # real viseme events, needs a key
 ```
 
-That writes `assets/scene01.wav` and overwrites
-`data/visemes-scene01.json` with Ava's actual viseme events. `render.py`
-picks up `assets/sceneNN.wav` automatically and muxes it. One synthesis
-pass produces both the audio and the mouth data, so they cannot drift.
+`--engine edge` (the default) uses Edge's own read-aloud endpoint through
+the `edge-tts` package. It is the identical voice, needs no account, and
+returns audio plus word boundaries — but no viseme events, so the mouth
+for on-camera scenes is approximated from word timing. It is an
+unofficial endpoint: right for auditioning and drafts, not for the cut
+that ships.
 
-Two things worth trying. Generate with `en-US-AvaNeural` and again with
-`NORA_VOICE=en-US-Ava:DragonHDLatestNeural` and pick by ear — the HD model
-supports styles and adapts delivery to the meaning of the line, which
-usually suits a narrator better, but it is worth hearing rather than
-assuming. And note this is not the same Ava as the Edge speech voice in
-the game show: that one is browser-local and gives you no file and no
-timing data.
+`--engine azure` asks Azure Speech for `en-US-AvaNeural` with
+`AZURE_SPEECH_KEY` and `AZURE_SPEECH_REGION` set. Same voice, and one
+synthesis pass returns audio and real viseme events together, so they
+cannot drift. Run this once before the final render. The HD variant
+`NORA_VOICE=en-US-Ava:DragonHDLatestNeural` adapts delivery to the
+meaning of the line; generate both and pick by ear.
+
+The script is `data/narration.json`: one entry per scene, split into
+chunks that are each synthesised separately and placed at an `at` time
+inside the scene. That is what keeps the voice on the scene's authored
+beats — Scene 3's silent hold, Scene 4's verbs landing on their words —
+instead of letting the engine's pace drive the picture. Sentences that
+should flow as one breath belong in one chunk; more chunks means more
+chances for the tone to shift between segments.
+
+Per scene it writes:
+
+```
+assets/sceneNN.wav          padded to the scene's slot; render.py muxes it
+data/words-sceneNN.json     every word with start and duration
+data/cues-sceneNN.json      phrase timings — paste into CUES when they settle
+data/visemes-sceneNN.json   mouth track, on-camera scenes only
+```
+
+plus `assets/film.wav` (the scenes end to end on the master clock) and
+`data/pacing.md`, a table of where speech ends against each slot. WAVs
+are gitignored; regenerating them takes under a minute.
+
+Behind the bank's TLS inspection, Python's own certificate bundle rejects
+the proxy. `truststore` (in requirements) makes it use the Windows
+certificate store instead; the script imports it when present.
 
 ## How it works
 
@@ -224,9 +258,15 @@ same register as the optional stick-figure scene.
   Use `--fps 15 --scale .5` while iterating on feel, full res for review.
 - No GUI timeline. The scrubber covers most of it, but judging motion
   still means render-and-look more than it would in Vyond.
-- `data/visemes-scene01.json` currently holds synthetic data from
-  `fake_visemes.py`. Right shape and rhythm, not phoneme-accurate — it
-  exists to prove the pipeline, not to ship.
+- The committed viseme tracks come from `synth.py --engine edge`: Ava's
+  real word timings, with mouth shapes spread across each word by letter.
+  Close, not phoneme-accurate. `--engine azure` replaces them with her
+  actual viseme events; do that before the final render.
+- Ava reads faster than the storyboard's 130-145 wpm, so most scenes have
+  several seconds of margin (see `data/pacing.md`). That is room for holds
+  and transitions, not a problem — but a scene's `CUES` and any beats tied
+  to words should be checked against `data/cues-sceneNN.json` once the
+  voice is in.
 - A CSS `filter` on a parent cannot be undone by a child. Scene 2's
   dim-to-one-email applies the filter per row, not on the panel, for that
   reason.

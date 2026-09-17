@@ -1,0 +1,10 @@
+# python -m pip install -r scripts/requirements.txt
+# plus: python -m playwright install chromium   (for render.py)
+# plus: winget install Gyan.FFmpeg              (mux, decode)
+
+playwright>=1.45        # render.py — headless Chromium frame capture
+edge-tts>=7.0           # synth.py --engine edge — Ava without a key
+truststore>=0.9         # lets Python trust the corporate TLS proxy
+
+# optional, for synth.py --engine azure (real viseme events)
+# azure-cognitiveservices-speech>=1.40

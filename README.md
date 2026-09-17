@@ -38,10 +38,14 @@ rather than character animation. Scene 3 is the hero beat, and the harder
 case: the only place so far that needs figures to act. Scene 4 is the
 turn — the point where the film stops describing the problem.
 
-The viseme track currently committed is synthetic, from
-`scripts/fake_visemes.py`. It has the right shape and rhythm but is not
-phoneme-accurate. Run `scripts/synth_azure.py` with an Azure Speech key to
-replace it with real data and produce the narration audio.
+The voice is in. `scripts/synth.py` reads the whole script from
+`data/narration.json` and has Ava read every scene, placing each line on
+the beat the scene authored for it. `data/pacing.md` shows how each
+scene's speech fits its slot. Audio files are not committed (regenerate in
+under a minute); the timing files in `data/` are. The viseme tracks for
+the on-camera scenes are approximated from Ava's word timings until the
+same script is run with `--engine azure`, which returns her real viseme
+events. See SCENE01.md, "Getting the voice".
 
 ## A note on contents
 

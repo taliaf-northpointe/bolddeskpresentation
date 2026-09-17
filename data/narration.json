@@ -1,0 +1,169 @@
+{
+  "_comment": [
+    "The narration record for the whole film, lifted from docs/storyboard-v2.",
+    "scripts/synth.py reads this and writes assets/sceneNN.wav plus the",
+    "timing files in data/. One entry per scene:",
+    "  n        scene number (matches scenes/sceneNN.js and render.py --scene)",
+    "  slot     the scene's authored length in seconds; must equal `dur` in the scene module",
+    "  nora     true when Nora is on camera, so a viseme track is written",
+    "  optional true for insert scenes that are skipped unless --include-optional",
+    "  chunks   speech is synthesised one chunk at a time and each chunk is placed",
+    "           at its `at` time inside the scene, so authored beats (a silent hold,",
+    "           a bubble arriving) stay where the scene put them. Consecutive",
+    "           sentences that should flow as one breath belong in one chunk.",
+    "  phrases  caption-sized pieces of the chunk; word timings are aligned to",
+    "           these and written to data/cues-sceneNN.json"
+  ],
+  "voice": "en-US-AvaNeural",
+  "rate": "-4%",
+  "scenes": [
+    {
+      "n": 1, "id": "scene01", "title": "A human question", "slot": 20.0, "nora": true,
+      "chunks": [
+        { "at": 0.6, "phrases": [
+          "Hi, I'm Nora.",
+          "You might know me as your friendly help desk assistant." ] },
+        { "at": 6.4, "phrases": [
+          "Talia and I have been working on an idea",
+          "that starts with one simple question:" ] },
+        { "at": 12.6, "phrases": [
+          "How can we make it easier for people to get the help they need?" ] }
+      ]
+    },
+    {
+      "n": 2, "id": "scene02", "title": "The work behind the work", "slot": 24.0, "nora": false,
+      "chunks": [
+        { "at": 0.3, "phrases": [
+          "Across Northpointe, many requests still live in shared mailboxes." ] },
+        { "at": 5.4, "phrases": [
+          "They get forwarded, copied to multiple people, and buried in long email chains." ] },
+        { "at": 12.2, "phrases": [
+          "People are working hard," ] },
+        { "at": 15.2, "phrases": [
+          "but sometimes we spend too much time managing the request instead of solving it." ] }
+      ]
+    },
+    {
+      "n": 3, "id": "scene03", "title": "The customer feels the delay", "slot": 32.0, "nora": false,
+      "chunks": [
+        { "at": 0.4, "phrases": [
+          "Now imagine someone helping a borrower who suddenly cannot access the system they need." ] },
+        { "at": 6.6, "phrases": [
+          "They send an email." ] },
+        { "at": 8.8, "phrases": [
+          "A question comes back." ] },
+        { "at": 10.8, "phrases": [
+          "Then another." ] },
+        { "at": 12.6, "phrases": [
+          "While the request moves through that back-and-forth, their customer is waiting too." ] },
+        { "at": 23.8, "phrases": [
+          "Better internal support can have a very real impact outside the company." ] }
+      ]
+    },
+    {
+      "n": 4, "id": "scene04", "title": "The idea", "slot": 27.0, "nora": true,
+      "chunks": [
+        { "at": 0.3, "phrases": [
+          "That is where BoldDesk comes in." ] },
+        { "at": 3.2, "phrases": [
+          "We've been trialing it, and what we're seeing is worth sharing." ] },
+        { "at": 8.2, "phrases": [
+          "The idea is an enterprise support experience where requests are easy to submit, easy to track, easy to hand off, and easy to measure." ] },
+        { "at": 18.6, "phrases": [
+          "This is not about adding another tool." ] },
+        { "at": 21.4, "phrases": [
+          "It's about improving what happens behind the scenes." ] }
+      ]
+    },
+    {
+      "n": 5, "id": "scene05", "title": "Simple for the person asking", "slot": 23.0, "nora": false,
+      "chunks": [
+        { "at": 0.4, "phrases": [
+          "The person asking for help can still email.",
+          "Behind the scenes, that email becomes a ticket that can be assigned, documented, and tracked.",
+          "For the customer, the experience stays simple.",
+          "For the team, the work becomes much more organized." ] }
+      ]
+    },
+    {
+      "n": 6, "id": "scene06", "title": "One place to get help", "slot": 30.0, "nora": false,
+      "chunks": [
+        { "at": 0.4, "phrases": [
+          "The portal gives employees one place to open a request and check what is already in progress.",
+          "It also holds a shared knowledge base any team can contribute to.",
+          "Answer a question once, and what one team knows becomes something the whole bank can use.",
+          "It is mobile friendly too, so someone could ask for help from a phone between meetings instead of waiting until they are back at a desk." ] }
+      ]
+    },
+    {
+      "n": 7, "id": "scene07", "title": "Thirty seconds that save time", "slot": 18.0, "nora": false,
+      "chunks": [
+        { "at": 0.4, "phrases": [
+          "Sometimes giving us the right information up front takes an extra thirty seconds.",
+          "But that small step can prevent a much longer email exchange.",
+          "Less back-and-forth. Less waiting. Faster answers." ] }
+      ]
+    },
+    {
+      "n": 71, "id": "scene07a", "title": "Change is hard (optional insert)", "slot": 25.0, "nora": true, "optional": true,
+      "chunks": [
+        { "at": 0.4, "phrases": [
+          "Now, I'll be honest with you. Not every change turns out great.",
+          "For some people it is exactly right. For others, less so.",
+          "But even then, you learned something, and next time you know better.",
+          "Most changes land somewhere in that range.",
+          "Either it is better than what you had, or you find out something useful.",
+          "Both of those are worth trying for." ] }
+      ]
+    },
+    {
+      "n": 8, "id": "scene08", "title": "Visibility for leaders", "slot": 31.0, "nora": false,
+      "chunks": [
+        { "at": 0.4, "phrases": [
+          "Managers can see what is open, what is waiting, where the workload sits, and whether requests are being answered on time.",
+          "And that raises a real question for Northpointe, one leadership should decide.",
+          "We could set a single standard across the bank, or let each team set its own, fitted to the work it does.",
+          "Either way, for the first time we would actually be able to see whether we are meeting it." ] }
+      ]
+    },
+    {
+      "n": 9, "id": "scene09", "title": "Continuity, teamwork, and the record", "slot": 30.0, "nora": false,
+      "chunks": [
+        { "at": 0.4, "phrases": [
+          "When someone is out, the request does not leave with them.",
+          "The team can see the history, the notes, and what has already been done, so someone else can pick it up and keep moving.",
+          "That same record also means a complete, printable history of any request, start to finish, if it is ever needed for audit.",
+          "The goal is not to make people work harder. It is to make it easier to work together." ] }
+      ]
+    },
+    {
+      "n": 10, "id": "scene10", "title": "Automation gives time back", "slot": 25.0, "nora": false,
+      "chunks": [
+        { "at": 0.4, "phrases": [
+          "BoldDesk can also connect with tools like ClickUp, carrying information into project work without entering it twice.",
+          "It can automate acknowledgments, routing, and assignment. A team can even publish its support hours, so nothing that arrives overnight goes unanswered.",
+          "Every task we automate gives someone time back for work that actually needs a person." ] }
+      ]
+    },
+    {
+      "n": 11, "id": "scene11", "title": "Room to grow", "slot": 17.0, "nora": true,
+      "chunks": [
+        { "at": 0.4, "phrases": [
+          "Down the road, AI could help summarize long support conversations so a manager or teammate can understand a situation quickly.",
+          "That would need careful security and data-governance review, but it shows how this idea could keep growing." ] }
+      ]
+    },
+    {
+      "n": 12, "id": "scene12", "title": "The bigger idea", "slot": 31.0, "nora": true,
+      "chunks": [
+        { "at": 0.4, "phrases": [
+          "That is why this is bigger than a ticketing system.",
+          "It is a customer experience idea, an employee experience idea, and an opportunity to help Northpointe work better together.",
+          "It is all of us against the problem, not against each other.",
+          "BoldDesk could help us move from managing inboxes to managing experiences." ] },
+        { "at": 24.0, "phrases": [
+          "I'm Nora. Thanks for listening, and I'll see you at the help desk." ] }
+      ]
+    }
+  ]
+}
