@@ -3,16 +3,18 @@
 The video, built in code. No Vyond, no Hedra, no subscription, no new
 vendor.
 
-Scenes 1 and 2 of twelve are built. Scene 1 is the only pure talking head
+Scenes 1 to 3 of twelve are built. Scene 1 is the only pure talking head
 in the film and was built first to prove the lip-sync pipeline. Scene 2 is
 the first pure motion-graphics scene, which is what most of the remaining
-ones are.
+ones are. Scene 3 is the hero beat and one of only two scenes that needs
+real character acting.
 
 ```
 index.html                 master timeline — every scene on one clock
 lib/engine.js              shared: easing, Nora, the mouth, captions
 scenes/scene01.js          "A human question"          0:00-0:20
 scenes/scene02.js          "The work behind the work"  0:20-0:44
+scenes/scene03.js          "The customer feels the delay" 0:44-1:16
 assets/nora.png            Nora, background removed, 819x1063
 data/visemes-sceneNN.json  lip-sync track, per scene
 scripts/synth_azure.py     Ava audio + the real viseme track
@@ -153,6 +155,29 @@ Three pieces from this scene are reusable and worth knowing about before
 writing Scene 3: the email card, the flat figure, and `stagger()` in the
 engine, which does most of the work in any scene where a set of things
 appears one after another.
+
+## Scene 3 notes
+
+The storyboard calls this the emotional centerpiece and asks for extra
+screen time with an explicit instruction not to fill the hold with
+narration. 19.0-23.5 is therefore silent: the left and middle panels drain
+back by 55%, the customer stays lit, and the on-screen line carries the
+beat alone.
+
+The clock runs 9:05 to 10:20 — a bit over an hour, not a dramatised whole
+day. The honest version is more persuasive here.
+
+The email exchange is four invented messages alternating direction, and
+the third is the employee finally supplying what the first should have
+carried. That sets up Scene 7 ("thirty seconds now saves much more time
+later") and the worked example in the team-facing video, without using
+anything from a real ticket.
+
+Figures get two or three moving parts each — a head that tilts, an arm
+that raises, a button that depresses — which is enough at this scale. Two
+things learned: a held object must counter-rotate against the arm swinging
+it, or it reads as a blade rather than a phone; and a screen's glow
+belongs on the object, not as a separate blob on the floor.
 
 ## Scaling to the rest of the storyboard
 
