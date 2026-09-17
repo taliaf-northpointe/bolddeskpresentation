@@ -13,7 +13,7 @@ from the audio rather than keyframed by hand.
 
 ```
 index.html        master timeline — every scene on one clock
-lib/              shared engine: easing, Nora, the mouth, captions
+lib/              shared engine, plus the UI kit (ticket, email, chips)
 scenes/           one module per scene
 assets/           Nora, background removed
 data/             viseme tracks that drive the mouth
@@ -27,7 +27,7 @@ Start with **[SCENE01.md](SCENE01.md)**.
 
 ## Status
 
-Scenes 1 to 4 of twelve are built and rendering.
+Scenes 1 to 5 of twelve are built and rendering.
 
 Scene 1 is the only pure talking head in the film; it was built first to
 prove the lip-sync pipeline before anything was written on top of it.

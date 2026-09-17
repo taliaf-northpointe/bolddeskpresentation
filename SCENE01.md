@@ -3,7 +3,7 @@
 The video, built in code. No Vyond, no Hedra, no subscription, no new
 vendor.
 
-Scenes 1 to 4 of twelve are built. Scene 1 is the only pure talking head
+Scenes 1 to 5 of twelve are built. Scene 1 is the only pure talking head
 in the film and was built first to prove the lip-sync pipeline. Scene 2 is
 the first pure motion-graphics scene, which is what most of the remaining
 ones are. Scene 3 is the hero beat and one of only two scenes that needs
@@ -13,10 +13,12 @@ Nora shares the frame with something else.
 ```
 index.html                 master timeline — every scene on one clock
 lib/engine.js              shared: easing, Nora, the mouth, captions
+lib/ui.js                  shared: email card, ticket card, status chip
 scenes/scene01.js          "A human question"          0:00-0:20
 scenes/scene02.js          "The work behind the work"  0:20-0:44
 scenes/scene03.js          "The customer feels the delay" 0:44-1:16
 scenes/scene04.js          "The idea"                  1:16-1:43
+scenes/scene05.js          "Simple for the person asking" 1:43-2:06
 assets/nora.png            Nora, background removed, 819x1063
 data/narration.json        the script: every scene's lines and where they land
 data/visemes-sceneNN.json  lip-sync track, per scene
@@ -236,6 +238,30 @@ line into the caption band.
 
 Both title slots sit at the top of frame, deliberately: burned-in captions
 occupy roughly the bottom 130px, and nothing should compete with them.
+
+## Scene 5 notes
+
+The scene that answers the objection people actually have: that moving a
+mailbox means the email goes away and the work gets harder.
+
+Its spine came from the reference screenshots. The same ticket state is
+labelled two different ways depending on who is looking — the team sees
+"Waiting for Customer Response", the person who asked sees "Awaiting your
+reply". Two vocabularies, each aimed at its reader, which is exactly the
+on-screen line. Showing that beats asserting it, and a single dashed curve
+between the two chips carries the whole idea.
+
+Build note honoured: only the fields the narration names are animated.
+Assignee lands on "assigned", the activity list on "documented", status
+and resolution due on "tracked". `ticketCard` in `lib/ui.js` therefore
+creates every row hidden and hands back per-row handles, so a scene
+reveals what it needs and nothing else. A card that fills in all at once
+reads as a feature list.
+
+`lib/ui.js` is rebuilt from reference rather than screenshotted: the
+product's vocabulary and field structure, none of its data. Every name,
+subject and reference number in it is invented. Scenes 6 and 7 reuse the
+same components.
 
 ## Scaling to the rest of the storyboard
 
