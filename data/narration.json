@@ -144,11 +144,14 @@
     {
       "n": 9, "id": "scene09", "title": "Continuity, teamwork, and the record", "slot": 30.0, "nora": false,
       "chunks": [
-        { "at": 0.4, "phrases": [
-          "When someone is out, the request does not leave with them.",
-          "The team can see the history, the notes, and what has already been done, so someone else can pick it up and keep moving.",
-          "That same record also means a complete, printable history of any request, start to finish, if it is ever needed for audit.",
-          "The goal is not to make people work harder. It is to make it easier to work together." ] }
+        { "at": 0.3, "phrases": [
+          "When someone is out, the request doesn't leave with them." ] },
+        { "at": 5.6, "phrases": [
+          "The team can see the history and what's already been done, so someone else can pick it up and keep moving." ] },
+        { "at": 14.8, "phrases": [
+          "That record is also a complete, printable history, start to finish, if it's ever needed for audit." ] },
+        { "at": 23.0, "phrases": [
+          "The goal isn't to make people work harder. It's to make it easier to work together." ] }
       ]
     },
     {
