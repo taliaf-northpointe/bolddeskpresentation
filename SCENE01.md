@@ -3,7 +3,7 @@
 The video, built in code. No Vyond, no Hedra, no subscription, no new
 vendor.
 
-Scenes 1 to 8 of twelve are built. Scene 1 is the only pure talking head
+Scenes 1 to 9 of twelve are built. Scene 1 is the only pure talking head
 in the film and was built first to prove the lip-sync pipeline. Scene 2 is
 the first pure motion-graphics scene, which is what most of the remaining
 ones are. Scene 3 is the hero beat and one of only two scenes that needs
@@ -22,6 +22,7 @@ scenes/scene05.js          "Simple for the person asking" 1:43-2:06
 scenes/scene06.js          "One place to get help"     2:06-2:36
 scenes/scene07.js          "Thirty seconds that save time" 2:36-2:54
 scenes/scene08.js          "Visibility for leaders"    2:54-3:25
+scenes/scene09.js          "Continuity and the record" 3:25-3:55
 assets/nora.png            Nora, background removed, 819x1063
 data/narration.json        the script: every scene's lines and where they land
 data/visemes-sceneNN.json  lip-sync track, per scene
@@ -332,6 +333,29 @@ are different failures with different fixes.
 Group labels are deliberately absent. The dashboard reads "All groups"
 and the workload bars are unnamed people, because naming teams was ruled
 out and the breadth argument does not need them.
+
+## Scene 9 notes
+
+Someone steps away and the request does not go with them. Then the audit
+beat, which is the only moment in the film aimed squarely at a
+compliance-minded viewer: the same history rendered as a page you could
+print and hand to an examiner, stamped, and gone again in about three
+seconds. A reassurance, not a feature pitch, exactly as the build note
+asks.
+
+Continuity is deliberate — this is ticket #1042 from Scene 5, same
+reference and same title. A film that reuses its own props feels built.
+
+Two things learned. The record page has to sit over the ticket's *final*
+position, not where it started, or it reads as a different object rather
+than the same record in another form. And the person who is out fades to
+a faint ghost rather than to nothing: removing them entirely reads as a
+deleted element instead of somebody who is absent, and the "Out of
+office" chip needs something to attach to.
+
+Scenes 3 and 9 each keep their own figure rig. Scene 3's needs an arm
+that swings a phone; this one needs a body that leans toward a screen.
+Sharing one factory would have meant a factory that does both badly.
 
 ## Scaling to the rest of the storyboard
 
