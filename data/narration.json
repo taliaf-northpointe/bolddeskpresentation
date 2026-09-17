@@ -157,9 +157,11 @@
     {
       "n": 10, "id": "scene10", "title": "Automation gives time back", "slot": 25.0, "nora": false,
       "chunks": [
-        { "at": 0.4, "phrases": [
-          "BoldDesk can also connect with tools like ClickUp, carrying information into project work without entering it twice.",
-          "It can automate acknowledgments, routing, and assignment. A team can even publish its support hours, so nothing that arrives overnight goes unanswered.",
+        { "at": 0.3, "phrases": [
+          "BoldDesk can also connect with tools like ClickUp, carrying information into project work without entering it twice." ] },
+        { "at": 8.0, "phrases": [
+          "It can automate acknowledgments, routing, and assignment. A team can even publish its support hours, so nothing that arrives overnight goes unanswered." ] },
+        { "at": 18.2, "phrases": [
           "Every task we automate gives someone time back for work that actually needs a person." ] }
       ]
     },
