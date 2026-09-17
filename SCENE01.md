@@ -3,7 +3,7 @@
 The video, built in code. No Vyond, no Hedra, no subscription, no new
 vendor.
 
-Scenes 1 to 5 of twelve are built. Scene 1 is the only pure talking head
+Scenes 1 to 6 of twelve are built. Scene 1 is the only pure talking head
 in the film and was built first to prove the lip-sync pipeline. Scene 2 is
 the first pure motion-graphics scene, which is what most of the remaining
 ones are. Scene 3 is the hero beat and one of only two scenes that needs
@@ -19,6 +19,7 @@ scenes/scene02.js          "The work behind the work"  0:20-0:44
 scenes/scene03.js          "The customer feels the delay" 0:44-1:16
 scenes/scene04.js          "The idea"                  1:16-1:43
 scenes/scene05.js          "Simple for the person asking" 1:43-2:06
+scenes/scene06.js          "One place to get help"     2:06-2:36
 assets/nora.png            Nora, background removed, 819x1063
 data/visemes-sceneNN.json  lip-sync track, per scene
 scripts/synth_azure.py     Ava audio + the real viseme track
@@ -228,6 +229,30 @@ reads as a feature list.
 product's vocabulary and field structure, none of its data. Every name,
 subject and reference number in it is invented. Scenes 6 and 7 reuse the
 same components.
+
+## Scene 6 notes
+
+The only part of the film that is a growth story rather than an
+efficiency one, and the section to protect if runtime has to come down.
+
+One honesty decision shapes it. The knowledge base is empty today — the
+real portal says "No category found" — so the panel starts on "Nothing
+here yet. Every team that works in it can add to it." and fills as the
+narration reaches "answer a question once". That reads as an invitation
+rather than a library nobody has built, and it lets a viewer picture
+their own team's article going in. The article accent colours stand in
+for different authors without naming a team.
+
+The portal's own hero copy is used rather than invented marketing:
+guides, troubleshooting steps, answers to common questions.
+
+The mobile narration is trimmed from the storyboard's wording. At the
+storyboard's 24 words it ran at ~160 wpm in the slot available; the
+shorter version lands at ~125.
+
+Two layout lessons: `scaleY` on a card squashes its type, so a collapsing
+panel should animate height and fade sub-labels rather than scale — and
+in this case the simpler answer was a taller shell and no collapse at all.
 
 ## Scaling to the rest of the storyboard
 
