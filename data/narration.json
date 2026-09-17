@@ -131,11 +131,14 @@
     {
       "n": 8, "id": "scene08", "title": "Visibility for leaders", "slot": 31.0, "nora": false,
       "chunks": [
-        { "at": 0.4, "phrases": [
-          "Managers can see what is open, what is waiting, where the workload sits, and whether requests are being answered on time.",
-          "And that raises a real question for Northpointe, one leadership should decide.",
-          "We could set a single standard across the bank, or let each team set its own, fitted to the work it does.",
-          "Either way, for the first time we would actually be able to see whether we are meeting it." ] }
+        { "at": 0.3, "phrases": [
+          "Managers can see what's open, what's waiting, where the workload sits, and whether requests are being answered on time." ] },
+        { "at": 9.4, "phrases": [
+          "And that raises a real question for Northpointe, one leadership should decide." ] },
+        { "at": 15.4, "phrases": [
+          "We could set a single standard across the bank, or let each team set its own, fitted to its work." ] },
+        { "at": 24.0, "phrases": [
+          "Either way, for the first time, we'd be able to see whether we're meeting it." ] }
       ]
     },
     {
