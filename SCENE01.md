@@ -3,7 +3,7 @@
 The video, built in code. No Vyond, no Hedra, no subscription, no new
 vendor.
 
-Scenes 1 to 9 of twelve are built. Scene 1 is the only pure talking head
+Scenes 1 to 10 of twelve are built. Scene 1 is the only pure talking head
 in the film and was built first to prove the lip-sync pipeline. Scene 2 is
 the first pure motion-graphics scene, which is what most of the remaining
 ones are. Scene 3 is the hero beat and one of only two scenes that needs
@@ -23,6 +23,7 @@ scenes/scene06.js          "One place to get help"     2:06-2:36
 scenes/scene07.js          "Thirty seconds that save time" 2:36-2:54
 scenes/scene08.js          "Visibility for leaders"    2:54-3:25
 scenes/scene09.js          "Continuity and the record" 3:25-3:55
+scenes/scene10.js          "Automation gives time back" 3:55-4:20
 assets/nora.png            Nora, background removed, 819x1063
 data/narration.json        the script: every scene's lines and where they land
 data/visemes-sceneNN.json  lip-sync track, per scene
@@ -356,6 +357,21 @@ office" chip needs something to attach to.
 Scenes 3 and 9 each keep their own figure rig. Scene 3's needs an arm
 that swings a phone; this one needs a body that leans toward a screen.
 Sharing one factory would have meant a factory that does both badly.
+
+## Scene 10 notes
+
+The extensibility argument. A checkbox is ticked, the ticket crosses into
+project work, it comes back with a task id, and then four things happen
+that nobody did: acknowledgment, routing, assignment, and an after-hours
+reply.
+
+Build note honoured on product naming. The right panel leads with
+"Project work" and carries "in ClickUp" as a small sub-label. The
+narration names the product; the screen does not shout it. The value
+being argued is connected work, not the integration.
+
+Ends by growing a long thread with a sparkle on it, which is the object
+Scene 11 opens on and compresses.
 
 ## Scaling to the rest of the storyboard
 
