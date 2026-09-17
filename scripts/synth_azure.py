@@ -44,7 +44,7 @@ except ImportError:
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
 WAV = os.path.join(ROOT, "assets", "scene01.wav")
-JSON_OUT = os.path.join(ROOT, "data", "visemes.json")
+JSON_OUT = os.path.join(ROOT, "data", "visemes-scene01.json")
 
 VOICE = os.environ.get("NORA_VOICE", "en-US-AvaNeural")
 

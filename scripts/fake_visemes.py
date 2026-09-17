@@ -18,7 +18,7 @@ import json
 import os
 import re
 
-OUT = os.path.join(os.path.dirname(__file__), "..", "data", "visemes.json")
+OUT = os.path.join(os.path.dirname(__file__), "..", "data", "visemes-scene01.json")
 
 # Phrase timings must match CUES in index.html.
 CUES = [

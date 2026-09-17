@@ -12,11 +12,13 @@ from the audio rather than keyframed by hand.
 ## Layout
 
 ```
-index.html        Scene 1 — the scene itself, preview UI and render hook
+index.html        master timeline — every scene on one clock
+lib/              shared engine: easing, Nora, the mouth, captions
+scenes/           one module per scene
 assets/           Nora, background removed
-data/             viseme track that drives the mouth
+data/             viseme tracks that drive the mouth
 scripts/          Azure synthesis, synthetic visemes, frame renderer
-samples/          a rendered draft (silent — see SCENE01.md)
+samples/          rendered drafts (silent — see SCENE01.md)
 docs/             storyboard and working notes
 SCENE01.md        how the renderer works and how to run it
 ```
@@ -25,9 +27,14 @@ Start with **[SCENE01.md](SCENE01.md)**.
 
 ## Status
 
-Scene 1 of twelve is built and rendering. It exists to prove the pipeline
-end to end before the remaining scenes are written against it — if the
-mouth shapes are wrong, better to know after one scene than after twelve.
+Scenes 1 and 2 of twelve are built and rendering.
+
+Scene 1 is the only pure talking head in the film; it was built first to
+prove the lip-sync pipeline before anything was written on top of it.
+Scene 2 is the first pure motion-graphics scene, which is what most of the
+remaining ones are — and it confirmed the assumption the whole approach
+rests on, that this film is mostly moving cards and staggered reveals
+rather than character animation.
 
 The viseme track currently committed is synthetic, from
 `scripts/fake_visemes.py`. It has the right shape and rhythm but is not

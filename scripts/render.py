@@ -13,7 +13,7 @@ because it was positioned off the same clock.
     python3 scripts/render.py --cc           # burn in captions
     python3 scripts/render.py --fps 24 --scale 0.5    # fast draft
 
-Output: build/scene01.mp4
+Output: build/film.mp4, or build/sceneNN.mp4 with --scene
 """
 
 import argparse
@@ -31,8 +31,8 @@ from playwright.sync_api import sync_playwright
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
 FRAMES = os.path.join(ROOT, "build", "frames")
-OUT = os.path.join(ROOT, "build", "scene01.mp4")
-WAV = os.path.join(ROOT, "assets", "scene01.wav")
+OUT_DIR = os.path.join(ROOT, "build")
+WAV_FOR = lambda n: os.path.join(ROOT, "assets", f"{n}.wav")
 
 
 def main():
@@ -44,6 +44,8 @@ def main():
     ap.add_argument("--start", type=float, default=0.0)
     ap.add_argument("--end", type=float, default=None)
     ap.add_argument("--keep-frames", action="store_true")
+    ap.add_argument("--scene", type=int, default=None,
+                    help="render one scene in isolation, e.g. --scene 2")
     a = ap.parse_args()
 
     if os.path.isdir(FRAMES):
@@ -72,6 +74,8 @@ def main():
     url = f"http://127.0.0.1:{port}/index.html?mode=render"
     if a.cc:
         url += "&cc=1"
+    if a.scene:
+        url += f"&scene={a.scene}"
 
     with sync_playwright() as pw:
         browser = pw.chromium.launch(args=["--force-device-scale-factor=1",
@@ -81,12 +85,11 @@ def main():
         page.goto(url)
         page.wait_for_function("window.__ready === true", timeout=20000)
 
-        loaded = page.evaluate("window.__trackCount")
-        if not loaded:
-            print("WARNING: no visemes loaded — run scripts/fake_visemes.py "
-                  "or scripts/synth_azure.py first")
-        else:
-            print(f"viseme track: {loaded} events")
+        note = page.evaluate("window.__trackNote")
+        print(f"viseme tracks: {note or '(none needed)'}")
+        if "MISSING" in (note or ""):
+            print("WARNING: a scene wants visemes and found none — run "
+                  "scripts/fake_visemes.py or scripts/synth_azure.py")
 
         dur = page.evaluate("window.__duration")
         t_end = a.end if a.end is not None else dur
@@ -111,25 +114,28 @@ def main():
 
     cmd = ["ffmpeg", "-y", "-framerate", str(a.fps),
            "-i", os.path.join(FRAMES, "f%06d.png")]
-    if os.path.exists(WAV):
-        cmd += ["-i", WAV, "-c:a", "aac", "-b:a", "192k", "-shortest"]
-        print("muxing with", os.path.basename(WAV))
+    name = f"scene{a.scene:02d}" if a.scene else "film"
+    out = os.path.join(OUT_DIR, name + ".mp4")
+    wav = WAV_FOR(name)
+    if os.path.exists(wav):
+        cmd += ["-i", wav, "-c:a", "aac", "-b:a", "192k", "-shortest"]
+        print("muxing with", os.path.basename(wav))
     else:
-        print("no assets/scene01.wav — writing a silent cut")
+        print(f"no assets/{name}.wav — writing a silent cut")
     vf = []
     if a.scale != 1.0:
         vf.append(f"scale=iw*{a.scale}:ih*{a.scale}")
     if vf:
         cmd += ["-vf", ",".join(vf)]
     cmd += ["-c:v", "libx264", "-pix_fmt", "yuv420p", "-crf", "17",
-            "-movflags", "+faststart", OUT]
+            "-movflags", "+faststart", out]
 
     subprocess.run(cmd, check=True,
                    stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
     if not a.keep_frames:
         shutil.rmtree(FRAMES)
-    size = os.path.getsize(OUT) / 1e6
-    print(f"\n{OUT}  ({size:.1f} MB)")
+    size = os.path.getsize(out) / 1e6
+    print(f"\n{out}  ({size:.1f} MB)")
 
 
 if __name__ == "__main__":

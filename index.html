@@ -2,505 +2,173 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>Nora Presents BoldDesk — Scene 1</title>
+<title>Nora Presents BoldDesk</title>
 <style>
-  /* ---------------------------------------------------------------
-     Northpointe palette. Nothing in here should use BoldDesk's
-     gold/teal; those belong to the vendor, not the bank.
-  --------------------------------------------------------------- */
-  :root {
-    --navy:       #164356;
-    --blue:       #0086B1;
-    --navy-deep:  #0E2E3C;
-    --paper:      #FBFDFE;
-    --paper-2:    #E7F0F5;
-    --stage-w:    1920px;
-    --stage-h:    1080px;
-  }
-
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-
-  html, body {
-    width: 100%; height: 100%;
-    background: #101418;
-    font-family: Lato, "Segoe UI", system-ui, -apple-system, sans-serif;
-    overflow: hidden;
-  }
-
-  /* In render mode the stage sits at exact 1:1 in a 1920x1080 viewport.
-     In preview mode it is scaled to fit the window. */
-  #fit {
-    position: absolute; inset: 0;
-    display: grid; place-items: center;
-  }
-  #stage {
-    position: relative;
-    width: var(--stage-w); height: var(--stage-h);
-    transform-origin: 50% 50%;
-    overflow: hidden;
-    background: var(--paper);
-  }
+  html, body { margin: 0; height: 100%; background: #101418; overflow: hidden;
+               font-family: Lato, "Segoe UI", system-ui, sans-serif; }
+  #fit { position: absolute; inset: 0; display: grid; place-items: center; }
+  #stage { position: relative; width: 1920px; height: 1080px;
+           overflow: hidden; background: #FBFDFE; }
+  .scene { position: absolute; inset: 0; transform-origin: 50% 50%; display: none; }
+  .scene.on { display: block; }
   body.render #fit { display: block; }
-  body.render #stage { transform: none !important; }
 
-  /* --- background ------------------------------------------------ */
-  #bg {
-    position: absolute; inset: 0;
-    background:
-      radial-gradient(1200px 900px at 18% 8%,  rgba(0,134,177,.13), transparent 62%),
-      radial-gradient(900px 700px  at 88% 78%, rgba(22,67,86,.10),  transparent 60%),
-      linear-gradient(170deg, var(--paper) 0%, var(--paper-2) 100%);
-  }
-  /* soft disc behind Nora so she reads against the light background */
-  #halo {
-    position: absolute;
-    left: 132px; top: 128px; width: 820px; height: 820px;
-    border-radius: 50%;
-    background: radial-gradient(circle at 42% 38%, rgba(0,134,177,.22), rgba(0,134,177,.05) 58%, transparent 72%);
-  }
-  /* contact shadow under her so she isn't floating */
-  #floor {
-    position: absolute;
-    left: 268px; top: 946px; width: 560px; height: 78px;
-    border-radius: 50%;
-    background: radial-gradient(ellipse at 50% 50%, rgba(14,46,60,.30), transparent 70%);
-    filter: blur(6px);
-  }
-
-  /* --- Nora ------------------------------------------------------ */
-  /* The cutout is 819x1063 native. Everything about the mouth is
-     authored in those pixel coordinates, so the overlay SVG uses the
-     same viewBox and the two can never drift apart. */
-  #nora-wrap {
-    position: absolute;
-    left: 240px; top: 150px;
-    width: 819px; height: 1063px;
-    transform-origin: 50% 90%;
-  }
-  #nora-wrap img { display: block; width: 819px; height: 1063px; }
-  #face { position: absolute; inset: 0; width: 819px; height: 1063px; }
-
-  /* --- speech bubble --------------------------------------------- */
-  #bubble {
-    position: absolute;
-    left: 1090px; top: 336px; width: 700px;
-    padding: 54px 58px;
-    background: #fff;
-    border-radius: 26px;
-    border-left: 10px solid var(--blue);
-    box-shadow: 0 26px 60px rgba(14,46,60,.18), 0 3px 10px rgba(14,46,60,.10);
-    transform-origin: 8% 50%;
-  }
-  #bubble .kicker {
-    font-size: 21px; letter-spacing: .16em; text-transform: uppercase;
-    color: var(--blue); font-weight: 700; margin-bottom: 18px;
-  }
-  #bubble .q {
-    font-size: 60px; line-height: 1.16; font-weight: 700; color: var(--navy);
-  }
-  /* tail pointing back toward Nora */
-  #bubble::after {
-    content: ""; position: absolute;
-    left: -28px; top: 96px;
-    border: 19px solid transparent;
-    border-right-color: var(--blue);
-  }
-
-  /* --- captions (optional, ?cc=1) -------------------------------- */
-  #cc {
-    position: absolute; left: 0; right: 0; bottom: 64px;
-    text-align: center; padding: 0 220px;
-  }
-  #cc span {
-    display: inline-block;
-    background: rgba(14,46,60,.88); color: #fff;
-    font-size: 34px; line-height: 1.35; font-weight: 400;
-    padding: 14px 26px; border-radius: 10px;
-  }
-
-  /* --- preview chrome (never present in render mode) -------------- */
-  #ui {
-    position: fixed; left: 0; right: 0; bottom: 0;
-    padding: 12px 18px 16px;
-    background: rgba(16,20,24,.94);
-    color: #cfd8dd; font-size: 13px;
-    display: flex; gap: 14px; align-items: center;
-    border-top: 1px solid #2a3238;
-  }
+  #ui { position: fixed; left: 0; right: 0; bottom: 0; padding: 10px 16px 14px;
+        background: rgba(16,20,24,.94); color: #cfd8dd; font-size: 13px;
+        display: flex; gap: 12px; align-items: center; border-top: 1px solid #2a3238; }
   body.render #ui { display: none; }
-  #ui button {
-    background: var(--blue); color: #fff; border: 0;
-    padding: 7px 16px; border-radius: 6px; cursor: pointer;
-    font: inherit; font-weight: 700;
-  }
+  #ui button { background: #0086B1; color: #fff; border: 0; padding: 7px 15px;
+               border-radius: 6px; cursor: pointer; font: inherit; font-weight: 700; }
+  #ui select { background: #1b2228; color: #cfd8dd; border: 1px solid #2a3238;
+               border-radius: 5px; padding: 6px 8px; font: inherit; }
   #ui input[type=range] { flex: 1; }
-  #ui code { color: #7fd4ef; }
-  #ui label { display: flex; gap: 6px; align-items: center; cursor: pointer; }
+  #ui code { color: #7fd4ef; white-space: nowrap; }
+  #ui label { display: flex; gap: 5px; align-items: center; cursor: pointer; }
 </style>
 </head>
 <body>
-
-<div id="fit">
-  <div id="stage">
-    <div id="bg"></div>
-    <div id="halo"></div>
-    <div id="floor"></div>
-
-    <div id="nora-wrap">
-      <img id="nora" src="assets/nora.png" alt="Nora">
-      <svg id="face" viewBox="0 0 819 1063" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <!-- Patch that hides the mouth baked into the PNG. The faceplate
-               around the mouth measures a near-flat #082C4F with a very
-               slight vertical falloff, so a soft-edged ellipse with that
-               gradient covers it without leaving a seam. -->
-          <radialGradient id="patch" cx="50%" cy="50%" r="50%">
-            <stop offset="0%"   stop-color="#092D52"/>
-            <stop offset="62%"  stop-color="#082B4E"/>
-            <stop offset="100%" stop-color="#082B4E" stop-opacity="0"/>
-          </radialGradient>
-          <!-- Cyan glow, matching the eyes and forehead light -->
-          <filter id="glow" x="-70%" y="-70%" width="240%" height="240%">
-            <feGaussianBlur stdDeviation="7" result="b1"/>
-            <feGaussianBlur stdDeviation="16" in="SourceGraphic" result="b2"/>
-            <feMerge>
-              <feMergeNode in="b2"/>
-              <feMergeNode in="b1"/>
-              <feMergeNode in="SourceGraphic"/>
-            </feMerge>
-          </filter>
-        </defs>
-
-        <ellipse cx="404" cy="490" rx="104" ry="52" fill="url(#patch)"/>
-        <g filter="url(#glow)">
-          <path id="mouth" d="" fill="#04182F" fill-opacity="0"
-                stroke="#3FE6FF" stroke-width="9"
-                stroke-linecap="round" stroke-linejoin="round"/>
-        </g>
-        <!-- Eyelid shutters for blinks. They are the faceplate colour, so
-             closing them reads as the eye glow switching off. -->
-        <rect id="lidL" x="248" y="303" width="88" height="0" fill="#082B4E"/>
-        <rect id="lidR" x="477" y="303" width="88" height="0" fill="#082B4E"/>
-      </svg>
-    </div>
-
-    <div id="bubble">
-      <div class="kicker">The question</div>
-      <div class="q">How can we make it easier to&nbsp;get&nbsp;help?</div>
-    </div>
-
-    <div id="cc"><span></span></div>
-  </div>
-</div>
+<div id="fit"><div id="stage"></div></div>
 
 <div id="ui">
   <button id="play">Play</button>
-  <input id="scrub" type="range" min="0" max="20" step="0.01" value="0">
-  <code id="tread">0.00s</code>
-  <label><input id="ccToggle" type="checkbox"> captions</label>
-  <code id="vread">rest</code>
+  <select id="pick"></select>
+  <input id="scrub" type="range" min="0" max="1" step="0.01" value="0">
+  <code id="tread">0.00</code>
+  <label><input id="ccToggle" type="checkbox"> cc</label>
+  <code id="dbg"></code>
 </div>
 
-<script>
+<script type="module">
 /* ===================================================================
-   Scene 1 — "A human question"            0:00 – 0:20
+   Master timeline.
 
-   One pure function of time drives everything: render(t). Preview mode
-   calls it from requestAnimationFrame; the renderer calls it once per
-   frame through window.__setTime. Because the visuals and the audio are
-   both positioned off the same clock, sync is structural rather than
-   something you nudge in an editor afterwards.
+   Scenes are laid end to end. Each is handed a LOCAL time starting at
+   zero, so it can be built and previewed on its own and then dropped
+   into the film without touching its code. The renderer drives the same
+   window.__setTime, so the preview and the output file cannot disagree
+   about what a given moment looks like.
+
+     ?scene=2        preview one scene in isolation
+     ?cc=1           captions on
+     ?mode=render    strip the UI and wait to be driven frame by frame
 =================================================================== */
 
-const DUR   = 20.0;   // scene length, seconds (Revision 2: 0:00–0:20)
-const FPS   = 30;
+import * as s01 from './scenes/scene01.js';
+import * as s02 from './scenes/scene02.js';
 
-/* Global nudge for viseme timing. Azure's viseme offsets can sit a beat
-   ahead of or behind the audible phoneme, most noticeably at the start of
-   a sentence. Calibrate once against the real WAV and leave it. */
-const VISEME_OFFSET_MS = 0;
+const SCENES = [s01, s02];
 
-const el = {
-  stage: document.getElementById('stage'),
-  nora:  document.getElementById('nora-wrap'),
-  mouth: document.getElementById('mouth'),
-  lidL:  document.getElementById('lidL'),
-  lidR:  document.getElementById('lidR'),
-  bubble:document.getElementById('bubble'),
-  cc:    document.querySelector('#cc span'),
-  ccBox: document.getElementById('cc'),
-};
-
-/* ---------- easing ------------------------------------------------ */
-const clamp  = (v, a = 0, b = 1) => Math.min(b, Math.max(a, v));
-const lerp   = (a, b, u) => a + (b - a) * u;
-/* progress through [t0,t1], clamped */
-const span   = (t, t0, t1) => clamp((t - t0) / (t1 - t0));
-const easeOut  = u => 1 - Math.pow(1 - u, 3);
-const easeInOut= u => u < .5 ? 4*u*u*u : 1 - Math.pow(-2*u + 2, 3) / 2;
-/* soft overshoot for the bubble */
-const easeBack = u => { const c = 1.42; return 1 + (c+1)*Math.pow(u-1,3) + c*Math.pow(u-1,2); };
-
-/* ===================================================================
-   MOUTH SHAPES
-
-   Nora's mouth is a single glowing stroke on a sealed faceplate — there
-   is no jaw, no lips, nothing for a landmark-based lip-sync model to grab
-   onto. That is a liability for a generative avatar tool and an asset
-   here: the whole mouth is four numbers.
-
-   Every shape is the same path structure — an upper arc and a lower arc
-   meeting at two corners — so any two shapes interpolate cleanly by
-   lerping their parameters. At rest the two arcs coincide and the shape
-   renders as the smile that ships in the PNG.
-
-     hw   half-width of the mouth
-     endY y of the two corners
-     upY  y that the upper arc bows through
-     dnY  y that the lower arc bows through
-   Authored in the cutout's own pixel space; mouth centre is (404, 487).
-=================================================================== */
-const CX = 404;
-
-/* The faceplate runs from roughly y=300 to y=558 at the centre line, so
-   an open mouth has room down to about y=540 before it would spill onto
-   her chin. These are sized to use that room: at 1080p her face is only
-   ~380px wide in frame, so a mouth that moves 15px reads as not moving
-   at all. Amplitude is the difference between lip sync and a twitch. */
-const SHAPES = {
-  rest:   { hw: 62, endY: 470, upY: 503, dnY: 503 },  // the shipped smile
-  closed: { hw: 56, endY: 477, upY: 493, dnY: 493 },  // p b m
-  small:  { hw: 50, endY: 474, upY: 482, dnY: 512 },  // d t n s z l r k g f v
-  mid:    { hw: 47, endY: 476, upY: 464, dnY: 532 },  // ae uh eh
-  wide:   { hw: 44, endY: 478, upY: 452, dnY: 538 },  // ah ow
-  round:  { hw: 27, endY: 484, upY: 458, dnY: 530 },  // oo oh w
-  ee:     { hw: 68, endY: 470, upY: 478, dnY: 500 },  // ee ih y
-  shh:    { hw: 35, endY: 480, upY: 464, dnY: 518 },  // sh ch j zh
-};
-
-/* One knob for overall mouth travel. Scales how far each shape opens
-   without touching the shapes themselves; rest stays rest at any value.
-   Dial it down if the render feels chatty, up if she looks mumbly. */
-const MOUTH_GAIN = 1.0;
-
-function applyGain(s) {
-  const mid = (s.upY + s.dnY) / 2;
-  const half = (s.dnY - s.upY) / 2 * MOUTH_GAIN;
-  return { hw: s.hw, endY: s.endY, upY: mid - half, dnY: mid + half };
-}
-
-/* Azure ships 22 viseme IDs. Nora needs eight shapes, so this is the
-   reduction. Keep it in one place — if a sound looks wrong in the render,
-   this table is the only thing to change. */
-const VISEME_TO_SHAPE = {
-  0:'rest',  1:'mid',   2:'wide',  3:'round', 4:'mid',   5:'mid',
-  6:'ee',    7:'round', 8:'round', 9:'wide', 10:'round',11:'mid',
- 12:'small',13:'small',14:'small',15:'small',16:'shh',  17:'small',
- 18:'small',19:'small',20:'small',21:'closed',
-};
-
-function mouthPath(s) {
-  const { hw, endY, upY, dnY } = s;
-  const x0 = CX - hw, x1 = CX + hw, k = hw * 0.46;
-  return `M ${x0} ${endY} `
-       + `C ${CX - k} ${upY} ${CX + k} ${upY} ${x1} ${endY} `
-       + `C ${CX + k} ${dnY} ${CX - k} ${dnY} ${x0} ${endY} Z`;
-}
-
-function blendShapes(a, b, u) {
-  return {
-    hw:   lerp(a.hw,   b.hw,   u),
-    endY: lerp(a.endY, b.endY, u),
-    upY:  lerp(a.upY,  b.upY,  u),
-    dnY:  lerp(a.dnY,  b.dnY,  u),
-  };
-}
-
-/* ===================================================================
-   VISEME TRACK
-
-   data/visemes.json is [{ t: seconds, id: 0-21 }, ...] — exactly what
-   Azure's VisemeReceived event gives you, with the tick offsets divided
-   down to seconds. Until the real audio exists, scripts/fake_visemes.py
-   writes a synthetic track of the same shape so the pipeline can be
-   tested end to end.
-=================================================================== */
-let TRACK = [{ t: 0, id: 0 }];
-let trackName = 'none';
-
-/* Visemes arrive as instantaneous events, but a mouth takes time to get
-   there. Cross-fade over BLEND seconds into each new shape, capped so
-   fast speech doesn't turn to mush. */
-const BLEND = 0.055;
-
-function mouthAt(t) {
-  const tt = t + VISEME_OFFSET_MS / 1000;
-  /* last event at or before tt */
-  let i = -1;
-  for (let k = 0; k < TRACK.length; k++) {
-    if (TRACK[k].t <= tt) i = k; else break;
-  }
-  if (i < 0) return { shape: applyGain(SHAPES.rest), name: 'rest' };
-
-  const cur  = TRACK[i];
-  const prev = i > 0 ? TRACK[i - 1] : cur;
-  const curName  = VISEME_TO_SHAPE[cur.id]  ?? 'rest';
-  const prevName = VISEME_TO_SHAPE[prev.id] ?? 'rest';
-
-  const gap = Math.max(0.001, cur.t - prev.t);
-  const u   = easeOut(clamp((tt - cur.t) / Math.min(BLEND, gap)));
-  return {
-    shape: applyGain(blendShapes(SHAPES[prevName], SHAPES[curName], u)),
-    name:  curName,
-  };
-}
-
-/* ===================================================================
-   CAPTIONS — also the narration record for this scene.
-=================================================================== */
-const CUES = [
-  [0.60,  2.00, "Hi, I'm Nora."],
-  [2.00,  6.20, "You might know me as your friendly help desk assistant."],
-  [6.40,  8.90, "Talia and I have been working on an idea"],
-  [8.90, 12.50, "that starts with one simple question:"],
-  [12.60,19.40, "How can we make it easier for people to get the help they need?"],
-];
-
-/* ===================================================================
-   BLINKS — hand-placed, because a robot blinking on a timer looks like a
-   timer. These land in the natural gaps between phrases.
-=================================================================== */
-const BLINKS = [1.85, 6.15, 10.4, 12.45, 16.9];
-const BLINK_DUR = 0.15;
-
-function blinkAmount(t) {
-  for (const b of BLINKS) {
-    const u = (t - b) / BLINK_DUR;
-    if (u >= 0 && u <= 1) return Math.sin(u * Math.PI);  // down and back up
-  }
-  return 0;
-}
-
-/* ===================================================================
-   THE SCENE
-=================================================================== */
-function render(t) {
-  t = clamp(t, 0, DUR);
-
-  /* Slow push-in across the whole scene, plus a fade at each end.
-     1.0 -> 1.055 is deliberately small: enough to feel alive, not
-     enough to read as a zoom. */
-  const push = lerp(1.0, 1.055, easeInOut(span(t, 0, DUR)));
-  const fade = Math.min(span(t, 0, 0.6), 1 - span(t, 19.4, DUR));
-  el.stage.style.transform = `scale(${push})`;
-  el.stage.style.opacity   = fade;
-
-  /* Nora settles in over the first second */
-  const entry = easeOut(span(t, 0.15, 1.25));
-  el.nora.style.transform = `translateY(${lerp(26, 0, entry)}px) scale(${lerp(0.985, 1, entry)})`;
-  el.nora.style.opacity   = entry;
-
-  /* Mouth */
-  const m = mouthAt(t);
-  el.mouth.setAttribute('d', mouthPath(m.shape));
-  /* Interior only shows once the mouth is actually open, so the resting
-     smile stays a clean line. */
-  const open = clamp((m.shape.dnY - m.shape.upY) / 88);
-  el.mouth.setAttribute('fill-opacity', (open * 0.92).toFixed(3));
-  el.mouth.setAttribute('stroke-width', lerp(9, 6.5, open).toFixed(2));
-
-  /* Blink */
-  const bl = blinkAmount(t) * 118;
-  el.lidL.setAttribute('height', bl.toFixed(1));
-  el.lidR.setAttribute('height', bl.toFixed(1));
-
-  /* Speech bubble arrives with the question */
-  const bu = span(t, 12.55, 13.15);
-  el.bubble.style.opacity   = bu;
-  el.bubble.style.transform =
-    `translateX(${lerp(-34, 0, easeOut(bu))}px) scale(${lerp(0.9, 1, easeBack(bu))})`;
-
-  /* Captions */
-  const cue = CUES.find(c => t >= c[0] && t < c[1]);
-  el.cc.textContent = cue ? cue[2] : '';
-  el.ccBox.style.opacity = cue ? 1 : 0;
-
-  document.getElementById('tread').textContent = t.toFixed(2) + 's';
-  document.getElementById('vread').textContent = m.name + '  ·  ' + trackName;
-}
-
-/* ===================================================================
-   MODES
-=================================================================== */
 const params = new URLSearchParams(location.search);
 const RENDER = params.get('mode') === 'render';
+const ccOn   = params.get('cc') === '1';
+const only   = params.get('scene') ? parseInt(params.get('scene'), 10) : null;
 if (RENDER) document.body.classList.add('render');
 
-/* captions off by default; the review export turns them on */
-const ccOn = params.get('cc') === '1';
-document.getElementById('ccBox') // no-op guard for older copies
-document.getElementById('ccToggle').checked = ccOn;
-document.getElementById('cc').style.display = ccOn ? 'block' : 'none';
-document.getElementById('ccToggle').addEventListener('change', e => {
-  document.getElementById('cc').style.display = e.target.checked ? 'block' : 'none';
-});
+const stage = document.getElementById('stage');
 
-function fitStage() {
-  if (RENDER) return;
-  const pad = 74; // leave room for the scrub bar
-  const s = Math.min(window.innerWidth / 1920, (window.innerHeight - pad) / 1080);
-  document.getElementById('fit').style.transform = `scale(${s})`;
-  document.getElementById('fit').style.transformOrigin = '50% 0';
+/* ---------- mount ------------------------------------------------- */
+const active = only ? [SCENES[only - 1]] : SCENES;
+let clock = 0;
+const mounted = active.map(sc => {
+  const rootEl = document.createElement('div');
+  rootEl.className = 'scene';
+  rootEl.id = sc.id;
+  stage.appendChild(rootEl);
+  const api = sc.build(rootEl) || {};
+  const entry = { sc, rootEl, api, t0: clock, track: [] };
+  clock += sc.dur;
+  return entry;
+});
+const TOTAL = clock;
+
+/* ---------- viseme tracks ----------------------------------------- */
+/* Chromium blocks fetch() from a file:// origin, so this page has to be
+   served. scripts/render.py starts a local server for exactly that
+   reason; for preview use `python3 -m http.server`. */
+const trackNote = [];
+await Promise.all(mounted.map(async m => {
+  if (!m.sc.visemes) return;
+  try {
+    const r = await fetch(m.sc.visemes, { cache: 'no-store' });
+    const j = await r.json();
+    if (Array.isArray(j) && j.length) {
+      m.track = j.slice().sort((a, b) => a.t - b.t);
+      trackNote.push(`${m.sc.id}:${j.length}`);
+    }
+  } catch (e) {
+    trackNote.push(`${m.sc.id}:MISSING`);
+  }
+}));
+window.__trackNote = trackNote.join(' ');
+
+/* ---------- captions --------------------------------------------- */
+mounted.forEach(m => m.api.cc && m.api.cc.setVisible(ccOn));
+document.getElementById('ccToggle').checked = ccOn;
+document.getElementById('ccToggle').addEventListener('change', e =>
+  mounted.forEach(m => m.api.cc && m.api.cc.setVisible(e.target.checked)));
+
+/* ---------- render ----------------------------------------------- */
+function render(t) {
+  t = Math.max(0, Math.min(t, TOTAL));
+  let cur = mounted[0];
+  for (const m of mounted) if (t >= m.t0) cur = m;
+  mounted.forEach(m => m.rootEl.classList.toggle('on', m === cur));
+  const extra = cur.sc.render(t - cur.t0, cur.track);
+  document.getElementById('tread').textContent = t.toFixed(2);
+  document.getElementById('dbg').textContent =
+    `${cur.sc.id} ${(t - cur.t0).toFixed(2)}s` + (extra ? ` · ${extra}` : '');
 }
 
-/* The renderer drives this and nothing else. Returning a promise that
-   resolves after a paint keeps the screenshot from landing mid-update. */
 window.__setTime = t => {
   render(t);
   return new Promise(r => requestAnimationFrame(() => requestAnimationFrame(r)));
 };
-window.__duration = DUR;
-window.__trackCount = 0;
-window.__fps = FPS;
+window.__duration = TOTAL;
+window.__scenes = mounted.map(m => ({ id: m.sc.id, t0: m.t0, dur: m.sc.dur }));
 
-/* ---------- preview playback -------------------------------------- */
-let playing = false, t0 = 0, base = 0;
+/* ---------- preview ---------------------------------------------- */
 const scrub = document.getElementById('scrub');
-const btn   = document.getElementById('play');
+const btn = document.getElementById('play');
+const pick = document.getElementById('pick');
+scrub.max = TOTAL;
 
+pick.innerHTML = '<option value="-1">whole film</option>' +
+  mounted.map((m, i) => `<option value="${i}">${i + 1}. ${m.sc.title}</option>`).join('');
+pick.addEventListener('change', () => {
+  const i = parseInt(pick.value, 10);
+  scrub.value = i < 0 ? 0 : mounted[i].t0;
+  render(parseFloat(scrub.value));
+});
+
+let playing = false, t0 = 0, base = 0;
 function tick(now) {
   if (!playing) return;
   const t = base + (now - t0) / 1000;
-  if (t >= DUR) { playing = false; btn.textContent = 'Play'; render(DUR); scrub.value = DUR; return; }
+  if (t >= TOTAL) { playing = false; btn.textContent = 'Play'; render(TOTAL); return; }
   render(t); scrub.value = t;
   requestAnimationFrame(tick);
 }
 btn.addEventListener('click', () => {
   if (playing) { playing = false; btn.textContent = 'Play'; return; }
-  if (parseFloat(scrub.value) >= DUR - 0.01) scrub.value = 0;
+  if (parseFloat(scrub.value) >= TOTAL - 0.01) scrub.value = 0;
   base = parseFloat(scrub.value); playing = true; btn.textContent = 'Pause';
   requestAnimationFrame(n => { t0 = n; tick(n); });
 });
-scrub.addEventListener('input', () => { playing = false; btn.textContent = 'Play'; render(parseFloat(scrub.value)); });
-window.addEventListener('resize', fitStage);
+scrub.addEventListener('input', () => {
+  playing = false; btn.textContent = 'Play'; render(parseFloat(scrub.value));
+});
 
-/* ---------- boot -------------------------------------------------- */
-(async function boot() {
-  try {
-    const r = await fetch('data/visemes.json', { cache: 'no-store' });
-    const j = await r.json();
-    if (Array.isArray(j) && j.length) {
-      TRACK = j.slice().sort((a, b) => a.t - b.t);
-      trackName = (j.length + ' visemes');
-      window.__trackCount = j.length;
-    }
-  } catch (e) {
-    trackName = 'no viseme file — mouth at rest';
-  }
-  fitStage();
-  render(0);
-  window.__ready = true;
-})();
+function fitStage() {
+  if (RENDER) return;
+  const s = Math.min(window.innerWidth / 1920, (window.innerHeight - 70) / 1080);
+  const f = document.getElementById('fit');
+  f.style.transform = `scale(${s})`;
+  f.style.transformOrigin = '50% 0';
+}
+window.addEventListener('resize', fitStage);
+fitStage();
+render(0);
+window.__ready = true;
 </script>
 </body>
 </html>
