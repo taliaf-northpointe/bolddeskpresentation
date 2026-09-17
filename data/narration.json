@@ -104,10 +104,16 @@
     {
       "n": 7, "id": "scene07", "title": "Thirty seconds that save time", "slot": 18.0, "nora": false,
       "chunks": [
-        { "at": 0.4, "phrases": [
-          "Sometimes giving us the right information up front takes an extra thirty seconds.",
-          "But that small step can prevent a much longer email exchange.",
-          "Less back-and-forth. Less waiting. Faster answers." ] }
+        { "at": 0.3, "phrases": [
+          "Sometimes giving us the right information up front takes an extra thirty seconds." ] },
+        { "at": 6.0, "phrases": [
+          "But that small step can prevent a much longer email exchange." ] },
+        { "at": 11.2, "phrases": [
+          "Less back-and-forth." ] },
+        { "at": 12.6, "phrases": [
+          "Less waiting." ] },
+        { "at": 14.0, "phrases": [
+          "Faster answers." ] }
       ]
     },
     {

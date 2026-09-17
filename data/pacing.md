@@ -13,12 +13,16 @@ narration does not fit the slot: shorten the line or lengthen the scene.
 | 4 | The idea | 27s | 24.5s | +2.5s | 56 | 140 |
 | 5 | Simple for the person asking | 23s | 19.7s | +3.3s | 39 | 122 |
 | 6 | One place to get help | 30s | 27.8s | +2.2s | 67 | 147 |
-| 7 | Thirty seconds that save time | 18s | 13.3s | +4.7s | 30 | 141 |
+| 7 | Thirty seconds that save time | 18s | 15.3s | +2.7s | 30 | 121 |
 | 7A | Change is hard (optional insert) *(optional)* | 25s | 21.9s | +3.1s | 63 | 176 |
 | 8 | Visibility for leaders | 31s | 25.0s | +6.0s | 73 | 179 |
 | 9 | Continuity, teamwork, and the record | 30s | 24.6s | +5.4s | 75 | 187 |
 | 10 | Automation gives time back | 25s | 22.5s | +2.5s | 54 | 147 |
 | 11 | Room to grow | 17s | 15.5s | +1.5s | 37 | 148 |
 | 12 | The bigger idea | 31s | 28.1s | +2.9s | 65 | 141 |
+
+## Notes
+
+- Scene 7: chunk at 12.60s pushed to 12.67s (previous chunk ran long)
 
 Film length without optional scenes: 5:08.
