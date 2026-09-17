@@ -78,10 +78,13 @@
     {
       "n": 5, "id": "scene05", "title": "Simple for the person asking", "slot": 23.0, "nora": false,
       "chunks": [
-        { "at": 0.4, "phrases": [
-          "The person asking for help can still email.",
-          "Behind the scenes, that email becomes a ticket that can be assigned, documented, and tracked.",
-          "For the customer, the experience stays simple.",
+        { "at": 0.3, "phrases": [
+          "The person asking for help can still email." ] },
+        { "at": 4.6, "phrases": [
+          "Behind the scenes, that email becomes a ticket that can be assigned, documented, and tracked." ] },
+        { "at": 11.8, "phrases": [
+          "For the customer, the experience stays simple." ] },
+        { "at": 15.8, "phrases": [
           "For the team, the work becomes much more organized." ] }
       ]
     },

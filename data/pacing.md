@@ -11,7 +11,7 @@ narration does not fit the slot: shorten the line or lengthen the scene.
 | 2 | The work behind the work | 24s | 20.0s | +4.0s | 40 | 123 |
 | 3 | The customer feels the delay | 32s | 28.2s | +3.8s | 48 | 104 |
 | 4 | The idea | 27s | 24.5s | +2.5s | 56 | 140 |
-| 5 | Simple for the person asking | 23s | 17.1s | +5.9s | 39 | 141 |
+| 5 | Simple for the person asking | 23s | 19.7s | +3.3s | 39 | 122 |
 | 6 | One place to get help | 30s | 23.4s | +6.6s | 71 | 186 |
 | 7 | Thirty seconds that save time | 18s | 13.3s | +4.7s | 30 | 141 |
 | 7A | Change is hard (optional insert) *(optional)* | 25s | 21.9s | +3.1s | 63 | 176 |
