@@ -27,7 +27,7 @@ Start with **[SCENE01.md](SCENE01.md)**.
 
 ## Status
 
-Scenes 1 to 3 of twelve are built and rendering.
+Scenes 1 to 4 of twelve are built and rendering.
 
 Scene 1 is the only pure talking head in the film; it was built first to
 prove the lip-sync pipeline before anything was written on top of it.
@@ -35,7 +35,8 @@ Scene 2 is the first pure motion-graphics scene, which is what most of the
 remaining ones are — and it confirmed the assumption the whole approach
 rests on, that this film is mostly moving cards and staggered reveals
 rather than character animation. Scene 3 is the hero beat, and the harder
-case: the only place so far that needs figures to act.
+case: the only place so far that needs figures to act. Scene 4 is the
+turn — the point where the film stops describing the problem.
 
 The viseme track currently committed is synthetic, from
 `scripts/fake_visemes.py`. It has the right shape and rhythm but is not

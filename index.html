@@ -4,6 +4,9 @@
 <meta charset="utf-8">
 <title>Nora Presents BoldDesk</title>
 <style>
+  /* Without this, any card with padding is wider than its declared width,
+     which is how Scene 4's ticket ended up running off the right edge. */
+  *, *::before, *::after { box-sizing: border-box; }
   html, body { margin: 0; height: 100%; background: #101418; overflow: hidden;
                font-family: Lato, "Segoe UI", system-ui, sans-serif; }
   #fit { position: absolute; inset: 0; display: grid; place-items: center; }
@@ -56,8 +59,9 @@
 import * as s01 from './scenes/scene01.js';
 import * as s02 from './scenes/scene02.js';
 import * as s03 from './scenes/scene03.js';
+import * as s04 from './scenes/scene04.js';
 
-const SCENES = [s01, s02, s03];
+const SCENES = [s01, s02, s03, s04];
 
 const params = new URLSearchParams(location.search);
 const RENDER = params.get('mode') === 'render';
