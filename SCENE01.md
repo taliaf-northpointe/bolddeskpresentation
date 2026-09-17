@@ -3,7 +3,7 @@
 The video, built in code. No Vyond, no Hedra, no subscription, no new
 vendor.
 
-Scenes 1 to 11 of twelve are built. Scene 1 is the only pure talking head
+All twelve scenes are built. Scene 1 is the only pure talking head
 in the film and was built first to prove the lip-sync pipeline. Scene 2 is
 the first pure motion-graphics scene, which is what most of the remaining
 ones are. Scene 3 is the hero beat and one of only two scenes that needs
@@ -25,6 +25,7 @@ scenes/scene08.js          "Visibility for leaders"    2:54-3:25
 scenes/scene09.js          "Continuity and the record" 3:25-3:55
 scenes/scene10.js          "Automation gives time back" 3:55-4:20
 scenes/scene11.js          "Room to grow"              4:20-4:37
+scenes/scene12.js          "The bigger idea"           4:37-5:10
 assets/nora.png            Nora, background removed, 819x1063
 data/narration.json        the script: every scene's lines and where they land
 data/visemes-sceneNN.json  lip-sync track, per scene
@@ -392,6 +393,31 @@ object Scene 10 ended on, and the summary then joins three small cards —
 portal, dashboard, automation — because the storyboard asks for one
 connected composition. Small cards rather than the full panels: this is a
 reminder, not a recap.
+
+## Scene 12 notes
+
+The close, and the only scene where the writing carries more than the
+animation. Everything recedes for the last six seconds so Nora has the
+frame to herself at full size.
+
+Runtime: the storyboard gave this 31 seconds. The sign-off needs six of
+them at a speakable pace and the build note asks for a two-second hold on
+the final title, which does not fit in 31. It is 33, putting the film at
+5:10 rather than 5:08.
+
+Nora moves through three placements in one scene — centre, aside while the
+three categories appear, then back to centre and larger for the sign-off.
+Rather than three separate transforms, the render blends the placements in
+order with two nested lerps, so any two of them can overlap without
+fighting.
+
+**The logo lockup is not committed.** Brand assets in a public repository
+is a separate decision from code. Drop `assets/logo-primary-navy.png` in
+and the end card uses it automatically; without it the card falls back to
+a set wordmark, which is what the committed sample render shows.
+
+"I'll see you at the help desk" is literal rather than a flourish: Nora
+is a real agent identity in the live system.
 
 ## Scaling to the rest of the storyboard
 

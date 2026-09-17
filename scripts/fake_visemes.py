@@ -30,6 +30,14 @@ SCENES = {
         (8.90, 12.50, "that starts with one simple question:"),
         (12.60, 19.10, "How can we make it easier for people to get the help they need?"),
     ],
+    12: [
+        (0.30,  4.60, "That's why this is bigger than a ticketing system."),
+        (5.00, 13.80, "It's a customer experience idea, an employee experience idea, "
+                      "and an opportunity to help Northpointe work better together."),
+        (14.20,19.00, "It's all of us against the problem, not against each other."),
+        (19.40,24.50, "BoldDesk could move us from managing inboxes to managing experiences."),
+        (24.90,30.90, "I'm Nora. Thanks for listening, and I'll see you at the help desk."),
+    ],
     11: [
         (0.30,  8.60, "Down the road, AI could help summarize long support conversations "
                       "so a manager or teammate can understand a situation quickly."),

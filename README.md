@@ -27,7 +27,7 @@ Start with **[SCENE01.md](SCENE01.md)**.
 
 ## Status
 
-Scenes 1 to 11 of twelve are built and rendering.
+All twelve scenes are built and rendering. Total runtime 5:10.
 
 Scene 1 is the only pure talking head in the film; it was built first to
 prove the lip-sync pipeline before anything was written on top of it.
