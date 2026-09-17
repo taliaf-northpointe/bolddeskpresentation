@@ -30,6 +30,12 @@ SCENES = {
         (8.90, 12.50, "that starts with one simple question:"),
         (12.60, 19.10, "How can we make it easier for people to get the help they need?"),
     ],
+    11: [
+        (0.30,  8.60, "Down the road, AI could help summarize long support conversations "
+                      "so a manager or teammate can understand a situation quickly."),
+        (9.00, 16.20, "That would need careful security and data-governance review, "
+                      "but it shows how this idea could keep growing."),
+    ],
     4: [
         (0.30,  3.00, "That is where BoldDesk comes in."),
         (3.20,  7.80, "We have been trialing it, and what we are seeing is worth sharing."),

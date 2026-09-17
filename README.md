@@ -27,7 +27,7 @@ Start with **[SCENE01.md](SCENE01.md)**.
 
 ## Status
 
-Scenes 1 to 10 of twelve are built and rendering.
+Scenes 1 to 11 of twelve are built and rendering.
 
 Scene 1 is the only pure talking head in the film; it was built first to
 prove the lip-sync pipeline before anything was written on top of it.
