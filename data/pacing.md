@@ -18,7 +18,7 @@ narration does not fit the slot: shorten the line or lengthen the scene.
 | 8 | Visibility for leaders | 31s | 28.4s | +2.6s | 66 | 141 |
 | 9 | Continuity, teamwork, and the record | 30s | 27.7s | +2.3s | 64 | 141 |
 | 10 | Automation gives time back | 25s | 23.5s | +1.5s | 54 | 140 |
-| 11 | Room to grow | 17s | 15.5s | +1.5s | 37 | 148 |
+| 11 | Room to grow | 17s | 15.5s | +1.5s | 37 | 147 |
 | 12 | The bigger idea | 31s | 28.1s | +2.9s | 65 | 141 |
 
 ## Notes

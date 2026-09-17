@@ -168,8 +168,9 @@
     {
       "n": 11, "id": "scene11", "title": "Room to grow", "slot": 17.0, "nora": true,
       "chunks": [
-        { "at": 0.4, "phrases": [
-          "Down the road, AI could help summarize long support conversations so a manager or teammate can understand a situation quickly.",
+        { "at": 0.3, "phrases": [
+          "Down the road, AI could help summarize long support conversations so a manager or teammate can understand a situation quickly." ] },
+        { "at": 9.0, "phrases": [
           "That would need careful security and data-governance review, but it shows how this idea could keep growing." ] }
       ]
     },
