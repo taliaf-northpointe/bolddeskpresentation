@@ -3,11 +3,12 @@
 The video, built in code. No Vyond, no Hedra, no subscription, no new
 vendor.
 
-Scenes 1 to 3 of twelve are built. Scene 1 is the only pure talking head
+Scenes 1 to 4 of twelve are built. Scene 1 is the only pure talking head
 in the film and was built first to prove the lip-sync pipeline. Scene 2 is
 the first pure motion-graphics scene, which is what most of the remaining
 ones are. Scene 3 is the hero beat and one of only two scenes that needs
-real character acting.
+real character acting. Scene 4 is the turn, and the first scene where
+Nora shares the frame with something else.
 
 ```
 index.html                 master timeline — every scene on one clock
@@ -15,6 +16,7 @@ lib/engine.js              shared: easing, Nora, the mouth, captions
 scenes/scene01.js          "A human question"          0:00-0:20
 scenes/scene02.js          "The work behind the work"  0:20-0:44
 scenes/scene03.js          "The customer feels the delay" 0:44-1:16
+scenes/scene04.js          "The idea"                  1:16-1:43
 assets/nora.png            Nora, background removed, 819x1063
 data/visemes-sceneNN.json  lip-sync track, per scene
 scripts/synth_azure.py     Ava audio + the real viseme track
@@ -179,6 +181,28 @@ things learned: a held object must counter-rotate against the arm swinging
 it, or it reads as a blade rather than a phone; and a screen's glow
 belongs on the object, not as a separate blob on the floor.
 
+## Scene 4 notes
+
+Nora is on camera for the first two sentences, then moves to the corner
+and stays there, still narrating. Her viseme track runs the full scene —
+she does not stop being in the film just because she stops being its
+subject.
+
+`makeNora` defaults to `transform-origin: 50% 90%`, which grounds the
+entry bob nicely and makes `left`/`top` non-literal as soon as you scale
+her. That is fine when she is alone in frame and useless when she has to
+sit beside other elements, so this scene passes `origin: '0% 0%'` and gets
+predictable coordinates.
+
+The four verbs land on the words in the long sentence, each with a
+connector drawn a beat after its tile, and the ticket gives a small pulse
+as each one attaches. The headline hands over to the
+behind-the-scenes line in the same slot rather than stacking a second
+line into the caption band.
+
+Both title slots sit at the top of frame, deliberately: burned-in captions
+occupy roughly the bottom 130px, and nothing should compete with them.
+
 ## Scaling to the rest of the storyboard
 
 Scene 2 confirmed the cheap assumption: most of the film is motion
@@ -209,3 +233,6 @@ same register as the optional stick-figure scene.
 - Scaling an element about its centre inside a clipped container pushes
   its edges outside the clip. Scene 2's highlighted row scales from
   `transform-origin: left center`.
+- `box-sizing: border-box` is set globally in `index.html`. Without it a
+  padded card is wider than its declared width, which is how Scene 4's
+  ticket first ended up sliding off the right edge of frame.
