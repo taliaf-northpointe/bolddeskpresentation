@@ -73,16 +73,19 @@ def screens(folder):
             w, h = Image.open(p).size
         except Exception:
             w, h = 16, 9
-        cls = "portrait" if h > w else ("wide" if w / h > 3.5 else "")
+        cls = "screen " + ("portrait" if h > w else ("wide" if w / h > 3.5 else ""))
         figs.append((data_uri(p), cap, cls, stem.lower()))
     return figs
 
 
 def fig(uri, caption, cls=""):
+    # captions are kept in the call sites as a record of what each image is,
+    # but are not printed: the handout runs without captions.
     if not uri:
-        return (f'<figure class="slot {cls}"><div class="ph">Portal screenshot</div>'
-                f'<figcaption>{caption}</figcaption></figure>')
-    return f'<figure class="{cls}"><img src="{uri}"><figcaption>{caption}</figcaption></figure>'
+        return f'<figure class="slot {cls}"><div class="ph">Portal screenshot</div></figure>'
+    label = ('<figcaption><span class="real">Real example</span> Directly from our portal</figcaption>'
+             if "screen" in cls else "")
+    return f'<figure class="{cls}"><img src="{uri}">{label}</figure>'
 
 
 CSS = f"""
@@ -111,9 +114,10 @@ section {{ margin-bottom: 16pt; }}
 .card h3 {{ margin-bottom: 4pt; }}
 .card p {{ margin: 0; font-size: 9.8pt; }}
 .pull {{ font-size: 14pt; color: {NAVY}; font-weight: 700; border-left: 4pt solid {BLUE}; padding-left: 12pt; margin: 8pt 0 12pt; }}
-figure {{ margin: 0 0 10pt; break-inside: avoid; }}
+figure {{ margin: 0 0 14pt; break-inside: avoid; }}
 figure img {{ width: 100%; display: block; border-radius: 6pt; box-shadow: 0 6pt 18pt rgba(14,46,60,.14); border: 1px solid rgba(22,67,86,.10); }}
-figcaption {{ font-size: 8.8pt; color: #5b7280; margin-top: 5pt; }}
+figcaption {{ font-size: 8.8pt; color: #5b7280; margin-top: 6pt; text-align: center; }}
+.real {{ display: inline-block; background: {BLUE}; color: #fff; border-radius: 999pt; padding: 1.5pt 8pt; font-size: 7.8pt; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; margin-right: 6pt; vertical-align: middle; }}
 .slot .ph {{ width: 100%; aspect-ratio: 16/4.6; border: 1.5pt dashed rgba(0,134,177,.45); border-radius: 6pt; display: grid; place-items: center; color: {BLUE}; font-weight: 700; font-size: 9.5pt; background: rgba(0,134,177,.04); }}
 ul {{ margin: 0 0 8pt 14pt; padding: 0; }}
 li {{ margin-bottom: 3pt; }}
@@ -124,10 +128,8 @@ li {{ margin-bottom: 3pt; }}
 .dash {{ margin-top: 4pt; }}
 .dash img {{ width: 74%; margin: 0 auto; }}
 .dash figcaption {{ text-align: center; }}
-.portrait {{ display: grid; grid-template-columns: 42% 1fr; gap: 14pt; align-items: center; }}
-.portrait img {{ width: 100%; }}
-.portrait figcaption {{ margin-top: 0; font-size: 10pt; color: #17303c; }}
-.wide figcaption {{ margin-top: 4pt; }}
+.portrait figcaption {{ text-align: center; }}
+.portrait img {{ width: 44%; margin: 0 auto; }}
 .small figcaption {{ text-align: center; }}
 .footer {{ break-inside: avoid; font-size: 8.5pt; color: #7a8f9b; border-top: 1px solid rgba(22,67,86,.12); padding-top: 6pt; margin-top: 14pt; }}
 .note {{ font-size: 9pt; color: #5b7280; }}
@@ -139,7 +141,7 @@ def html(figs):
     # a real dashboard screenshot belongs beside the Visibility text, not in the gallery
     dash = next((f for f in figs if "dashboard" in f[3]), None)
     gallery = [f for f in figs if f is not dash]
-    dash_fig = fig(dash[0], dash[1], "dash") if dash else ""
+    dash_fig = fig(dash[0], dash[1], "screen dash") if dash else ""
     slots = "".join(fig(u, c, k) for u, c, k, _ in gallery) if gallery else \
         fig(None, "Agent view — the Unassigned queue: ticket, requester, subject, status, group, agent.") + \
         fig(None, "Requester view — a request as the person who asked sees it.") + \
@@ -168,9 +170,9 @@ def html(figs):
   <section>
     <div class="kicker">The platform</div>
     <h2>Simple for the person asking. Simple for the person working it.</h2>
-    <p>A lot of ticketing systems are designed primarily with technical teams in mind. BoldDesk is much
-    more approachable, and that matters: the best system in the world does not help us if people do not
-    want to use it.</p>
+    <p>Many ticketing systems are designed primarily with technical teams in mind. BoldDesk is far more
+    approachable, and that matters. The best system in the world does not help if people do not want to
+    use it.</p>
   </section>
   <section>
     <div class="kicker">The challenge</div>
@@ -178,14 +180,14 @@ def html(figs):
     <div class="two">
       <div>
         <p>Across Northpointe, many requests live in shared Outlook mailboxes. People search through
-        email threads, forward messages, CC multiple people, and try to figure out who owns something.
-        When someone is out of the office it is harder still to know where a request stands.</p>
-        <p>The result: extra back-and-forth, longer wait times, and a lot of work happening behind the
-        scenes just to keep track of the work itself.</p>
+        email threads, forward messages, copy multiple people, and try to work out who owns each
+        request. When someone is out of the office, it is even harder to know where a request stands.</p>
+        <p>The result is extra back-and-forth, longer wait times, and a great deal of effort spent
+        behind the scenes just to keep track of the work itself.</p>
         <div class="pull">While the employee waits, their customer waits too.</div>
         <p class="note">Every one of us supports a customer: a business partner, a borrower, a retail
-        customer, or another Northpointe employee. Helping internal teams get what they need faster
-        helps them serve their customers faster.</p>
+        customer, or another Northpointe employee. When internal teams get what they need faster, they
+        serve their customers faster.</p>
       </div>
       <div>
         {fig(s("sec03"), "From the video: a shared mailbox filling up, requests forwarded and copied.")}
@@ -201,14 +203,14 @@ def html(figs):
     <h2>Nothing changes for the person emailing you</h2>
     <div class="two">
       <div>
-        <p>Teams keep their existing support email addresses. The email becomes a ticket behind the
-        scenes, where it can be tracked, assigned, documented, and measured. For the customer the
-        experience stays simple; for the team the process becomes much more organized.</p>
+        <p>Teams keep their existing support email addresses. Each email becomes a ticket behind the
+        scenes, where it can be tracked, assigned, documented, and measured. For the customer, the
+        experience stays simple. For the team, the process becomes far more organized.</p>
         <h3>One place for everything</h3>
-        <p>The portal gives employees one place to open requests and see the ones already open with
+        <p>The portal gives employees one place to open requests and to see the ones already open with
         teams using BoldDesk, without sending another email for an update. It is mobile friendly and
         does not require a VPN: bookmark it on a phone, sign in with the same work account used for
-        Outlook and Teams, submit between meetings.</p>
+        Outlook and Teams, and submit a request between meetings.</p>
         <h3>Knowledge that works for everyone</h3>
         <p>A shared knowledge base every team can contribute to. Answer a question once and what one
         team knows becomes something the whole company can use.</p>
@@ -234,15 +236,15 @@ def html(figs):
           <li>Whether requests are answered, and resolved, within the expected time</li>
         </ul>
         <p>That helps identify bottlenecks and move resources where they are needed, and it gives
-        leadership the ability to set measurable service expectations. That is a decision for
-        leadership, and BoldDesk supports either approach:</p>
+        leadership the ability to set measurable service expectations. How to set them is a decision
+        for leadership, and BoldDesk supports either approach:</p>
         <div class="options">
           <div class="card"><h3>One common standard</h3><p>across Northpointe</p></div>
           <div class="card"><h3>Each team's own SLA</h3><p>fitted to the work it does</p></div>
         </div>
         <p>Visibility also creates accountability. When requests are tracked and SLAs are visible,
-        customers are not left wondering; and when someone is out, the rest of the team can see the
-        history and notes and pick up where things left off.</p>
+        customers are not left wondering. When someone is out, the rest of the team can see the history
+        and notes and pick up where things left off.</p>
       </div>
       <div>
         {fig(s("sec09"), "From the video: a request stays with the team when its owner is out.")}
@@ -284,7 +286,7 @@ def html(figs):
   <section>
     <div class="kicker">From the portal</div>
     <h2>Real examples</h2>
-    <p class="note">Screens from the BoldDesk trial. Test data; nothing here is a real request.</p>
+    <p class="note">Screens from the BoldDesk trial, showing test data.</p>
     {slots}
   </section>
 </div>
