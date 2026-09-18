@@ -68,7 +68,13 @@ def screens(folder):
             cap = open(cap_path, encoding="utf-8").read().strip()
         else:
             cap = re.sub(r"^\d+[-_ ]*", "", stem).replace("-", " ").replace("_", " ").strip().capitalize()
-        figs.append((data_uri(p), cap))
+        try:
+            from PIL import Image
+            w, h = Image.open(p).size
+        except Exception:
+            w, h = 16, 9
+        cls = "portrait" if h > w else ("wide" if w / h > 3.5 else "")
+        figs.append((data_uri(p), cap, cls, stem.lower()))
     return figs
 
 
@@ -115,6 +121,13 @@ li {{ margin-bottom: 3pt; }}
 .options {{ display: grid; grid-template-columns: 1fr 1fr; gap: 12pt; margin: 6pt 0 10pt; }}
 .options .card {{ border-left: none; border: 1.5pt solid rgba(22,67,86,.18); background: #fff; text-align: center; }}
 .small img {{ width: 62%; margin: 0 auto; }}
+.dash {{ margin-top: 4pt; }}
+.dash img {{ width: 74%; margin: 0 auto; }}
+.dash figcaption {{ text-align: center; }}
+.portrait {{ display: grid; grid-template-columns: 42% 1fr; gap: 14pt; align-items: center; }}
+.portrait img {{ width: 100%; }}
+.portrait figcaption {{ margin-top: 0; font-size: 10pt; color: #17303c; }}
+.wide figcaption {{ margin-top: 4pt; }}
 .small figcaption {{ text-align: center; }}
 .footer {{ break-inside: avoid; font-size: 8.5pt; color: #7a8f9b; border-top: 1px solid rgba(22,67,86,.12); padding-top: 6pt; margin-top: 14pt; }}
 .note {{ font-size: 9pt; color: #5b7280; }}
@@ -123,7 +136,11 @@ li {{ margin-bottom: 3pt; }}
 
 def html(figs):
     s = still
-    slots = "".join(fig(u, c) for u, c in figs) if figs else \
+    # a real dashboard screenshot belongs beside the Visibility text, not in the gallery
+    dash = next((f for f in figs if "dashboard" in f[3]), None)
+    gallery = [f for f in figs if f is not dash]
+    dash_fig = fig(dash[0], dash[1], "dash") if dash else ""
+    slots = "".join(fig(u, c, k) for u, c, k, _ in gallery) if gallery else \
         fig(None, "Agent view — the Unassigned queue: ticket, requester, subject, status, group, agent.") + \
         fig(None, "Requester view — a request as the person who asked sees it.") + \
         fig(None, "Manager view — the team dashboard.")
@@ -228,10 +245,11 @@ def html(figs):
         history and notes and pick up where things left off.</p>
       </div>
       <div>
-        {fig(s("sec08"), "From the video: a team overview with sample figures.")}
         {fig(s("sec09"), "From the video: a request stays with the team when its owner is out.")}
+        {fig(s("sec08"), "From the video: a team overview with sample figures.") if not dash else ""}
       </div>
     </div>
+    {dash_fig}
   </section>
 </div>
 
@@ -266,7 +284,7 @@ def html(figs):
   <section>
     <div class="kicker">From the portal</div>
     <h2>Real examples</h2>
-    <p class="note">Screens from the BoldDesk trial. Test data.</p>
+    <p class="note">Screens from the BoldDesk trial. Test data; nothing here is a real request.</p>
     {slots}
   </section>
 </div>
