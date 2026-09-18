@@ -10,8 +10,9 @@ audio is rebuilt from assets/film.wav (Ava) plus the music.
 
 The bed is track1 cross-faded into track2, that pair repeated as many
 times as the film needs, trimmed to the film's length, faded out at the
-end, and ducked under the voice (a sidechain compressor keyed on Ava, so
-the music sits back while she speaks and swells in the gaps).
+end, and held at one constant low level the whole way through. Constant
+on purpose: ducking makes the music swell whenever the voice pauses, which
+draws attention to it. --duck turns that on if ever wanted.
 
 Output: build/film-music.mp4
 """
@@ -58,8 +59,10 @@ def main():
     ap.add_argument("--video", default=VIDEO)
     ap.add_argument("--voice", default=VOICE)
     ap.add_argument("--out", default=OUT)
-    ap.add_argument("--level", type=float, default=0.20,
-                    help="music gain before ducking (1.0 = as loud as the voice)")
+    ap.add_argument("--level", type=float, default=0.10,
+                    help="music gain (1.0 = the track's own level; 0.10 sits ~11 dB under Ava)")
+    ap.add_argument("--duck", action="store_true",
+                    help="also duck the bed under the voice (swells in the gaps; off by default)")
     ap.add_argument("--xfade", type=float, default=3.0, help="crossfade between tracks, seconds")
     ap.add_argument("--fade", type=float, default=7.0, help="fade-out at the end, seconds")
     ap.add_argument("--fade-in", type=float, default=2.0)
@@ -97,8 +100,11 @@ def main():
     # voice to stereo 48k; split so it can key the compressor and also be mixed
     # mono -> stereo upmix costs 3 dB; give it back so Ava sits where she did
     f.append("[1:a]aformat=sample_fmts=fltp:sample_rates=48000:channel_layouts=stereo,volume=1.41,asplit=2[v1][v2]")
-    # duck the bed under the voice
-    f.append("[bed][v1]sidechaincompress=threshold=0.015:ratio=5:attack=30:release=700:makeup=1[ducked]")
+    if a.duck:
+        f.append("[bed][v1]sidechaincompress=threshold=0.015:ratio=5:attack=30:release=700:makeup=1[ducked]")
+    else:
+        f.append("[v1]anullsink")
+        f.append("[bed]acopy[ducked]")
     # mix without renormalising (the bed is already quiet)
     # a brick-wall limiter so voice + music can never clip
     f.append("[v2][ducked]amix=inputs=2:duration=first:normalize=0,alimiter=limit=0.95:attack=5:release=60[out]")
