@@ -59,8 +59,8 @@ def main():
     ap.add_argument("--video", default=VIDEO)
     ap.add_argument("--voice", default=VOICE)
     ap.add_argument("--out", default=OUT)
-    ap.add_argument("--level", type=float, default=0.10,
-                    help="music gain (1.0 = the track's own level; 0.10 sits ~11 dB under Ava)")
+    ap.add_argument("--level", type=float, default=0.06,
+                    help="music gain (1.0 = the track's own level; 0.06 sits ~16 dB under Ava)")
     ap.add_argument("--duck", action="store_true",
                     help="also duck the bed under the voice (swells in the gaps; off by default)")
     ap.add_argument("--xfade", type=float, default=3.0, help="crossfade between tracks, seconds")
