@@ -145,28 +145,28 @@ def html(figs):
         fig(None, "Requester view — a request as the person who asked sees it.") + \
         fig(None, "Manager view — the team dashboard.")
 
-    return f"""<!doctype html><html><head><meta charset="utf-8"><title>Nora Presents BoldDesk — handout</title>
+    return f"""<!doctype html><html><head><meta charset="utf-8"><title>Why BoldDesk? — handout</title>
 <style>{CSS}</style></head><body>
 
 <div class="page cover">
   <div>
-    <div class="kicker">The Next Big Idea · Northpointe Bank</div>
-    <h1>Nora Presents BoldDesk</h1>
+    <div class="kicker">Northpointe Bank · Enterprise Support</div>
+    <h1>Why BoldDesk?</h1>
     <div class="sub">One Northpointe Support Experience</div>
     <div class="rule"></div>
     <div class="hero">{f'<img src="{s("sec01")}">' if s("sec01") else ''}</div>
-    <p class="lede">Talia and Nora have been building a platform to make a real difference across Northpointe:
-    an Enterprise Support Portal. A better way for teams to manage requests, communicate with the people
-    they support, and provide a better experience for our customers.</p>
-    <p>Right now we are trialing an application called BoldDesk. A handful of teams have already started
-    testing it. This handout follows the video and adds real screens from the portal.</p>
+    <p class="lede">Northpointe is trialing BoldDesk as an Enterprise Support Portal: a better way for teams
+    to manage requests, communicate with the people they support, and provide a better experience for
+    our customers.</p>
+    <p>A handful of teams have already started testing it. This handout follows the video and adds real
+    screens from the portal.</p>
   </div>
-  <div class="meta">Companion to the video (9:30) · Prepared by Talia Frazier · {__import__('datetime').date.today():%B %Y}</div>
+  <div class="meta">Companion to the video (9:30) · {__import__('datetime').date.today():%B %Y}</div>
 </div>
 
 <div class="page">
   <section>
-    <div class="kicker">Why BoldDesk?</div>
+    <div class="kicker">The platform</div>
     <h2>Simple for the person asking. Simple for the person working it.</h2>
     <p>A lot of ticketing systems are designed primarily with technical teams in mind. BoldDesk is much
     more approachable, and that matters: the best system in the world does not help us if people do not
@@ -313,8 +313,8 @@ def html(figs):
     better tracking, better communication, more visibility, more automation, and a better experience
     for the people asking for help, which means a better experience for the customers we are all here
     to serve.</p>
-    {fig(s("sec14"), "From the video: Nora signs off.", "small")}
-    <div class="footer">Nora Presents BoldDesk · BoldDesk is in trial; vendor review is ongoing. Figures shown in the video are samples. · I'll see you at the help desk!</div>
+    {fig(s("sec14"), "From the video: the close.", "small")}
+    <div class="footer">Why BoldDesk? · BoldDesk is in trial; vendor review is ongoing. Figures shown in the video are samples.</div>
   </section>
 </div>
 </body></html>"""
