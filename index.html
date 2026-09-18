@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <title>Nora Presents BoldDesk</title>
+<link rel="icon" href="data:,">
 <style>
   /* Without this, any card with padding is wider than its declared width,
      which is how Scene 4's ticket ended up running off the right edge. */
@@ -56,20 +57,22 @@
      ?mode=render    strip the UI and wait to be driven frame by frame
 =================================================================== */
 
-import * as s01 from './scenes/scene01.js';
-import * as s02 from './scenes/scene02.js';
-import * as s03 from './scenes/scene03.js';
-import * as s04 from './scenes/scene04.js';
-import * as s05 from './scenes/scene05.js';
-import * as s06 from './scenes/scene06.js';
-import * as s07 from './scenes/scene07.js';
-import * as s08 from './scenes/scene08.js';
-import * as s09 from './scenes/scene09.js';
-import * as s10 from './scenes/scene10.js';
-import * as s11 from './scenes/scene11.js';
-import * as s12 from './scenes/scene12.js';
+import * as s01 from './scenes/sec01.js';
+import * as s02 from './scenes/sec02.js';
+import * as s03 from './scenes/sec03.js';
+import * as s04 from './scenes/sec04.js';
+import * as s05 from './scenes/sec05.js';
+import * as s06 from './scenes/sec06.js';
+import * as s07 from './scenes/sec07.js';
+import * as s08 from './scenes/sec08.js';
+import * as s09 from './scenes/sec09.js';
+import * as s10 from './scenes/sec10.js';
+import * as s11 from './scenes/sec11.js';
+import * as s12 from './scenes/sec12.js';
+import * as s13 from './scenes/sec13.js';
+import * as s14 from './scenes/sec14.js';
 
-const SCENES = [s01, s02, s03, s04, s05, s06, s07, s08, s09, s10, s11, s12];
+const SCENES = [s01, s02, s03, s04, s05, s06, s07, s08, s09, s10, s11, s12, s13, s14];
 
 const params = new URLSearchParams(location.search);
 const RENDER = params.get('mode') === 'render';
@@ -113,6 +116,9 @@ await Promise.all(mounted.map(async m => {
   }
 }));
 window.__trackNote = trackNote.join(' ');
+
+/* cue files (captions) and any other JSON a section asked for */
+await Promise.all(window.__pending || []);
 
 /* ---------- captions --------------------------------------------- */
 mounted.forEach(m => m.api.cc && m.api.cc.setVisible(ccOn));

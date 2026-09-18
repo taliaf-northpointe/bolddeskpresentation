@@ -12,13 +12,14 @@ from the audio rather than keyframed by hand.
 ## Layout
 
 ```
-index.html        master timeline — every scene on one clock
-lib/              shared engine, plus the UI kit (ticket, email, chips)
-scenes/           one module per scene
-assets/           Nora, background removed
-data/             viseme tracks that drive the mouth
-scripts/          Azure synthesis, synthetic visemes, frame renderer
-samples/          rendered drafts (silent — see SCENE01.md)
+index.html        master timeline — every section on one clock
+lib/              engine (easing, Nora, the mouth), UI kit (ticket, email, chips),
+                  and section.js (title card, captions, figures — the rev-3 shell)
+scenes/secNN.js   the film: fourteen sections, one module each (revision 3 script)
+scenes/sceneNN.js the earlier twelve-scene cut (revision 2 storyboard); not mounted
+data/             narration.json (the script), Ava's word/cue timings, viseme tracks
+scripts/          synth.py (voice), render.py (frames -> MP4), qa_frames.py (stills)
+samples/          rendered drafts
 docs/             storyboard and working notes
 SCENE01.md        how the renderer works and how to run it
 ```
@@ -27,25 +28,21 @@ Start with **[SCENE01.md](SCENE01.md)**.
 
 ## Status
 
-All twelve scenes are built and rendering. Total runtime 5:10.
+The film is built to the revision 3 script: fourteen sections, 9:10, Ava
+narrating every line with per-line delivery, captions burned in from her
+actual phrase timings. `python scripts/render.py --cc` renders it to
+`build/film.mp4` with the audio muxed.
 
-Scene 1 is the only pure talking head in the film; it was built first to
-prove the lip-sync pipeline before anything was written on top of it.
-Scene 2 is the first pure motion-graphics scene, which is what most of the
-remaining ones are — and it confirmed the assumption the whole approach
-rests on, that this film is mostly moving cards and staggered reveals
-rather than character animation. Scene 3 is the hero beat, and the harder
-case: the only place so far that needs figures to act. Scene 4 is the
-turn — the point where the film stops describing the problem.
+How a section is made: `data/narration.json` holds the words; `synth.py`
+has Ava read them and writes where every phrase and word lands
+(`data/cues-secNN.json`, `data/words-secNN.json`); the section module in
+`scenes/` times its visuals to those numbers. Change a line in the script,
+re-run synth, and the captions follow automatically — the visuals tied to
+that line are the only thing to retime.
 
-The voice is in. `scripts/synth.py` reads the whole script from
-`data/narration.json` and has Ava read every scene, placing each line on
-the beat the scene authored for it. `data/pacing.md` shows how each
-scene's speech fits its slot. Audio files are not committed (regenerate in
-under a minute); the timing files in `data/` are. The viseme tracks for
-the on-camera scenes are approximated from Ava's word timings until the
-same script is run with `--engine azure`, which returns her real viseme
-events. See SCENE01.md, "Getting the voice".
+The viseme tracks for the two on-camera sections (open and close) are
+approximated from Ava's word timings until `synth.py --engine azure` is run
+with a key, which returns her real viseme events.
 
 ## A note on contents
 

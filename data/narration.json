@@ -15,287 +15,763 @@
     "           after `pause` seconds (default 0.45). Use `at` only once a scene",
     "           has beats to hit; until then let the read breathe naturally.",
     "  phrases  caption-sized pieces; word timings are aligned to these and",
-    "           written to data/cues-<id>.json"
+    "           written to data/cues-<id>.json",
+    "  slots were frozen from Ava's natural read on 2026-09-17 so scene durations and audio stay locked together; change a slot and the scene's `dur` together"
   ],
   "voice": "en-US-AvaNeural",
   "rate": "-4%",
   "scenes": [
     {
-      "n": 1, "id": "sec01", "title": "Open", "card": "OPEN — Nora on screen", "nora": true,
+      "n": 1,
+      "id": "sec01",
+      "title": "Open",
+      "card": "OPEN — Nora on screen",
+      "nora": true,
       "chunks": [
-        { "at": 0.6, "tone": "greeting", "phrases": [
-          "Hi, I'm Nora.",
-          "You might know me as your friendly help desk assistant.",
-          "And if we haven't met yet, it's nice to meet you!" ] },
-        { "pause": 0.7, "phrases": [
-          "Talia and I have been working on an idea that we think could make a real difference across Northpointe." ] },
-        { "pause": 0.7, "phrases": [
-          "The idea is an enterprise support platform. A better way for teams across the company to manage requests, communicate with the people they support, and ultimately provide a better experience for our customers." ] },
-        { "pause": 0.7, "phrases": [
-          "Right now, we're trialing an application called BoldDesk, and we've been looking at what it could make possible for Northpointe." ] }
-      ]
+        {
+          "at": 0.6,
+          "tone": "greeting",
+          "phrases": [
+            "Hi, I'm Nora.",
+            "You might know me as your friendly help desk assistant.",
+            "And if we haven't met yet, it's nice to meet you!"
+          ]
+        },
+        {
+          "pause": 0.7,
+          "phrases": [
+            "Talia and I have been working on an idea that we think could make a real difference across Northpointe."
+          ]
+        },
+        {
+          "pause": 0.7,
+          "phrases": [
+            "The idea is an enterprise support platform. A better way for teams across the company to manage requests, communicate with the people they support, and ultimately provide a better experience for our customers."
+          ]
+        },
+        {
+          "pause": 0.7,
+          "phrases": [
+            "Right now, we're trialing an application called BoldDesk, and we've been looking at what it could make possible for Northpointe."
+          ]
+        }
+      ],
+      "slot": 37.0
     },
     {
-      "n": 2, "id": "sec02", "title": "Why BoldDesk?", "card": "TITLE CARD: Why BoldDesk?", "nora": false,
+      "n": 2,
+      "id": "sec02",
+      "title": "Why BoldDesk?",
+      "card": "TITLE CARD: Why BoldDesk?",
+      "nora": false,
       "chunks": [
-        { "at": 0.8, "phrases": [
-          "So, why BoldDesk?" ] },
-        { "pause": 0.6, "phrases": [
-          "One of the things that stood out to us is how simple it is." ] },
-        { "pause": 0.6, "phrases": [
-          "A lot of ticketing systems are designed primarily with technical teams in mind.",
-          "BoldDesk is much more approachable.",
-          "It's easy for the person submitting a request, and it's easy for the person working it." ] },
-        { "pause": 0.7, "phrases": [
-          "And that matters." ] },
-        { "pause": 0.5, "phrases": [
-          "Because the best system in the world doesn't help us if people don't want to use it." ] }
-      ]
+        {
+          "at": 0.8,
+          "phrases": [
+            "So, why BoldDesk?"
+          ]
+        },
+        {
+          "pause": 0.6,
+          "phrases": [
+            "One of the things that stood out to us is how simple it is."
+          ]
+        },
+        {
+          "pause": 0.6,
+          "phrases": [
+            "A lot of ticketing systems are designed primarily with technical teams in mind.",
+            "BoldDesk is much more approachable.",
+            "It's easy for the person submitting a request, and it's easy for the person working it."
+          ]
+        },
+        {
+          "pause": 0.7,
+          "phrases": [
+            "And that matters."
+          ]
+        },
+        {
+          "pause": 0.5,
+          "phrases": [
+            "Because the best system in the world doesn't help us if people don't want to use it."
+          ]
+        }
+      ],
+      "slot": 27.5
     },
     {
-      "n": 3, "id": "sec03", "title": "The shared mailbox", "card": "CUT TO: Shared mailbox / email animation", "nora": false,
+      "n": 3,
+      "id": "sec03",
+      "title": "The shared mailbox",
+      "card": "CUT TO: Shared mailbox / email animation",
+      "nora": false,
       "chunks": [
-        { "at": 0.5, "phrases": [
-          "As we've talked with teams across Northpointe, we've seen a common challenge." ] },
-        { "pause": 0.6, "phrases": [
-          "Requests are often living in shared Outlook mailboxes." ] },
-        { "pause": 0.6, "phrases": [
-          "People are searching through email threads. Forwarding messages. CC'ing multiple people.",
-          "Trying to figure out who owns something.",
-          "Looking back through a long chain to figure out what the actual question was." ] },
-        { "pause": 0.7, "phrases": [
-          "And when someone is out of the office, it can become even harder to know where something stands or what has already been done." ] },
-        { "pause": 0.7, "phrases": [
-          "The result can be extra back-and-forth, longer wait times, and a lot of work happening behind the scenes just to keep track of the work itself." ] }
-      ]
+        {
+          "at": 0.5,
+          "phrases": [
+            "As we've talked with teams across Northpointe, we've seen a common challenge."
+          ]
+        },
+        {
+          "pause": 0.6,
+          "phrases": [
+            "Requests are often living in shared Outlook mailboxes."
+          ]
+        },
+        {
+          "pause": 0.6,
+          "phrases": [
+            "People are searching through email threads. Forwarding messages. CC'ing multiple people.",
+            "Trying to figure out who owns something.",
+            "Looking back through a long chain to figure out what the actual question was."
+          ]
+        },
+        {
+          "pause": 0.7,
+          "phrases": [
+            "And when someone is out of the office, it can become even harder to know where something stands or what has already been done."
+          ]
+        },
+        {
+          "pause": 0.7,
+          "phrases": [
+            "The result can be extra back-and-forth, longer wait times, and a lot of work happening behind the scenes just to keep track of the work itself."
+          ]
+        }
+      ],
+      "slot": 40.7
     },
     {
-      "n": 4, "id": "sec04", "title": "Better experience for everyone", "card": "TITLE CARD: Better experience for everyone", "nora": false,
+      "n": 4,
+      "id": "sec04",
+      "title": "Better experience for everyone",
+      "card": "TITLE CARD: Better experience for everyone",
+      "nora": false,
       "chunks": [
-        { "at": 0.8, "phrases": [
-          "And this isn't just an internal efficiency issue." ] },
-        { "pause": 0.6, "phrases": [
-          "Every one of us supports a customer in some way." ] },
-        { "pause": 0.5, "phrases": [
-          "That might be an external business partner." ] },
-        { "pause": 0.4, "phrases": [
-          "It might be a borrower." ] },
-        { "pause": 0.4, "phrases": [
-          "It might be a retail banking customer." ] },
-        { "pause": 0.4, "phrases": [
-          "Or it might be another Northpointe employee." ] },
-        { "pause": 0.7, "phrases": [
-          "And that last one matters more than we sometimes realize." ] },
-        { "pause": 0.5, "phrases": [
-          "Because when we help our internal teams get what they need faster, we're helping them serve their customers faster." ] },
-        { "pause": 0.8, "phrases": [
-          "Imagine someone in Sales is working with a borrower and suddenly can't access a system they need." ] },
-        { "pause": 0.5, "phrases": [
-          "If that request turns into multiple emails back and forth just to figure out which application they need help with, that's time." ] },
-        { "pause": 0.6, "phrases": [
-          "And while they're waiting, their customer is waiting too." ] },
-        { "pause": 0.8, "phrases": [
-          "A better support experience internally can have a very real impact externally." ] }
-      ]
+        {
+          "at": 0.8,
+          "phrases": [
+            "And this isn't just an internal efficiency issue."
+          ]
+        },
+        {
+          "pause": 0.6,
+          "phrases": [
+            "Every one of us supports a customer in some way."
+          ]
+        },
+        {
+          "pause": 0.5,
+          "phrases": [
+            "That might be an external business partner."
+          ]
+        },
+        {
+          "pause": 0.4,
+          "phrases": [
+            "It might be a borrower."
+          ]
+        },
+        {
+          "pause": 0.4,
+          "phrases": [
+            "It might be a retail banking customer."
+          ]
+        },
+        {
+          "pause": 0.4,
+          "phrases": [
+            "Or it might be another Northpointe employee."
+          ]
+        },
+        {
+          "pause": 0.7,
+          "phrases": [
+            "And that last one matters more than we sometimes realize."
+          ]
+        },
+        {
+          "pause": 0.5,
+          "phrases": [
+            "Because when we help our internal teams get what they need faster, we're helping them serve their customers faster."
+          ]
+        },
+        {
+          "pause": 0.8,
+          "phrases": [
+            "Imagine someone in Sales is working with a borrower and suddenly can't access a system they need."
+          ]
+        },
+        {
+          "pause": 0.5,
+          "phrases": [
+            "If that request turns into multiple emails back and forth just to figure out which application they need help with, that's time."
+          ]
+        },
+        {
+          "pause": 0.6,
+          "phrases": [
+            "And while they're waiting, their customer is waiting too."
+          ]
+        },
+        {
+          "pause": 0.8,
+          "phrases": [
+            "A better support experience internally can have a very real impact externally."
+          ]
+        }
+      ],
+      "slot": 52.6
     },
     {
-      "n": 5, "id": "sec05", "title": "Nothing changes for the person emailing you", "card": "TITLE CARD: Nothing changes for the person emailing you", "nora": false,
+      "n": 5,
+      "id": "sec05",
+      "title": "Nothing changes for the person emailing you",
+      "card": "TITLE CARD: Nothing changes for the person emailing you",
+      "nora": false,
       "chunks": [
-        { "at": 0.8, "phrases": [
-          "One thing I really like about BoldDesk is that we can improve what happens behind the scenes without making things harder for the person asking for help." ] },
-        { "pause": 0.6, "phrases": [
-          "Teams can continue using their existing support email addresses." ] },
-        { "pause": 0.5, "phrases": [
-          "The email becomes a ticket behind the scenes, where it can be tracked, assigned, documented, and measured." ] },
-        { "pause": 0.6, "phrases": [
-          "So for the customer, the experience can stay simple." ] },
-        { "pause": 0.4, "phrases": [
-          "For the team, the process becomes much more organized." ] },
-        { "pause": 0.6, "phrases": [
-          "And that creates an opportunity for better and faster communication without asking the person on the other end to learn an entirely new way of working." ] }
-      ]
+        {
+          "at": 0.8,
+          "phrases": [
+            "One thing I really like about BoldDesk is that we can improve what happens behind the scenes without making things harder for the person asking for help."
+          ]
+        },
+        {
+          "pause": 0.6,
+          "phrases": [
+            "Teams can continue using their existing support email addresses."
+          ]
+        },
+        {
+          "pause": 0.5,
+          "phrases": [
+            "The email becomes a ticket behind the scenes, where it can be tracked, assigned, documented, and measured."
+          ]
+        },
+        {
+          "pause": 0.6,
+          "phrases": [
+            "So for the customer, the experience can stay simple."
+          ]
+        },
+        {
+          "pause": 0.4,
+          "phrases": [
+            "For the team, the process becomes much more organized."
+          ]
+        },
+        {
+          "pause": 0.6,
+          "phrases": [
+            "And that creates an opportunity for better and faster communication without asking the person on the other end to learn an entirely new way of working."
+          ]
+        }
+      ],
+      "slot": 40.3
     },
     {
-      "n": 6, "id": "sec06", "title": "One place for everything", "card": "TITLE CARD: One place for everything", "nora": false,
+      "n": 6,
+      "id": "sec06",
+      "title": "One place for everything",
+      "card": "TITLE CARD: One place for everything",
+      "nora": false,
       "chunks": [
-        { "at": 0.8, "phrases": [
-          "There is also a portal." ] },
-        { "pause": 0.5, "phrases": [
-          "The portal gives Northpointe employees one place to open new requests and see the requests they already have open with teams using BoldDesk." ] },
-        { "pause": 0.5, "phrases": [
-          "They can see where something stands without having to send another email asking for an update." ] },
-        { "pause": 0.6, "phrases": [
-          "And the portal is mobile friendly and doesn't require a VPN, which is especially useful for people who aren't sitting at a desk all day." ] },
-        { "pause": 0.6, "phrases": [
-          "For example, someone in Sales could bookmark the portal on their phone, log in with the same account they already use for Outlook and Teams, and submit a request while they're between meetings or out working with customers." ] },
-        { "pause": 0.7, "phrases": [
-          "That may add 30 seconds to a minute up front to give us the information we need." ] },
-        { "pause": 0.5, "phrases": [
-          "But that small amount of effort can save much more time later by reducing the back-and-forth needed to get the request worked." ] }
-      ]
+        {
+          "at": 0.8,
+          "phrases": [
+            "There is also a portal."
+          ]
+        },
+        {
+          "pause": 0.5,
+          "phrases": [
+            "The portal gives Northpointe employees one place to open new requests and see the requests they already have open with teams using BoldDesk."
+          ]
+        },
+        {
+          "pause": 0.5,
+          "phrases": [
+            "They can see where something stands without having to send another email asking for an update."
+          ]
+        },
+        {
+          "pause": 0.6,
+          "phrases": [
+            "And the portal is mobile friendly and doesn't require a VPN, which is especially useful for people who aren't sitting at a desk all day."
+          ]
+        },
+        {
+          "pause": 0.6,
+          "phrases": [
+            "For example, someone in Sales could bookmark the portal on their phone, log in with the same account they already use for Outlook and Teams, and submit a request while they're between meetings or out working with customers."
+          ]
+        },
+        {
+          "pause": 0.7,
+          "phrases": [
+            "That may add 30 seconds to a minute up front to give us the information we need."
+          ]
+        },
+        {
+          "pause": 0.5,
+          "phrases": [
+            "But that small amount of effort can save much more time later by reducing the back-and-forth needed to get the request worked."
+          ]
+        }
+      ],
+      "slot": 52.3
     },
     {
-      "n": 7, "id": "sec07", "title": "Knowledge that works for everyone", "card": "TITLE CARD: Knowledge that works for everyone", "nora": false,
+      "n": 7,
+      "id": "sec07",
+      "title": "Knowledge that works for everyone",
+      "card": "TITLE CARD: Knowledge that works for everyone",
+      "nora": false,
       "chunks": [
-        { "at": 0.8, "phrases": [
-          "The portal can also give us something else that's really valuable: a shared knowledge base." ] },
-        { "pause": 0.6, "phrases": [
-          "Every team can contribute articles, helpful tips, common answers, and self-service information based on what they know." ] },
-        { "pause": 0.6, "phrases": [
-          "So instead of answering the same question over and over, a team can answer it once and make that knowledge available to everyone." ] },
-        { "pause": 0.7, "phrases": [
-          "What one team knows can become something the whole company can use." ] }
-      ]
+        {
+          "at": 0.8,
+          "phrases": [
+            "The portal can also give us something else that's really valuable: a shared knowledge base."
+          ]
+        },
+        {
+          "pause": 0.6,
+          "phrases": [
+            "Every team can contribute articles, helpful tips, common answers, and self-service information based on what they know."
+          ]
+        },
+        {
+          "pause": 0.6,
+          "phrases": [
+            "So instead of answering the same question over and over, a team can answer it once and make that knowledge available to everyone."
+          ]
+        },
+        {
+          "pause": 0.7,
+          "phrases": [
+            "What one team knows can become something the whole company can use."
+          ]
+        }
+      ],
+      "slot": 27.8
     },
     {
-      "n": 8, "id": "sec08", "title": "Visibility", "card": "TITLE CARD: Visibility", "nora": false,
+      "n": 8,
+      "id": "sec08",
+      "title": "Visibility",
+      "card": "TITLE CARD: Visibility",
+      "nora": false,
       "chunks": [
-        { "at": 0.8, "phrases": [
-          "And then there's visibility for the people leading these teams." ] },
-        { "pause": 0.5, "phrases": [
-          "Managers can have dashboards that show what's happening across their teams at a glance." ] },
-        { "pause": 0.6, "phrases": [
-          "How many requests are open?" ] },
-        { "pause": 0.35, "phrases": [
-          "How many are waiting on the customer?" ] },
-        { "pause": 0.35, "phrases": [
-          "How many have been closed?" ] },
-        { "pause": 0.35, "phrases": [
-          "How much work does each person have?" ] },
-        { "pause": 0.35, "phrases": [
-          "Are requests being answered within the expected time?" ] },
-        { "pause": 0.35, "phrases": [
-          "And are they being resolved within the expected time?" ] },
-        { "pause": 0.8, "phrases": [
-          "That visibility gives managers something we don't always have today: a clear picture of the work while it's happening." ] },
-        { "pause": 0.5, "phrases": [
-          "It can help identify bottlenecks, workload issues, and opportunities to move resources where they're needed." ] },
-        { "pause": 0.6, "phrases": [
-          "And it gives leadership the ability to establish measurable service expectations." ] },
-        { "pause": 0.5, "phrases": [
-          "Maybe that's a common standard across Northpointe." ] },
-        { "pause": 0.4, "phrases": [
-          "Maybe each team has its own SLA based on the type of work they do." ] },
-        { "pause": 0.5, "phrases": [
-          "BoldDesk can support either approach." ] },
-        { "pause": 0.5, "phrases": [
-          "The important part is having the ability to actually see the results." ] }
-      ]
+        {
+          "at": 0.8,
+          "phrases": [
+            "And then there's visibility for the people leading these teams."
+          ]
+        },
+        {
+          "pause": 0.5,
+          "phrases": [
+            "Managers can have dashboards that show what's happening across their teams at a glance."
+          ]
+        },
+        {
+          "pause": 0.6,
+          "phrases": [
+            "How many requests are open?"
+          ]
+        },
+        {
+          "pause": 0.35,
+          "phrases": [
+            "How many are waiting on the customer?"
+          ]
+        },
+        {
+          "pause": 0.35,
+          "phrases": [
+            "How many have been closed?"
+          ]
+        },
+        {
+          "pause": 0.35,
+          "phrases": [
+            "How much work does each person have?"
+          ]
+        },
+        {
+          "pause": 0.35,
+          "phrases": [
+            "Are requests being answered within the expected time?"
+          ]
+        },
+        {
+          "pause": 0.35,
+          "phrases": [
+            "And are they being resolved within the expected time?"
+          ]
+        },
+        {
+          "pause": 0.8,
+          "phrases": [
+            "That visibility gives managers something we don't always have today: a clear picture of the work while it's happening."
+          ]
+        },
+        {
+          "pause": 0.5,
+          "phrases": [
+            "It can help identify bottlenecks, workload issues, and opportunities to move resources where they're needed."
+          ]
+        },
+        {
+          "pause": 0.6,
+          "phrases": [
+            "And it gives leadership the ability to establish measurable service expectations."
+          ]
+        },
+        {
+          "pause": 0.5,
+          "phrases": [
+            "Maybe that's a common standard across Northpointe."
+          ]
+        },
+        {
+          "pause": 0.4,
+          "phrases": [
+            "Maybe each team has its own SLA based on the type of work they do."
+          ]
+        },
+        {
+          "pause": 0.5,
+          "phrases": [
+            "BoldDesk can support either approach."
+          ]
+        },
+        {
+          "pause": 0.5,
+          "phrases": [
+            "The important part is having the ability to actually see the results."
+          ]
+        }
+      ],
+      "slot": 60.0
     },
     {
-      "n": 9, "id": "sec09", "title": "Better communication. Better accountability. Better customer experience.", "card": "TITLE CARD: Better communication. Better accountability. Better customer experience.", "nora": false,
+      "n": 9,
+      "id": "sec09",
+      "title": "Better communication. Better accountability. Better customer experience.",
+      "card": "TITLE CARD: Better communication. Better accountability. Better customer experience.",
+      "nora": false,
       "chunks": [
-        { "at": 0.8, "phrases": [
-          "That visibility also creates accountability." ] },
-        { "pause": 0.5, "phrases": [
-          "When requests are tracked and SLAs are visible, it's easier to make sure customers aren't left wondering what happened to their request." ] },
-        { "pause": 0.6, "phrases": [
-          "And when someone is out of the office, the rest of the team can see the ticket history and notes and pick up where things left off." ] },
-        { "pause": 0.7, "phrases": [
-          "The goal isn't to make people work harder." ] },
-        { "pause": 0.4, "phrases": [
-          "It's to make it easier for people to do the work they're already trying to do." ] }
-      ]
+        {
+          "at": 0.8,
+          "phrases": [
+            "That visibility also creates accountability."
+          ]
+        },
+        {
+          "pause": 0.5,
+          "phrases": [
+            "When requests are tracked and SLAs are visible, it's easier to make sure customers aren't left wondering what happened to their request."
+          ]
+        },
+        {
+          "pause": 0.6,
+          "phrases": [
+            "And when someone is out of the office, the rest of the team can see the ticket history and notes and pick up where things left off."
+          ]
+        },
+        {
+          "pause": 0.7,
+          "phrases": [
+            "The goal isn't to make people work harder."
+          ]
+        },
+        {
+          "pause": 0.4,
+          "phrases": [
+            "It's to make it easier for people to do the work they're already trying to do."
+          ]
+        }
+      ],
+      "slot": 28.5
     },
     {
-      "n": 10, "id": "sec10", "title": "Built to connect", "card": "TITLE CARD: Built to connect", "nora": false,
+      "n": 10,
+      "id": "sec10",
+      "title": "Built to connect",
+      "card": "TITLE CARD: Built to connect",
+      "nora": false,
       "chunks": [
-        { "at": 0.8, "phrases": [
-          "And BoldDesk doesn't have to stand alone." ] },
-        { "pause": 0.5, "phrases": [
-          "It can connect with other platforms and automate repetitive work." ] },
-        { "pause": 0.6, "phrases": [
-          "For example, during the trial we've tested an integration with ClickUp." ] },
-        { "pause": 0.5, "phrases": [
-          "A ticket can be pushed into ClickUp as a project task with the information carried over automatically.",
-          "The ClickUp number and link can then come back into the BoldDesk ticket, keeping the two systems connected." ] },
-        { "pause": 0.6, "phrases": [
-          "That's one example, but the bigger opportunity is being able to connect the tools teams already use instead of making people duplicate their work between systems." ] },
-        { "pause": 0.6, "phrases": [
-          "There are also opportunities for automated responses, routing, assignment, document handling, and other repetitive tasks." ] },
-        { "pause": 0.6, "phrases": [
-          "And every time we automate something repetitive, we're giving people back time to work on the things that actually need a person." ] }
-      ]
+        {
+          "at": 0.8,
+          "phrases": [
+            "And BoldDesk doesn't have to stand alone."
+          ]
+        },
+        {
+          "pause": 0.5,
+          "phrases": [
+            "It can connect with other platforms and automate repetitive work."
+          ]
+        },
+        {
+          "pause": 0.6,
+          "phrases": [
+            "For example, during the trial we've tested an integration with ClickUp."
+          ]
+        },
+        {
+          "pause": 0.5,
+          "phrases": [
+            "A ticket can be pushed into ClickUp as a project task with the information carried over automatically.",
+            "The ClickUp number and link can then come back into the BoldDesk ticket, keeping the two systems connected."
+          ]
+        },
+        {
+          "pause": 0.6,
+          "phrases": [
+            "That's one example, but the bigger opportunity is being able to connect the tools teams already use instead of making people duplicate their work between systems."
+          ]
+        },
+        {
+          "pause": 0.6,
+          "phrases": [
+            "There are also opportunities for automated responses, routing, assignment, document handling, and other repetitive tasks."
+          ]
+        },
+        {
+          "pause": 0.6,
+          "phrases": [
+            "And every time we automate something repetitive, we're giving people back time to work on the things that actually need a person."
+          ]
+        }
+      ],
+      "slot": 53.1
     },
     {
-      "n": 11, "id": "sec11", "title": "And down the road…", "card": "TITLE CARD: And down the road…", "nora": false,
+      "n": 11,
+      "id": "sec11",
+      "title": "And down the road…",
+      "card": "TITLE CARD: And down the road…",
+      "nora": false,
       "chunks": [
-        { "at": 0.8, "phrases": [
-          "There's even room to think about what's next." ] },
-        { "pause": 0.5, "phrases": [
-          "BoldDesk has an AI connector that could potentially allow things like summarizing a long ticket conversation so a manager or team member could quickly understand what's happening without reading through dozens of replies." ] },
-        { "pause": 0.6, "phrases": [
-          "That's a future possibility, and something we'd want to evaluate carefully from a security and data-governance perspective." ] },
-        { "pause": 0.6, "phrases": [
-          "But that's part of what makes this interesting." ] },
-        { "pause": 0.4, "phrases": [
-          "We're not just looking at what the platform can do today." ] },
-        { "pause": 0.4, "phrases": [
-          "We're looking at what it could grow into." ] }
-      ]
+        {
+          "at": 0.8,
+          "phrases": [
+            "There's even room to think about what's next."
+          ]
+        },
+        {
+          "pause": 0.5,
+          "phrases": [
+            "BoldDesk has an AI connector that could potentially allow things like summarizing a long ticket conversation so a manager or team member could quickly understand what's happening without reading through dozens of replies."
+          ]
+        },
+        {
+          "pause": 0.6,
+          "phrases": [
+            "That's a future possibility, and something we'd want to evaluate carefully from a security and data-governance perspective."
+          ]
+        },
+        {
+          "pause": 0.6,
+          "phrases": [
+            "But that's part of what makes this interesting."
+          ]
+        },
+        {
+          "pause": 0.4,
+          "phrases": [
+            "We're not just looking at what the platform can do today."
+          ]
+        },
+        {
+          "pause": 0.4,
+          "phrases": [
+            "We're looking at what it could grow into."
+          ]
+        }
+      ],
+      "slot": 33.5
     },
     {
-      "n": 12, "id": "sec12", "title": "Why it matters", "card": "CUT TO: Customer / sales / employee animation", "nora": false,
+      "n": 12,
+      "id": "sec12",
+      "title": "Why it matters",
+      "card": "CUT TO: Customer / sales / employee animation",
+      "nora": false,
       "chunks": [
-        { "at": 0.5, "phrases": [
-          "And I'll come back to the reason I think that matters." ] },
-        { "pause": 0.6, "phrases": [
-          "This isn't really about moving emails from one place to another." ] },
-        { "pause": 0.5, "phrases": [
-          "It's about making it easier for people to get help." ] },
-        { "pause": 0.4, "phrases": [
-          "It's about helping teams communicate faster." ] },
-        { "pause": 0.4, "phrases": [
-          "It's about giving managers visibility into the work their teams are doing." ] },
-        { "pause": 0.4, "phrases": [
-          "It's about making sure requests don't get lost." ] },
-        { "pause": 0.5, "phrases": [
-          "And ultimately, it's about helping the people who serve our customers do their jobs more effectively." ] },
-        { "pause": 0.7, "phrases": [
-          "Because whether you're working directly with a borrower, supporting a business partner, working with a retail customer, or helping another Northpointe employee behind the scenes, we all play a part in the customer experience." ] }
-      ]
+        {
+          "at": 0.5,
+          "phrases": [
+            "And I'll come back to the reason I think that matters."
+          ]
+        },
+        {
+          "pause": 0.6,
+          "phrases": [
+            "This isn't really about moving emails from one place to another."
+          ]
+        },
+        {
+          "pause": 0.5,
+          "phrases": [
+            "It's about making it easier for people to get help."
+          ]
+        },
+        {
+          "pause": 0.4,
+          "phrases": [
+            "It's about helping teams communicate faster."
+          ]
+        },
+        {
+          "pause": 0.4,
+          "phrases": [
+            "It's about giving managers visibility into the work their teams are doing."
+          ]
+        },
+        {
+          "pause": 0.4,
+          "phrases": [
+            "It's about making sure requests don't get lost."
+          ]
+        },
+        {
+          "pause": 0.5,
+          "phrases": [
+            "And ultimately, it's about helping the people who serve our customers do their jobs more effectively."
+          ]
+        },
+        {
+          "pause": 0.7,
+          "phrases": [
+            "Because whether you're working directly with a borrower, supporting a business partner, working with a retail customer, or helping another Northpointe employee behind the scenes, we all play a part in the customer experience."
+          ]
+        }
+      ],
+      "slot": 41.9
     },
     {
-      "n": 13, "id": "sec13", "title": "All of us against the problem", "card": "TITLE CARD: All of us against the problem", "nora": false,
+      "n": 13,
+      "id": "sec13",
+      "title": "All of us against the problem",
+      "card": "TITLE CARD: All of us against the problem",
+      "nora": false,
       "chunks": [
-        { "at": 0.8, "phrases": [
-          "And when change feels difficult, I think it's important to remember something:" ] },
-        { "pause": 0.6, "tone": "resolve", "phrases": [
-          "It's all of us against the problem, not against each other." ] },
-        { "pause": 0.6, "phrases": [
-          "We're all trying to accomplish the same thing." ] },
-        { "pause": 0.5, "phrases": [
-          "Serve our customers well." ] },
-        { "pause": 0.4, "phrases": [
-          "Support each other." ] },
-        { "pause": 0.4, "phrases": [
-          "And make it easier to get the right work to the right people at the right time." ] },
-        { "pause": 0.7, "tone": "resolve", "phrases": [
-          "BoldDesk is one way we could help do that." ] }
-      ]
+        {
+          "at": 0.8,
+          "phrases": [
+            "And when change feels difficult, I think it's important to remember something:"
+          ]
+        },
+        {
+          "pause": 0.6,
+          "tone": "resolve",
+          "phrases": [
+            "It's all of us against the problem, not against each other."
+          ]
+        },
+        {
+          "pause": 0.6,
+          "phrases": [
+            "We're all trying to accomplish the same thing."
+          ]
+        },
+        {
+          "pause": 0.5,
+          "phrases": [
+            "Serve our customers well."
+          ]
+        },
+        {
+          "pause": 0.4,
+          "phrases": [
+            "Support each other."
+          ]
+        },
+        {
+          "pause": 0.4,
+          "phrases": [
+            "And make it easier to get the right work to the right people at the right time."
+          ]
+        },
+        {
+          "pause": 0.7,
+          "tone": "resolve",
+          "phrases": [
+            "BoldDesk is one way we could help do that."
+          ]
+        }
+      ],
+      "slot": 25.4
     },
     {
-      "n": 14, "id": "sec14", "title": "Closing", "card": "CLOSING — Nora on screen", "nora": true,
+      "n": 14,
+      "id": "sec14",
+      "title": "Closing",
+      "card": "CLOSING — Nora on screen",
+      "nora": true,
       "chunks": [
-        { "at": 0.6, "phrases": [
-          "We're still exploring what this could look like across Northpointe, but the possibilities are pretty exciting." ] },
-        { "pause": 0.6, "phrases": [
-          "Better tracking." ] },
-        { "pause": 0.35, "phrases": [
-          "Better communication." ] },
-        { "pause": 0.35, "phrases": [
-          "More visibility." ] },
-        { "pause": 0.35, "phrases": [
-          "More automation." ] },
-        { "pause": 0.5, "phrases": [
-          "And a better experience for the people asking for help, which can mean a better experience for the customers we're all here to serve." ] },
-        { "pause": 0.9, "tone": "close", "phrases": [
-          "I'm Nora." ] },
-        { "pause": 0.4, "tone": "close", "phrases": [
-          "Thanks for listening." ] },
-        { "pause": 0.4, "phrases": [
-          "And I'll see you at the help desk!" ] }
-      ]
+        {
+          "at": 0.6,
+          "phrases": [
+            "We're still exploring what this could look like across Northpointe, but the possibilities are pretty exciting."
+          ]
+        },
+        {
+          "pause": 0.6,
+          "phrases": [
+            "Better tracking."
+          ]
+        },
+        {
+          "pause": 0.35,
+          "phrases": [
+            "Better communication."
+          ]
+        },
+        {
+          "pause": 0.35,
+          "phrases": [
+            "More visibility."
+          ]
+        },
+        {
+          "pause": 0.35,
+          "phrases": [
+            "More automation."
+          ]
+        },
+        {
+          "pause": 0.5,
+          "phrases": [
+            "And a better experience for the people asking for help, which can mean a better experience for the customers we're all here to serve."
+          ]
+        },
+        {
+          "pause": 0.9,
+          "tone": "close",
+          "phrases": [
+            "I'm Nora."
+          ]
+        },
+        {
+          "pause": 0.4,
+          "tone": "close",
+          "phrases": [
+            "Thanks for listening."
+          ]
+        },
+        {
+          "pause": 0.4,
+          "phrases": [
+            "And I'll see you at the help desk!"
+          ]
+        }
+      ],
+      "slot": 29.4
     }
   ]
 }

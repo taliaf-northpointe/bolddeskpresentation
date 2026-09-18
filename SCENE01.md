@@ -3,38 +3,29 @@
 The video, built in code. No Vyond, no Hedra, no subscription, no new
 vendor.
 
-All twelve scenes are built. Scene 1 is the only pure talking head
-in the film and was built first to prove the lip-sync pipeline. Scene 2 is
-the first pure motion-graphics scene, which is what most of the remaining
-ones are. Scene 3 is the hero beat and one of only two scenes that needs
-real character acting. Scene 4 is the turn, and the first scene where
-Nora shares the frame with something else.
+Fourteen sections built to the revision 3 script (9:10). Nora is on camera
+in the open and the close; everything between is motion graphics under her
+voice, each section opened by the title card the script calls for.
 
 ```
-index.html                 master timeline — every scene on one clock
+index.html                 master timeline — every section on one clock
 lib/engine.js              shared: easing, Nora, the mouth, captions
 lib/ui.js                  shared: email card, ticket card, status chip
-scenes/scene01.js          "A human question"          0:00-0:20
-scenes/scene02.js          "The work behind the work"  0:20-0:44
-scenes/scene03.js          "The customer feels the delay" 0:44-1:16
-scenes/scene04.js          "The idea"                  1:16-1:43
-scenes/scene05.js          "Simple for the person asking" 1:43-2:06
-scenes/scene06.js          "One place to get help"     2:06-2:36
-scenes/scene07.js          "Thirty seconds that save time" 2:36-2:54
-scenes/scene08.js          "Visibility for leaders"    2:54-3:25
-scenes/scene09.js          "Continuity and the record" 3:25-3:55
-scenes/scene10.js          "Automation gives time back" 3:55-4:20
-scenes/scene11.js          "Room to grow"              4:20-4:37
-scenes/scene12.js          "The bigger idea"           4:37-5:10
+lib/section.js             shared: title card, captions from cue files, on-screen
+                           lines, flat figures, edge fades — the section shell
+scenes/sec01.js .. sec14.js   the film, one module per section
+scenes/scene01.js .. scene12.js  the revision-2 cut; kept for reference, not mounted
 assets/nora.png            Nora, background removed, 819x1063
-data/narration.json        the script: every scene's lines and where they land
-data/visemes-sceneNN.json  lip-sync track, per scene
-data/cues-sceneNN.json     phrase timings from Ava's actual read
-data/pacing.md             speech length against each scene's slot
+data/narration.json        the script: every section's lines, tones and slot
+data/cues-secNN.json       phrase timings from Ava's actual read (captions)
+data/words-secNN.json      word timings (for beats tied to a word)
+data/visemes-secNN.json    lip-sync track, on-camera sections
+data/pacing.md             speech length against each section's slot
+data/delivery.md           every line's tone, pitch and rate
 scripts/synth.py           Ava reads the film: audio, words, cues, visemes
-scripts/synth_azure.py     earlier Scene-1-only Azure script; synth.py supersedes it
-scripts/fake_visemes.py    synthetic track, for testing before audio exists
 scripts/render.py          frame-by-frame capture, muxed to MP4
+scripts/qa_frames.py       load one section headlessly and screenshot moments
+scripts/fake_visemes.py    synthetic track, for testing before audio exists
 build/                     output
 ```
 
@@ -67,6 +58,19 @@ python3 scripts/render.py --scene 2 --start 13 --end 15  # one beat
 Frames are always captured at 1920x1080; `--scale` shrinks the output file
 on the way out rather than scaling the page. Scaling the page moves the
 composition, and then you are reviewing a lie.
+
+## Section structure (revision 3)
+
+A section module exports `{ id, title, dur, visemes, build(root), render(t) }`
+like a scene, and leans on `lib/section.js`: `titleCard` for the card the
+script opens it with, `loadCues('data/cues-secNN.json')` plus `captions(root)`
+for subtitles taken from Ava's actual read, `onScreen` for the one short
+line of copy a beat is allowed, `figure` for flat people, `edges` for the
+fade at both ends. `dur` equals the section's `slot` in narration.json,
+which was frozen from Ava's natural read so audio and picture cannot drift.
+
+Beats are timed to the cue and word files: read them, hard-code the second
+as a commented constant. Renders use `--cc` so the captions are burned in.
 
 ## Scene structure
 
