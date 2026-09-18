@@ -42,6 +42,7 @@ def main():
     ap.add_argument("--scene", type=int, required=True)
     ap.add_argument("--at", default=None, help="comma-separated seconds")
     ap.add_argument("--cc", action="store_true")
+    ap.add_argument("--full", action="store_true", help="keep frames at full 1920x1080 (for print)")
     a = ap.parse_args()
     os.makedirs(OUT, exist_ok=True)
 
@@ -97,6 +98,8 @@ def main():
             page.screenshot(path=path, scale="css", clip={"x": 0, "y": 0, "width": 1920, "height": 1080})
             # half-size for quick looks, when Pillow is around
             try:
+                if a.full:
+                    raise RuntimeError("keep full size")
                 from PIL import Image
                 im = Image.open(path)
                 im.thumbnail((960, 540))
