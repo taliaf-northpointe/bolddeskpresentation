@@ -3,7 +3,7 @@
 The video, built in code. No Vyond, no Hedra, no subscription, no new
 vendor.
 
-Fourteen sections built to the revision 3 script (9:25). Nora is on camera
+Fourteen sections built to the revision 3 script (9:30). Nora is on camera
 in the open and the close; everything between is motion graphics under her
 voice, each section opened by the title card the script calls for.
 

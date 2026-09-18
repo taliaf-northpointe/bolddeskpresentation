@@ -46,7 +46,20 @@
         {
           "pause": 0.7,
           "phrases": [
-            "The platform is an Enterprise Support Portal. A better way for teams across the company to manage requests, communicate with the people they support, and ultimately provide a better experience for our customers."
+            "The platform is an Enterprise Support Portal."
+          ]
+        },
+        {
+          "pause": 0.5,
+          "tone": "resolve",
+          "phrases": [
+            "The idea is One Northpointe Support Experience."
+          ]
+        },
+        {
+          "pause": 0.6,
+          "phrases": [
+            "A better way for teams across the company to manage requests, communicate with the people they support, and ultimately provide a better experience for our customers."
           ]
         },
         {
@@ -75,7 +88,7 @@
           ]
         }
       ],
-      "slot": 52.9
+      "slot": 57.1
     },
     {
       "n": 2,

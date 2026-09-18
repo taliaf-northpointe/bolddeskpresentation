@@ -23,7 +23,7 @@ import {
 
 export const id = 'sec01';
 export const title = 'Open';
-export const dur = 52.9;
+export const dur = 57.1;
 export const visemes = 'data/visemes-sec01.json';
 
 const CUES = loadCues('data/cues-sec01.json');
@@ -31,14 +31,15 @@ const CUES = loadCues('data/cues-sec01.json');
 /* ---------- beats, from the cue / word files ----------------------- */
 const T = {
   platform: 11.86,   // word "platform" in "...working on building a great platform..."
-  bubble:   16.04,   // cue "The platform is an Enterprise Support Portal. ..."
-  trial:    29.62,   // cue "Right now, we're trialing an application called BoldDesk, ..."
-  bolddesk: 32.24,   // word "BoldDesk"
-  lift:     36.90,   // breath before "A handful of teams..." — bubble lifts, grid arrives
-  handful:  37.24,   // cue "A handful of teams have already started testing it."
-  testing:  39.41,   // word "testing" — the handful light up
-  every:    43.54,   // word "every" in "...if every team was on it?" — all light up
-  onestop:  48.80,   // word "one-stop" — the chip lands
+  bubble:   16.04,   // cue "The platform is an Enterprise Support Portal."
+  one:      20.64,   // word "One" in "The idea is One Northpointe Support Experience."
+  trial:    34.10,   // cue "Right now, we're trialing an application called BoldDesk, ..."
+  bolddesk: 36.69,   // word "BoldDesk"
+  lift:     41.30,   // breath before "A handful of teams..." — bubble lifts, grid arrives
+  handful:  41.65,   // cue "A handful of teams have already started testing it."
+  testing:  43.87,   // word "testing" — the handful light up
+  every:    47.96,   // word "every" in "...if every team was on it?" — all light up
+  onestop:  53.11,   // word "one-stop" — the chip lands
 };
 
 /* Blinks sit in the silences between phrases (cue end -> next cue start). */
@@ -47,12 +48,14 @@ const BLINKS = [
   5.22,    // "...help desk assistant." (5.06) -> 5.44
   8.55,    // "...nice to meet you!" (8.20) -> 9.00
   15.60,   // "...across Northpointe." (15.24) -> 16.04
-  22.80,   // breath inside the long line
-  29.20,   // "...for our customers." (28.82) -> 29.62
-  36.80,   // "...for Northpointe." (36.44) -> 37.24
-  40.35,   // "...testing it." (40.05) -> 40.65
-  44.95,   // "...was on it?" (44.65) -> 45.25
-  52.10,   // after the last word
+  19.10,   // "...Support Portal." (18.68) -> 19.58
+  23.30,   // "...Support Experience." (22.95) -> 23.65
+  28.20,   // breath inside the long line
+  33.70,   // "...for our customers." (33.30) -> 34.10
+  41.25,   // "...for Northpointe." (40.85) -> 41.65
+  44.80,   // "...testing it." (44.52) -> 45.12
+  49.35,   // "...was on it?" (49.04) -> 49.64
+  56.40,   // after the last word
 ];
 
 /* The grid: 4 x 3 generic team tiles. These four are "already testing". */
@@ -60,7 +63,7 @@ const COLS = 4, ROWS = 3, TILE_W = 150, TILE_H = 46, GAP = 14;
 const TESTING = new Set([0, 5, 7, 10]);
 const GRID_X = 1130, GRID_Y = 640;
 
-let root, nora, label, bubble, second, secondName, grid, tiles = [], chip, cc;
+let root, nora, label, bubble, ideaLine, second, secondName, grid, tiles = [], chip, cc;
 
 export function build(container) {
   root = container;
@@ -105,6 +108,15 @@ export function build(container) {
   node('div', { html: 'An Enterprise Support&nbsp;Portal', style: {
     fontSize: '58px', lineHeight: 1.14, fontWeight: 700, color: NAVY,
   }}, bubble);
+  /* the idea, under the name: "One Northpointe Support Experience" */
+  ideaLine = node('div', { style: { marginTop: '22px', opacity: 0 }}, bubble);
+  node('div', { text: 'THE IDEA', style: {
+    fontSize: '19px', letterSpacing: '.16em', color: 'rgba(22,67,86,.50)', fontWeight: 700,
+    marginBottom: '6px',
+  }}, ideaLine);
+  node('div', { text: 'One Northpointe Support Experience', style: {
+    fontSize: '32px', fontWeight: 700, color: BLUE, whiteSpace: 'nowrap',
+  }}, ideaLine);
   /* tail pointing back toward her */
   node('div', { style: {
     position: 'absolute', left: '-28px', top: '96px',
@@ -159,7 +171,7 @@ export function build(container) {
   /* --- the chip: "One-stop shop for support" --------------------------- */
   chip = node('div', { text: 'One-stop shop for support', style: {
     /* above the grid (below the lifted bubble), clear of the caption band */
-    position: 'absolute', left: GRID_X + 'px', top: (GRID_Y - 86) + 'px',
+    position: 'absolute', left: GRID_X + 'px', top: (GRID_Y - 80) + 'px',
     padding: '12px 28px', borderRadius: '999px', background: BLUE, color: '#fff',
     fontSize: '28px', fontWeight: 700, whiteSpace: 'nowrap', opacity: 0,
     boxShadow: '0 12px 30px rgba(0,134,177,.30)', transformOrigin: '0% 50%',
@@ -201,7 +213,12 @@ export function render(t, track) {
   const lift = easeInOut(span(t, T.lift, T.lift + 0.7));
   bubble.style.opacity = bu;
   bubble.style.transform =
-    `translate(${lerp(-34, 0, easeOut(bu))}px, ${lerp(0, -130, lift)}px) scale(${lerp(0.9, 1, easeBack(bu))})`;
+    `translate(${lerp(-34, 0, easeOut(bu))}px, ${lerp(0, -245, lift)}px) scale(${lerp(0.9, 1, easeBack(bu))})`;
+
+  /* --- "One Northpointe Support Experience" on the word "One" ----------- */
+  const io = easeOut(span(t, T.one - 0.15, T.one + 0.5));
+  ideaLine.style.opacity = String(io);
+  ideaLine.style.transform = `translateY(${lerp(12, 0, io)}px)`;
 
   /* --- second line: pill on "Right now, we're trialing", name on "BoldDesk" */
   const s2 = easeOut(span(t, T.trial, T.trial + 0.5));
