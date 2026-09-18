@@ -40,13 +40,13 @@
         {
           "pause": 0.7,
           "phrases": [
-            "Talia and I have been working on an idea that we think could make a real difference across Northpointe."
+            "Talia and I have been working on building a great platform that will make a real difference across Northpointe."
           ]
         },
         {
           "pause": 0.7,
           "phrases": [
-            "The idea is an enterprise support platform. A better way for teams across the company to manage requests, communicate with the people they support, and ultimately provide a better experience for our customers."
+            "The platform is an Enterprise Support Portal. A better way for teams across the company to manage requests, communicate with the people they support, and ultimately provide a better experience for our customers."
           ]
         },
         {
@@ -54,9 +54,28 @@
           "phrases": [
             "Right now, we're trialing an application called BoldDesk, and we've been looking at what it could make possible for Northpointe."
           ]
+        },
+        {
+          "pause": 0.7,
+          "phrases": [
+            "A handful of teams have already started testing it."
+          ]
+        },
+        {
+          "pause": 0.5,
+          "tone": "bright",
+          "phrases": [
+            "And here's a thought: wouldn't it be amazing if every team was on it?"
+          ]
+        },
+        {
+          "pause": 0.5,
+          "phrases": [
+            "One universally great experience. Literally a one-stop shop for support, for all of Northpointe."
+          ]
         }
       ],
-      "slot": 37.0
+      "slot": 52.9
     },
     {
       "n": 2,
