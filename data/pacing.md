@@ -7,21 +7,20 @@ narration does not fit the slot: shorten the line or lengthen the scene.
 
 | Scene | Title | Slot | Speech ends | Margin | Words | wpm |
 |---:|---|---:|---:|---:|---:|---:|
-| 1 | Open | 37s *(natural)* | 36.0s | — | 96 | 163 |
-| 2 | Why BoldDesk? | 28s *(natural)* | 26.5s | — | 71 | 166 |
-| 3 | The shared mailbox | 41s *(natural)* | 39.7s | — | 102 | 157 |
-| 4 | Better experience for everyone | 53s *(natural)* | 51.6s | — | 133 | 157 |
-| 5 | Nothing changes for the person emailing you | 40s *(natural)* | 39.3s | — | 97 | 151 |
-| 6 | One place for everything | 52s *(natural)* | 51.3s | — | 145 | 173 |
-| 7 | Knowledge that works for everyone | 28s *(natural)* | 26.8s | — | 67 | 155 |
+| 1 | Open | 58s *(natural)* | 57.4s | — | 142 | 150 |
+| 2 | Why BoldDesk? | 17s *(natural)* | 15.8s | — | 32 | 129 |
+| 3 | The shared mailbox | 42s *(natural)* | 40.5s | — | 103 | 155 |
+| 4 | Better experience for everyone | 53s | 51.6s | +1.0s | 133 | 157 |
+| 5 | Nothing changes for the person emailing you | 55s | 53.8s | +1.0s | 135 | 153 |
+| 6 | One place for everything | 60s *(natural)* | 59.2s | — | 165 | 170 |
+| 7 | Knowledge that works for everyone | 28s | 26.8s | +1.0s | 67 | 155 |
 | 8 | Visibility | 60s *(natural)* | 59.0s | — | 149 | 154 |
-| 9 | Better communication. Better accountability. Better customer experience. | 28s *(natural)* | 27.5s | — | 78 | 176 |
-| 10 | Built to connect | 53s *(natural)* | 52.1s | — | 126 | 148 |
-| 11 | And down the road… | 34s *(natural)* | 32.5s | — | 85 | 161 |
-| 12 | Why it matters | 42s *(natural)* | 40.9s | — | 108 | 161 |
-| 13 | All of us against the problem | 25s *(natural)* | 24.4s | — | 64 | 163 |
-| 14 | Closing | 29s *(natural)* | 28.4s | — | 61 | 132 |
+| 9 | Better communication. Better accountability. Better customer experience. | 29s *(natural)* | 27.9s | — | 79 | 176 |
+| 10 | Built to connect | 53s *(natural)* | 52.2s | — | 126 | 147 |
+| 11 | And down the road… | 33s *(natural)* | 32.2s | — | 84 | 161 |
+| 12 | Why it matters | 32s *(natural)* | 31.0s | — | 82 | 162 |
+| 14 | Closing | 30s *(natural)* | 28.6s | — | 61 | 131 |
 
 *natural*: no slot authored yet, so the section is as long as Ava's read plus 1s. Use these lengths when building the scenes.
 
-Film length without optional scenes: 9:10.
+Film length without optional scenes: 9:09.

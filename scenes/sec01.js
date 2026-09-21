@@ -23,7 +23,7 @@ import {
 
 export const id = 'sec01';
 export const title = 'Open';
-export const dur = 57.1;
+export const dur = 69.1;
 export const visemes = 'data/visemes-sec01.json';
 
 const CUES = loadCues('data/cues-sec01.json');
@@ -33,13 +33,16 @@ const T = {
   platform: 11.86,   // word "platform" in "...working on building a great platform..."
   bubble:   16.04,   // cue "The platform is an Enterprise Support Portal."
   one:      20.64,   // word "One" in "The idea is One Northpointe Support Experience."
-  trial:    34.10,   // cue "Right now, we're trialing an application called BoldDesk, ..."
-  bolddesk: 36.69,   // word "BoldDesk"
-  lift:     41.30,   // breath before "A handful of teams..." — bubble lifts, grid arrives
-  handful:  41.65,   // cue "A handful of teams have already started testing it."
-  testing:  43.87,   // word "testing" — the handful light up
-  every:    47.96,   // word "every" in "...if every team was on it?" — all light up
-  onestop:  53.11,   // word "one-stop" — the chip lands
+  email:    37.41,   // word "email" in "an email sent to a support team becomes a ticket"
+  ticket:   39.47,   // word "ticket"
+  agent:    42.29,   // word "agent" in "The team member working that ticket is the agent"
+  trial:    46.20,   // cue "Right now, we're trialing an application called BoldDesk, ..."
+  bolddesk: 48.82,   // word "BoldDesk"
+  lift:     53.48,   // breath before "A handful of teams..." — bubble lifts, grid arrives
+  handful:  53.83,   // cue "A handful of teams have already started testing it."
+  testing:  55.98,   // word "testing" — the handful light up
+  every:    60.08,   // word "every" in "...if every team was on it?" — all light up
+  onestop:  65.17,   // word "one-stop" — the chip lands
 };
 
 /* Blinks sit in the silences between phrases (cue end -> next cue start). */
@@ -50,12 +53,12 @@ const BLINKS = [
   15.60,   // "...across Northpointe." (15.24) -> 16.04
   19.10,   // "...Support Portal." (18.68) -> 19.58
   23.30,   // "...Support Experience." (22.95) -> 23.65
-  28.20,   // breath inside the long line
-  33.70,   // "...for our customers." (33.30) -> 34.10
-  41.25,   // "...for Northpointe." (40.85) -> 41.65
-  44.80,   // "...testing it." (44.52) -> 45.12
-  49.35,   // "...was on it?" (49.04) -> 49.64
-  56.40,   // after the last word
+  28.78,   // breath inside the long line
+  40.37,   // "...for our customers." (34.54) -> 46.20
+  53.43,   // "...for Northpointe." (53.03) -> 53.83
+  56.89,   // "...testing it." (56.61) -> 57.21
+  61.48,   // "...was on it?" (61.17) -> 61.77
+  68.39,   // after the last word
 ];
 
 /* The grid: 4 x 3 generic team tiles. These four are "already testing". */
@@ -63,7 +66,8 @@ const COLS = 4, ROWS = 3, TILE_W = 150, TILE_H = 46, GAP = 14;
 const TESTING = new Set([0, 5, 7, 10]);
 const GRID_X = 1130, GRID_Y = 640;
 
-let root, nora, label, bubble, ideaLine, second, secondName, grid, tiles = [], chip, cc;
+let root, nora, label, bubble, ideaLine, second, secondName, grid, tiles = [], chip, cc,
+    strip, stripCards = [], stripArrows = [];
 
 export function build(container) {
   root = container;
@@ -138,6 +142,29 @@ export function build(container) {
     fontSize: '24px', fontWeight: 700, whiteSpace: 'nowrap',
   }}, second);
 
+  /* --- how it works: [Email] -> [Ticket] -> [Agent], under the bubble --- */
+  strip = node('div', { style: {
+    position: 'absolute', left: '1090px', top: '728px', display: 'flex',
+    alignItems: 'center', gap: '10px', opacity: 0,
+  }}, root);
+  [['Email', 'to a support team'], ['Ticket', 'tracked behind the scenes'], ['Agent', 'the team member working it']]
+    .forEach(([big, small], i) => {
+      if (i > 0) {
+        const ar = node('div', { text: '→', style: {
+          fontSize: '40px', fontWeight: 700, color: BLUE, opacity: 0,
+        }}, strip);
+        stripArrows.push(ar);
+      }
+      const c = node('div', { style: {
+        background: '#fff', borderRadius: '14px', border: '2px solid rgba(0,134,177,.30)',
+        boxShadow: '0 12px 30px rgba(14,46,60,.12)', padding: '12px 16px', width: '196px',
+        opacity: 0, transformOrigin: '50% 50%',
+      }}, strip);
+      node('div', { text: big, style: { fontSize: '25px', fontWeight: 700, color: NAVY }}, c);
+      node('div', { text: small, style: { fontSize: '15px', color: 'rgba(14,46,60,.55)', marginTop: '2px', lineHeight: 1.2 }}, c);
+      stripCards.push(c);
+    });
+
   /* --- the teams grid ------------------------------------------------ */
   grid = node('div', { style: {
     position: 'absolute', left: GRID_X + 'px', top: GRID_Y + 'px',
@@ -210,10 +237,13 @@ export function render(t, track) {
 
   /* --- the bubble forms beside her and stays; lifts for the grid ------ */
   const bu = span(t, T.bubble, T.bubble + 0.6);
+  /* two lifts: a first one makes room for the how-it-works strip, the
+     second (at "A handful of teams") clears the way for the grid */
+  const pre  = easeInOut(span(t, T.email - 0.9, T.email - 0.2));
   const lift = easeInOut(span(t, T.lift, T.lift + 0.7));
   bubble.style.opacity = bu;
   bubble.style.transform =
-    `translate(${lerp(-34, 0, easeOut(bu))}px, ${lerp(0, -245, lift)}px) scale(${lerp(0.9, 1, easeBack(bu))})`;
+    `translate(${lerp(-34, 0, easeOut(bu))}px, ${lerp(0, -110, pre) + lerp(0, -135, lift)}px) scale(${lerp(0.9, 1, easeBack(bu))})`;
 
   /* --- "One Northpointe Support Experience" on the word "One" ----------- */
   const io = easeOut(span(t, T.one - 0.15, T.one + 0.5));
@@ -228,6 +258,16 @@ export function render(t, track) {
   secondName.style.width = (nm * 212).toFixed(1) + 'px';
   secondName.style.marginRight = (nm * 20).toFixed(1) + 'px';
   secondName.style.opacity = String(Math.min(1, nm * 1.6));
+
+  /* --- how it works strip: email -> ticket -> agent, gone at the lift ---- */
+  const stripOut = span(t, T.lift - 0.4, T.lift + 0.3);
+  strip.style.opacity = String(1 - stripOut);
+  [T.email, T.ticket, T.agent].forEach((tt, i) => {
+    const u = span(t, tt, tt + 0.5);
+    stripCards[i].style.opacity = String(u);
+    stripCards[i].style.transform = `translateY(${lerp(14, 0, easeOut(u))}px) scale(${lerp(0.92, 1, easeBack(u))})`;
+    if (i > 0) stripArrows[i - 1].style.opacity = String(span(t, tt - 0.25, tt + 0.15));
+  });
 
   /* --- teams grid: tiles arrive on "A handful of teams" ---------------- */
   grid.style.opacity = String(span(t, T.handful, T.handful + 0.4));

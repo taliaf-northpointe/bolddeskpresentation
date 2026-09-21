@@ -179,6 +179,8 @@ def html(figs):
   <section>
     <div class="kicker">The platform</div>
     <h2>Simple for the requester. Simple for the agent.</h2>
+    <p>The basic idea: an email sent to a support team becomes a ticket. The team member working that
+    ticket is the agent, and they have everything they need in one place.</p>
     <p>Many ticketing systems are designed primarily with technical teams in mind. BoldDesk is simple,
     clean, and user-friendly, making it easy for employees of all technical skill levels to use.</p>
   </section>
@@ -239,12 +241,12 @@ def html(figs):
 <div class="page">
   <section>
     <div class="kicker">Why the portal beats email</div>
-    <h2>For you, and for our technicians</h2>
+    <h2>For you, and for our agents</h2>
     <p>Yes, emailing still opens a ticket. But a ticket is only as good as the request inside it.
     Here is what going through the portal does better.</p>
     <div class="why">
       <div class="card"><h3>Your question doesn't get lost in a thread.</h3>
-        <p>A forwarded chain that says "see below" means a technician has to dig through the whole
+        <p>A forwarded chain that says "see below" means an agent has to dig through the whole
         conversation just to find the actual ask before they can start helping. The portal has you state
         what you need in your own words, and a clear ask gets a fast answer.</p></div>
       <div class="card"><h3>No more "who's got this?"</h3>
@@ -257,9 +259,9 @@ def html(figs):
         agent the details up front, so the request is done right the first time, with no clarifying
         emails in between.</p></div>
       <div class="card"><h3>You can see your status anytime.</h3>
-        <p>Your technician, status, and details are all in the portal at a glance. No follow-up email
+        <p>Your agent, status, and details are all in the portal at a glance. No follow-up email
         required.</p></div>
-      <div class="card"><h3>Every clear ticket helps your technicians.</h3>
+      <div class="card"><h3>Every clear ticket helps your agents.</h3>
         <p>Clean, categorized tickets show us what is breaking most often, so we can fix root causes for
         the whole bank. And every minute not spent untangling an email chain is a minute spent solving
         problems. Maybe yours.</p></div>

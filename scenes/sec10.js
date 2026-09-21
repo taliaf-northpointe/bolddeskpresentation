@@ -22,14 +22,14 @@ import { stagger, pulse } from '../lib/engine.js';
 
 export const id = 'sec10';
 export const title = 'Built to connect';
-export const dur = 53.1;
+export const dur = 53.2;
 export const visemes = null;
 
 const CUES = loadCues('data/cues-sec10.json');
 
 /* ---------- beats (seconds, local) --------------------------------- */
 const T = {
-  ticketIn:  3.0,    // title card gone; "stand alone" (2.96) -> the ticket, alone
+  ticketIn:  3.00,    // title card gone; "stand alone" (2.96) -> the ticket, alone
   panels:    4.46,   // "connect with other platforms"  -> two faint panels
   automate:  6.32,   // "automate repetitive work"      -> Automation panel breathes
   clickup:  12.21,   // "with ClickUp"                  -> Project work comes forward
@@ -47,9 +47,9 @@ const T = {
   autoIn:   37.15,   // "opportunities for automated"   -> Automation panel forward
   chips: [38.69, 39.77, 40.32, 41.23, 43.17],   // responses, routing, assignment, document, repetitive
   recede:   45.35,   // "every time we automate"        -> chips and cards recede
-  person:   46.20,   // "automate something repetitive" -> figure steps forward
-  giving:   48.20,   // "giving people back time"       -> the clock winds back
-  line:     49.51,   // "to work on the things..."      -> on-screen line
+  person:   46.22,   // "automate something repetitive" -> figure steps forward
+  giving:   48.24,   // "giving people back time"       -> the clock winds back
+  line:     49.57,   // "to work on the things..."      -> on-screen line
 };
 
 const CHIPS = [

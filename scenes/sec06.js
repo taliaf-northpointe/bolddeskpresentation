@@ -32,48 +32,48 @@ import { chip, panelLabel } from '../lib/ui.js';
 
 export const id = 'sec06';
 export const title = 'One place for everything';
-export const dur = 52.3;
+export const dur = 60.2;
 export const visemes = null;
 
 const CUES = loadCues('data/cues-sec06.json');
 
 /* ---------- beats (seconds, local) --------------------------------- */
 const T = {
-  cardOut:   3.00,   // title card (hold 2.4 + 0.6 out) has left the frame
-  shellIn:   2.55,   // "There is also a portal." (0.9–2.2) -> shell rises under the card
-  tileNew:   2.98,   // "The portal" (2.98)           -> New request tile
-  tileMine:  3.45,   //                                -> My requests tile
-  tileKb:    3.90,   //                                -> faint Knowledge base tile
-  openNew:   5.53,   // "open new requests"           -> New request tile pulses
-  seeMine:   7.04,   // "see the requests they already have open" -> My requests opens
-  rows:      7.40,   //                                -> three rows stagger in
-  teams:     9.22,   // "with teams using BoldDesk"   -> a team dot on each row
-  stands:   12.05,   // "where something stands"      -> "In progress" chip pulses
-  email:    13.60,   // "send another email"          -> an envelope appears
-  strike:   14.30,   // "email"                       -> and is struck through
-  emailOut: 15.45,   // "update"                      -> and fades: no email needed
-  phone:    16.97,   // "the portal is mobile friendly" -> the phone lands
-  mobile:   17.56,   // "mobile friendly"             -> chip
-  vpn:      19.16,   // "doesn't require a VPN"       -> chip
-  walker:   22.38,   // "people who aren't sitting at a desk" -> the figure walks
-  bookmark: 27.86,   // "bookmark"                    -> the star fills
-  signin:   30.02,   // "log in"                      -> sign-in screen
-  typing:   30.67,   // "same account"                -> the password dots
-  signinGo: 33.25,   // "Teams"                       -> Continue pressed
-  form:     33.90,   // "and submit"                  -> the short form
-  fields:   34.15,   //                                -> fields fill, .32 apart
-  submit:   35.15,   // "request"                     -> Submit pressed
-  sent:     35.65,   //                                -> the tick
-  lanesIn:  39.30,   // "That may add"                -> portal + phone give way to the lanes
-  formA:    39.60,   //                                -> the form in the upper lane
-  fieldsA:  40.00,   //                                -> its three fields, .38 apart
-  badge:    40.20,   // "30 seconds" (40.14)          -> "+30 s"
-  fastGo:   42.26,   // "give us the information we need" -> the detailed request moves
-  fastDone: 46.30,   // "save" (46.28)                -> and reaches the green check
-  slowGo:   44.60,   // "But that small amount of effort" -> the vague one crawls
-  notes:    44.60,   //                                -> five emails, .8 apart
-  slowDone: 51.00,   // "the request worked"          -> the vague one finally lands
-  line:     47.45,   // "much more time later"        -> on-screen line
+  cardOut:   4.80,   // title card (hold 4.20 + 0.60 out) has left the frame
+  shellIn:   4.35,   // "There is also a portal." (0.90–4.00) -> shell rises under the card
+  tileNew:   4.78,   // "The portal" (4.78)           -> New request tile
+  tileMine:  5.25,   //                                -> My requests tile
+  tileKb:    5.70,   //                                -> faint Knowledge base tile
+  openNew:   7.33,   // "open new requests"           -> New request tile pulses
+  seeMine:   8.84,   // "see the requests they already have open" -> My requests opens
+  rows:      9.20,   //                                -> three rows stagger in
+  teams:     11.02,   // "with teams using BoldDesk"   -> a team dot on each row
+  stands:   13.85,   // "where something stands"      -> "In progress" chip pulses
+  email:    15.40,   // "send another email"          -> an envelope appears
+  strike:   16.09,   // "email"                       -> and is struck through
+  emailOut: 17.24,   // "update"                      -> and fades: no email needed
+  phone:    18.77,   // "the portal is mobile friendly" -> the phone lands
+  mobile:   19.38,   // "mobile friendly"             -> chip
+  vpn:      21.02,   // "doesn't require a VPN"       -> chip
+  walker:   24.34,   // "people who aren't sitting at a desk" -> the figure walks
+  bookmark: 29.89,   // "bookmark"                    -> the star fills
+  signin:   32.05,   // "log in"                      -> sign-in screen
+  typing:   32.70,   // "same account"                -> the password dots
+  signinGo: 35.28,   // "Teams"                       -> Continue pressed
+  form:     35.93,   // "and submit"                  -> the short form
+  fields:   36.18,   //                                -> fields fill, .32 apart
+  submit:   37.18,   // "request"                     -> Submit pressed
+  sent:     37.68,   //                                -> the tick
+  lanesIn:  41.33,   // "That may add"                -> portal + phone give way to the lanes
+  formA:    41.75,   //                                -> the form in the upper lane
+  fieldsA:  42.71,   //                                -> its three fields, .38 apart
+  badge:    43.19,   // "30 seconds" (43.04)          -> "+30 s"
+  fastGo:   48.10,   // "give us the information we need" -> the detailed request moves
+  fastDone: 54.27,   // "save" (54.25)                -> and reaches the green check
+  slowGo:   52.57,   // "But that small amount of effort" -> the vague one crawls
+  notes:    52.57,   //                                -> five emails, .8 apart
+  slowDone: 58.97,   // "the request worked"          -> the vague one finally lands
+  line:     55.42,   // "much more time later"        -> on-screen line
 };
 
 const SH = { x: 420, y: 140, w: 1080, h: 740 };

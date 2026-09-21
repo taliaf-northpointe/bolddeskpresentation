@@ -59,7 +59,14 @@
         {
           "pause": 0.6,
           "phrases": [
-            "A better way for teams across the company to manage requests, communicate with the people they support, and ultimately provide a better experience for our customers."
+            "A better way for teams across the company to manage requests, communicate with the employees and customers they support, and ultimately provide a better experience for our customers."
+          ]
+        },
+        {
+          "pause": 0.7,
+          "phrases": [
+            "Here's the basic idea: an email sent to a support team becomes a ticket.",
+            "The team member working that ticket is the agent, and they have everything they need in one place."
           ]
         },
         {
@@ -88,7 +95,7 @@
           ]
         }
       ],
-      "slot": 57.1
+      "slot": 69.1
     },
     {
       "n": 2,
@@ -106,25 +113,17 @@
         {
           "pause": 0.6,
           "phrases": [
-            "One of the things that stood out to us is how simple it is."
-          ]
-        },
-        {
-          "pause": 0.6,
-          "phrases": [
-            "A lot of ticketing systems are designed primarily with technical teams in mind.",
-            "BoldDesk is much more approachable.",
-            "It's easy for the person submitting a request, and it's easy for the person working it."
+            "Many ticketing systems are designed primarily with technical teams in mind."
           ]
         },
         {
           "pause": 0.5,
           "phrases": [
-            "The best system in the world doesn't help us if people don't want to use it."
+            "BoldDesk is simple, clean, and user-friendly, making it easy for employees of all technical skill levels to use."
           ]
         }
       ],
-      "slot": 25.0
+      "slot": 16.8
     },
     {
       "n": 3,
@@ -148,7 +147,7 @@
         {
           "pause": 0.6,
           "phrases": [
-            "People are searching through email threads. Forwarding messages. CC'ing multiple people.",
+            "Employees are searching through email threads. Forwarding messages. CC'ing multiple colleagues.",
             "Trying to figure out who owns something.",
             "Looking back through a long chain to figure out what the actual question was."
           ]
@@ -156,7 +155,7 @@
         {
           "pause": 0.7,
           "phrases": [
-            "And when someone is out of the office, it can become even harder to know where something stands or what has already been done."
+            "And when an agent is out of the office, it can become even harder to know where something stands or what has already been done."
           ]
         },
         {
@@ -166,7 +165,7 @@
           ]
         }
       ],
-      "slot": 40.7
+      "slot": 41.5
     },
     {
       "n": 4,
@@ -312,7 +311,7 @@
         {
           "at": 0.8,
           "phrases": [
-            "There is also a portal."
+            "There is also a portal, for Northpointe employees only."
           ]
         },
         {
@@ -330,7 +329,7 @@
         {
           "pause": 0.6,
           "phrases": [
-            "And the portal is mobile friendly and doesn't require a VPN, which is especially useful for people who aren't sitting at a desk all day."
+            "And the portal is mobile friendly and doesn't require a VPN, which is especially useful for employees who aren't sitting at a desk all day."
           ]
         },
         {
@@ -342,7 +341,7 @@
         {
           "pause": 0.7,
           "phrases": [
-            "That may add 30 seconds to a minute up front to give us the information we need."
+            "Each desk has its own short form, with fields like the loan number and the application. That may add 30 seconds to a minute up front to give us the information we need."
           ]
         },
         {
@@ -352,7 +351,7 @@
           ]
         }
       ],
-      "slot": 52.3
+      "slot": 60.2
     },
     {
       "n": 7,
@@ -428,7 +427,7 @@
         {
           "pause": 0.35,
           "phrases": [
-            "How much work does each person have?"
+            "How much work does each agent have?"
           ]
         },
         {
@@ -504,29 +503,29 @@
         {
           "pause": 0.5,
           "phrases": [
-            "When requests are tracked and SLAs are visible, it's easier to make sure customers aren't left wondering what happened to their request."
+            "When requests are tracked and SLAs are visible, it's easier to make sure requesters aren't left wondering what happened to their request."
           ]
         },
         {
           "pause": 0.6,
           "phrases": [
-            "And when someone is out of the office, the rest of the team can see the ticket history and notes and pick up where things left off."
+            "And when an agent is out of the office, the rest of the team can see the ticket history and notes and pick up where things left off."
           ]
         },
         {
           "pause": 0.7,
           "phrases": [
-            "The goal isn't to make people work harder."
+            "The goal isn't to make agents work harder."
           ]
         },
         {
           "pause": 0.4,
           "phrases": [
-            "It's to make it easier for people to do the work they're already trying to do."
+            "It's to make it easier for them to do the work they're already trying to do."
           ]
         }
       ],
-      "slot": 28.5
+      "slot": 28.9
     },
     {
       "n": 10,
@@ -575,11 +574,11 @@
         {
           "pause": 0.6,
           "phrases": [
-            "And every time we automate something repetitive, we're giving people back time to work on the things that actually need a person."
+            "And every time we automate something repetitive, we're giving agents back time to work on the things that actually need a person."
           ]
         }
       ],
-      "slot": 53.1
+      "slot": 53.2
     },
     {
       "n": 11,
@@ -597,7 +596,7 @@
         {
           "pause": 0.5,
           "phrases": [
-            "BoldDesk has an AI connector that could potentially allow things like summarizing a long ticket conversation so a manager or team member could quickly understand what's happening without reading through dozens of replies."
+            "BoldDesk has an AI connector that could potentially allow things like summarizing a long ticket conversation so a manager or agent could quickly understand what's happening without reading through dozens of replies."
           ]
         },
         {
@@ -625,7 +624,7 @@
           ]
         }
       ],
-      "slot": 33.5
+      "slot": 33.2
     },
     {
       "n": 12,
@@ -649,13 +648,13 @@
         {
           "pause": 0.5,
           "phrases": [
-            "It's about making it easier for people to get help."
+            "It's about making it easier for employees to get help."
           ]
         },
         {
           "pause": 0.5,
           "phrases": [
-            "And ultimately, it's about helping the people who serve our customers do their jobs more effectively."
+            "And ultimately, it's about helping the employees who serve our customers do their jobs more effectively."
           ]
         },
         {
@@ -665,7 +664,7 @@
           ]
         }
       ],
-      "slot": 31.6
+      "slot": 32.0
     },
     {
       "n": 14,
@@ -707,7 +706,7 @@
         {
           "pause": 0.5,
           "phrases": [
-            "And a better experience for the people asking for help, which can mean a better experience for the customers we're all here to serve."
+            "And a better experience for the requesters asking for help, which can mean a better experience for the customers we're all here to serve."
           ]
         },
         {
@@ -731,7 +730,7 @@
           ]
         }
       ],
-      "slot": 29.4
+      "slot": 29.6
     }
   ]
 }

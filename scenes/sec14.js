@@ -26,7 +26,7 @@ import {
 
 export const id = 'sec14';
 export const title = 'Closing';
-export const dur = 29.4;
+export const dur = 29.6;
 export const visemes = 'data/visemes-sec14.json';
 
 const CUES = loadCues('data/cues-sec14.json');
@@ -35,9 +35,9 @@ const CUES = loadCues('data/cues-sec14.json');
 const T = {
   noraIn:   0.20,
   row:     14.83,   // cue "And a better experience for the people asking for help, ..."
-  fifth:   15.52,   // word "experience" (first time)
-  signoff: 23.40,   // just ahead of cue "I'm Nora." (23.65)
-  endcard: 28.43,   // cue end of "And I'll see you at the help desk!" — her last word
+  fifth:   15.54,   // word "experience" (first time)
+  signoff: 23.61,   // just ahead of cue "I'm Nora." (23.86)
+  endcard: 28.64,   // cue end of "And I'll see you at the help desk!" — her last word
 };
 
 /* The four punch lines: each chip lands exactly at its cue start. */
@@ -55,10 +55,10 @@ const BLINKS = [
   8.90,    // "Better tracking." (8.62) -> 9.22
   12.70,   // "More visibility." (12.42) -> 13.02
   14.50,   // "More automation." (14.23) -> 14.83
-  18.05,   // "...asking for help," (17.93) -> "which" (18.27)
-  23.00,   // "...here to serve." (22.45) -> 23.65
-  24.85,   // "I'm Nora." (24.50) -> 25.20
-  26.50,   // "Thanks for listening." (26.25) -> 26.75
+  18.14,   // "...asking for help," (18.02) -> "which" (18.36)
+  23.21,   // "...here to serve." (22.66) -> 23.86
+  25.06,   // "I'm Nora." (24.71) -> 25.41
+  26.71,   // "Thanks for listening." (26.46) -> 26.96
 ];
 
 /* ---------- geometry ------------------------------------------------ */

@@ -27,29 +27,29 @@ import { chip } from '../lib/ui.js';
 
 export const id = 'sec11';
 export const title = 'And down the road…';
-export const dur = 33.5;
+export const dur = 33.2;
 export const visemes = null;
 
 const CUES = loadCues('data/cues-sec11.json');
 
 /* ---------- beats (seconds, local) --------------------------------- */
 const T = {
-  cardOut:   3.00,   // title card (hold 2.4 + 0.6 out) has left the frame
+  cardOut:   3.00,   // title card (hold 2.40 + 0.60 out) has left the frame
   threadIn:  3.00,   // "There's even room to think about what's next." -> long thread
-  plug:      4.91,   // "AI"                    -> plug glyph
-  plugLabel: 5.20,   // "connector"             -> "AI connector" label
-  squash:    7.58,   // "summarizing"           -> the thread compresses
-  summary:   8.20,   //                          -> three-line card, tagged
-  manager:  10.14,   // "manager"               -> a manager glances at it
-  tagPulse: 17.16,   // "future possibility"    -> the tag pulses once
-  shield:   21.53,   // "security"              -> shield + "Security review"
-  govern:   22.65,   // "data-governance"       -> "Data governance"
-  step:     27.67,   // "We're not just looking at…" -> the card rises, the rest steps aside
-  today:    28.93,   // "platform"              -> three small cards line up
-  todayLab: 29.80,   // "today"                 -> the "Today" label
-  join:     30.76,   // "We're looking at what it could grow into." -> summary joins the line
-  outlines: 31.45,   //                          -> two faint empty outlines
-  line:     31.70,   // "grow into"             -> "Room to grow."
+  plug:      4.88,   // "AI"                    -> plug glyph
+  plugLabel: 5.17,   // "connector"             -> "AI connector" label
+  squash:    7.48,   // "summarizing"           -> the thread compresses
+  summary:   8.09,   //                          -> three-line card, tagged
+  manager:  9.97,   // "manager"               -> a manager glances at it
+  tagPulse: 16.84,   // "future possibility"    -> the tag pulses once
+  shield:   21.22,   // "security"              -> shield + "Security review"
+  govern:   22.34,   // "data-governance"       -> "Data governance"
+  step:     27.35,   // "We're not just looking at…" -> the card rises, the rest steps aside
+  today:    28.61,   // "platform"              -> three small cards line up
+  todayLab: 29.48,   // "today"                 -> the "Today" label
+  join:     30.44,   // "We're looking at what it could grow into." -> summary joins the line
+  outlines: 31.13,   //                          -> two faint empty outlines
+  line:     31.38,   // "grow into"             -> "Room to grow."
 };
 
 const REPLIES = 16;                 // rows drawn in the thread

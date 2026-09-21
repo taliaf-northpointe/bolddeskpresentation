@@ -1,37 +1,37 @@
 [
 [
 0.9,
-2.2,
-"There is also a portal."
+4.0,
+"There is also a portal, for Northpointe employees only."
 ],
 [
-2.8,
-10.66,
+4.6,
+12.46,
 "The portal gives Northpointe employees one place to open new requests and see the requests they already have open with teams using BoldDesk."
 ],
 [
-11.26,
-15.96,
+13.06,
+17.75,
 "They can see where something stands without having to send another email asking for an update."
 ],
 [
-16.66,
-24.84,
-"And the portal is mobile friendly and doesn't require a VPN, which is especially useful for people who aren't sitting at a desk all day."
+18.45,
+26.87,
+"And the portal is mobile friendly and doesn't require a VPN, which is especially useful for employees who aren't sitting at a desk all day."
 ],
 [
-25.54,
-38.71,
+27.57,
+40.74,
 "For example, someone in Sales could bookmark the portal on their phone, log in with the same account they already use for Outlook and Teams, and submit a request while they're between meetings or out working with customers."
 ],
 [
-39.51,
-43.8,
-"That may add 30 seconds to a minute up front to give us the information we need."
+41.54,
+51.77,
+"Each desk has its own short form, with fields like the loan number and the application. That may add 30 seconds to a minute up front to give us the information we need."
 ],
 [
-44.4,
-51.26,
+52.37,
+59.23,
 "But that small amount of effort can save much more time later by reducing the back-and-forth needed to get the request worked."
 ]
 ]

@@ -35,7 +35,7 @@ import { chip } from '../lib/ui.js';
 
 export const id = 'sec03';
 export const title = 'The shared mailbox';
-export const dur = 40.7;
+export const dur = 41.5;
 export const visemes = null;
 
 const CUES = loadCues('data/cues-sec03.json');
@@ -77,25 +77,25 @@ const T = {
   panelIn:   0.50,          // "As we've talked"                       0.60
   early:    [2.30, 3.70],   // two mails while she is still on "teams across Northpointe"
   fill:      5.90,          // "Requests"                              5.89
-  fillGap:   0.27,          // 12 more -> last lands ~9.2 ("mailboxes" ends 9.34)
+  fillGap:   0.27,          // 12 more -> last lands ~9.20 ("mailboxes" ends 9.34)
   panelMove: 9.50,          // clears left before "People"           10.04
-  search:   10.68,          // "searching"                            10.68
-  scrubEnd: 12.40,          //   list scrubbed up and back by here
-  fwdLift:  12.50,          // "Forwarding"                           12.71
-  fwdSplit: 12.90,
-  ccIn:     14.37,          // "CC'ing"                               14.37
-  figB:     15.09,          // "multiple people"                      15.09
-  ghostOut: 16.20,          // FW: copies clear before the bubble
-  who:      17.00,          // "figure out who owns something"  (who  17.41)
-  thread:   18.73,          // "Looking back"                         18.73
-  scroll0:  19.40,          // "through a long chain"                 19.40
-  scroll1:  21.50,          // "...what the actual"                   21.34
-  question: 21.77,          // "question"                             21.77
-  ooo:      24.51,          // "out"                                  24.51
-  oooChip:  24.88,          // "office"                               24.88
-  unknown:  27.35,          // "know where something stands"          27.35
-  dim:      31.58,          // "The result"                           31.58
-  line:     32.97,          // "extra back-and-forth"                 32.97
+  search:   10.72,          // "searching"                            10.72
+  scrubEnd: 12.56,          //   list scrubbed up and back by here
+  fwdLift:  12.66,          // "Forwarding"                           12.89
+  fwdSplit: 13.09,
+  ccIn:     14.66,          // "CC'ing"                               14.66
+  figB:     15.42,          // "multiple people"                      15.42
+  ghostOut: 16.60,          // FW: copies clear before the bubble
+  who:      17.40,          // "figure out who owns something"  (who  17.81)
+  thread:   19.12,          // "Looking back"                         19.12
+  scroll0:  19.79,          // "through a long chain"                 19.79
+  scroll1:  21.90,          // "...what the actual"                   21.74
+  question: 22.17,          // "question"                             22.17
+  ooo:      24.98,          // "out"                                  24.98
+  oooChip:  25.37,          // "office"                               25.37
+  unknown:  27.99,          // "know where something stands"          27.99
+  dim:      32.42,          // "The result"                           32.42
+  line:     33.81,          // "extra back-and-forth"                 33.81
 };
 
 let root, cc, panel, head, unread, list, inner, rows = [], fwdGhosts = [], ccChips = [],

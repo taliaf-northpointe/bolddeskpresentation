@@ -23,9 +23,14 @@ Set `tone` on a chunk in narration.json to override what was read off the text.
 | At | Tone | Pitch | Rate | Line |
 |---:|---|---:|---:|---|
 | 0.6s | greeting | +7Hz | -4% | Hi, I'm Nora. You might know me as your friendly help desk assistant. And if we haven't… |
-| 8.9s | warm | +1Hz | -6% | Talia and I have been working on an idea that we think could make a real difference acr… |
-| 15.3s | warm | +0Hz | -5% | The idea is an enterprise support platform. A better way for teams across the company t… |
-| 29.1s | warm | +1Hz | -6% | Right now, we're trialing an application called BoldDesk, and we've been looking at wha… |
+| 8.9s | warm | +1Hz | -6% | Talia and I have been working on building a great platform that will make a real differ… |
+| 15.9s | warm | +0Hz | -5% | The platform is an Enterprise Support Portal. |
+| 19.5s | resolve | -1Hz | -12% | The idea is One Northpointe Support Experience. |
+| 23.6s | warm | +0Hz | -4% | A better way for teams across the company to manage requests, communicate with the empl… |
+| 35.2s | warm | -2Hz | -5% | Right now, we're trialing an application called BoldDesk, and we've been looking at wha… |
+| 42.8s | warm | -2Hz | -6% | A handful of teams have already started testing it. |
+| 46.3s | bright | +7Hz | +1% | And here's a thought: wouldn't it be amazing if every team was on it? |
+| 50.8s | warm | +0Hz | -4% | One universally great experience. Literally a one-stop shop for support, for all of Nor… |
 
 ## sec02 · Why BoldDesk?
 
@@ -34,10 +39,8 @@ Set `tone` on a chunk in narration.json to override what was read off the text.
 | At | Tone | Pitch | Rate | Line |
 |---:|---|---:|---:|---|
 | 0.8s | question | +8Hz | -8% | So, why BoldDesk? |
-| 3.6s | warm | +1Hz | -5% | One of the things that stood out to us is how simple it is. |
-| 7.4s | warm | +1Hz | -2% | A lot of ticketing systems are designed primarily with technical teams in mind. BoldDes… |
-| 20.5s | punch | +4Hz | -13% | And that matters. |
-| 22.3s | warm | -1Hz | -3% | Because the best system in the world doesn't help us if people don't want to use it. |
+| 3.6s | warm | +1Hz | -5% | Many ticketing systems are designed primarily with technical teams in mind. |
+| 8.7s | warm | +1Hz | -2% | BoldDesk is simple, clean, and user-friendly, making it easy for employees of all techn… |
 
 ## sec03 · The shared mailbox
 
@@ -47,9 +50,9 @@ Set `tone` on a chunk in narration.json to override what was read off the text.
 |---:|---|---:|---:|---|
 | 0.5s | warm | -1Hz | -3% | As we've talked with teams across Northpointe, we've seen a common challenge. |
 | 5.8s | warm | +1Hz | -4% | Requests are often living in shared Outlook mailboxes. |
-| 9.9s | warm | -2Hz | -3% | People are searching through email threads. Forwarding messages. CC'ing multiple people… |
-| 23.3s | serious | -3Hz | -12% | And when someone is out of the office, it can become even harder to know where somethin… |
-| 31.5s | warm | +1Hz | -3% | The result can be extra back-and-forth, longer wait times, and a lot of work happening … |
+| 9.9s | warm | -2Hz | -3% | Employees are searching through email threads. Forwarding messages. CC'ing multiple col… |
+| 23.7s | serious | -3Hz | -12% | And when an agent is out of the office, it can become even harder to know where somethi… |
+| 32.3s | warm | +1Hz | -3% | The result can be extra back-and-forth, longer wait times, and a lot of work happening … |
 
 ## sec04 · Better experience for everyone
 
@@ -77,11 +80,12 @@ Set `tone` on a chunk in narration.json to override what was read off the text.
 | At | Tone | Pitch | Rate | Line |
 |---:|---|---:|---:|---|
 | 0.8s | serious | -4Hz | -13% | One thing I really like about BoldDesk is that we can improve what happens behind the s… |
-| 10.4s | warm | +1Hz | -3% | Teams can continue using their existing support email addresses. |
-| 14.5s | warm | +0Hz | -5% | The email becomes a ticket behind the scenes, where it can be tracked, assigned, docume… |
-| 22.2s | warm | +0Hz | -3% | So for the customer, the experience can stay simple. |
-| 26.1s | warm | -1Hz | -5% | For the team, the process becomes much more organized. |
-| 30.6s | warm | -1Hz | -3% | And that creates an opportunity for better and faster communication without asking the … |
+| 10.4s | warm | +1Hz | -3% | Nothing changes in how a customer opens a ticket. Teams keep their existing support ema… |
+| 22.2s | warm | +0Hz | -5% | Behind the scenes, that email becomes a ticket that can be tracked, assigned, documente… |
+| 29.9s | warm | +0Hz | -3% | So what changes for the customer isn't how they ask. It's the service they get: better,… |
+| 36.5s | warm | -1Hz | -5% | And for the agents, the work becomes much more organized. |
+| 41.2s | warm | -1Hz | -3% | Email works for Northpointe employees too. But we'd encourage them to use the portal, w… |
+| 49.0s | warm | +0Hz | -4% | It captures more information up front, and that helps the agent help them faster. |
 
 ## sec06 · One place for everything
 
@@ -89,13 +93,13 @@ Set `tone` on a chunk in narration.json to override what was read off the text.
 
 | At | Tone | Pitch | Rate | Line |
 |---:|---|---:|---:|---|
-| 0.8s | warm | +1Hz | -4% | There is also a portal. |
-| 2.7s | warm | -1Hz | -2% | The portal gives Northpointe employees one place to open new requests and see the reque… |
-| 11.2s | warm | +1Hz | -5% | They can see where something stands without having to send another email asking for an … |
-| 16.6s | warm | +0Hz | -5% | And the portal is mobile friendly and doesn't require a VPN, which is especially useful… |
-| 25.4s | warm | +1Hz | -6% | For example, someone in Sales could bookmark the portal on their phone, log in with the… |
-| 39.4s | warm | +2Hz | -5% | That may add 30 seconds to a minute up front to give us the information we need. |
-| 44.3s | warm | -2Hz | -3% | But that small amount of effort can save much more time later by reducing the back-and-… |
+| 0.8s | warm | +1Hz | -4% | There is also a portal, for Northpointe employees only. |
+| 4.5s | warm | -1Hz | -2% | The portal gives Northpointe employees one place to open new requests and see the reque… |
+| 13.0s | warm | +1Hz | -5% | They can see where something stands without having to send another email asking for an … |
+| 18.4s | warm | +0Hz | -5% | And the portal is mobile friendly and doesn't require a VPN, which is especially useful… |
+| 27.5s | warm | +1Hz | -6% | For example, someone in Sales could bookmark the portal on their phone, log in with the… |
+| 41.4s | warm | +2Hz | -5% | Each desk has its own short form, with fields like the loan number and the application.… |
+| 52.3s | warm | -2Hz | -3% | But that small amount of effort can save much more time later by reducing the back-and-… |
 
 ## sec07 · Knowledge that works for everyone
 
@@ -119,10 +123,10 @@ Set `tone` on a chunk in narration.json to override what was read off the text.
 | 9.8s | question | +8Hz | -8% | How many requests are open? |
 | 11.9s | question | +9Hz | -4% | How many are waiting on the customer? |
 | 14.1s | question | +10Hz | -6% | How many have been closed? |
-| 16.0s | question | +8Hz | -8% | How much work does each person have? |
+| 16.0s | question | +8Hz | -8% | How much work does each agent have? |
 | 18.6s | question | +10Hz | -6% | Are requests being answered within the expected time? |
 | 22.0s | question | +10Hz | -5% | And are they being resolved within the expected time? |
-| 25.6s | warm | +1Hz | -5% | That visibility gives managers something we don't always have today: a clear picture of… |
+| 25.5s | warm | +1Hz | -5% | That visibility gives managers something we don't always have today: a clear picture of… |
 | 32.4s | warm | -2Hz | -5% | It can help identify bottlenecks, workload issues, and opportunities to move resources … |
 | 39.4s | warm | +0Hz | -4% | And it gives leadership the ability to establish measurable service expectations. |
 | 44.9s | list | +5Hz | -7% | Maybe that's a common standard across Northpointe. |
@@ -137,10 +141,10 @@ Set `tone` on a chunk in narration.json to override what was read off the text.
 | At | Tone | Pitch | Rate | Line |
 |---:|---|---:|---:|---|
 | 0.8s | warm | +0Hz | -3% | That visibility also creates accountability. |
-| 4.0s | serious | -6Hz | -11% | When requests are tracked and SLAs are visible, it's easier to make sure customers aren… |
-| 12.6s | warm | -2Hz | -5% | And when someone is out of the office, the rest of the team can see the ticket history … |
-| 20.8s | serious | -3Hz | -13% | The goal isn't to make people work harder. |
-| 23.7s | warm | -2Hz | -3% | It's to make it easier for people to do the work they're already trying to do. |
+| 4.0s | serious | -6Hz | -11% | When requests are tracked and SLAs are visible, it's easier to make sure requesters are… |
+| 12.7s | warm | -2Hz | -5% | And when an agent is out of the office, the rest of the team can see the ticket history… |
+| 21.1s | serious | -3Hz | -13% | The goal isn't to make agents work harder. |
+| 24.3s | warm | -2Hz | -3% | It's to make it easier for them to do the work they're already trying to do. |
 
 ## sec10 · Built to connect
 
@@ -154,7 +158,7 @@ Set `tone` on a chunk in narration.json to override what was read off the text.
 | 13.3s | warm | -1Hz | -5% | A ticket can be pushed into ClickUp as a project task with the information carried over… |
 | 26.2s | warm | +0Hz | -6% | That's one example, but the bigger opportunity is being able to connect the tools teams… |
 | 36.4s | warm | +1Hz | -4% | There are also opportunities for automated responses, routing, assignment, document han… |
-| 44.9s | warm | +0Hz | -3% | And every time we automate something repetitive, we're giving people back time to work … |
+| 44.9s | warm | +0Hz | -3% | And every time we automate something repetitive, we're giving agents back time to work … |
 
 ## sec11 · And down the road…
 
@@ -164,10 +168,10 @@ Set `tone` on a chunk in narration.json to override what was read off the text.
 |---:|---|---:|---:|---|
 | 0.8s | warm | +1Hz | -6% | There's even room to think about what's next. |
 | 3.8s | warm | +1Hz | -2% | BoldDesk has an AI connector that could potentially allow things like summarizing a lon… |
-| 16.6s | serious | -3Hz | -11% | That's a future possibility, and something we'd want to evaluate carefully from a secur… |
-| 24.9s | warm | +0Hz | -6% | But that's part of what makes this interesting. |
-| 27.6s | warm | +0Hz | -4% | We're not just looking at what the platform can do today. |
-| 30.7s | warm | +0Hz | -4% | We're looking at what it could grow into. |
+| 16.3s | serious | -3Hz | -11% | That's a future possibility, and something we'd want to evaluate carefully from a secur… |
+| 24.6s | warm | +0Hz | -6% | But that's part of what makes this interesting. |
+| 27.2s | warm | +0Hz | -4% | We're not just looking at what the platform can do today. |
+| 30.3s | warm | +0Hz | -4% | We're looking at what it could grow into. |
 
 ## sec12 · Why it matters
 
@@ -177,26 +181,9 @@ Set `tone` on a chunk in narration.json to override what was read off the text.
 |---:|---|---:|---:|---|
 | 0.5s | warm | -1Hz | -6% | And I'll come back to the reason I think that matters. |
 | 4.1s | warm | -2Hz | -3% | This isn't really about moving emails from one place to another. |
-| 8.2s | warm | +1Hz | -5% | It's about making it easier for people to get help. |
-| 11.2s | warm | -2Hz | -2% | It's about helping teams communicate faster. |
-| 14.1s | warm | +0Hz | -6% | It's about giving managers visibility into the work their teams are doing. |
-| 18.6s | serious | -4Hz | -11% | It's about making sure requests don't get lost. |
-| 21.9s | warm | -1Hz | -3% | And ultimately, it's about helping the people who serve our customers do their jobs mor… |
-| 28.2s | warm | -1Hz | -3% | Because whether you're working directly with a borrower, supporting a business partner,… |
-
-## sec13 · All of us against the problem
-
-*TITLE CARD: All of us against the problem*
-
-| At | Tone | Pitch | Rate | Line |
-|---:|---|---:|---:|---|
-| 0.8s | serious | -4Hz | -9% | And when change feels difficult, I think it's important to remember something: |
-| 6.3s | resolve | -1Hz | -9% | It's all of us against the problem, not against each other. |
-| 10.2s | warm | +1Hz | -4% | We're all trying to accomplish the same thing. |
-| 13.2s | punch | +3Hz | -13% | Serve our customers well. |
-| 15.6s | punch | +1Hz | -14% | Support each other. |
-| 17.2s | warm | -1Hz | -4% | And make it easier to get the right work to the right people at the right time. |
-| 21.8s | resolve | -1Hz | -10% | BoldDesk is one way we could help do that. |
+| 8.2s | warm | +1Hz | -5% | It's about making it easier for employees to get help. |
+| 11.4s | warm | -2Hz | -2% | And ultimately, it's about helping the employees who serve our customers do their jobs … |
+| 17.9s | warm | +0Hz | -6% | Because whether you're working directly with a borrower, supporting a business partner,… |
 
 ## sec14 · Closing
 
@@ -209,8 +196,8 @@ Set `tone` on a chunk in narration.json to override what was read off the text.
 | 9.1s | punch | +3Hz | -11% | Better communication. |
 | 11.1s | punch | +3Hz | -11% | More visibility. |
 | 12.9s | punch | +1Hz | -14% | More automation. |
-| 14.7s | warm | +1Hz | -6% | And a better experience for the people asking for help, which can mean a better experie… |
-| 23.6s | close | +5Hz | -7% | I'm Nora. |
-| 25.1s | close | +4Hz | -10% | Thanks for listening. |
-| 26.6s | bright | +8Hz | -1% | And I'll see you at the help desk! |
+| 14.7s | warm | +1Hz | -6% | And a better experience for the requesters asking for help, which can mean a better exp… |
+| 23.8s | close | +5Hz | -7% | I'm Nora. |
+| 25.3s | close | +4Hz | -10% | Thanks for listening. |
+| 26.9s | bright | +8Hz | -1% | And I'll see you at the help desk! |
 

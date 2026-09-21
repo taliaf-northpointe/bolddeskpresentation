@@ -21,7 +21,7 @@ import { pulse, stagger } from '../lib/engine.js';
 
 export const id = 'sec02';
 export const title = 'Why BoldDesk?';
-export const dur = 25.0;
+export const dur = 16.8;
 export const visemes = null;                  // voice-over only
 
 const CUES  = loadCues('data/cues-sec02.json');
@@ -30,15 +30,15 @@ const WORDS = loadJson('data/words-sec02.json', []);
 /* ---------- timing, from the cue and word files ------------------- */
 const T = {
   cardHold:  3.0,     // "So, why BoldDesk?" ends 2.97 — card recedes right after
-  cleanIn:   3.75,    // "One of the things that stood out to us..." 3.67
-  simple:    5.94,    // word "simple" 5.942
-  clutterIn: 7.51,    // "A lot of ticketing systems are designed primarily..." 7.51
-  approach:  12.60,   // "BoldDesk is much more approachable." 12.60
-  figures:   15.00,   // "It's easy for the person submitting a request..." 15.00
-  checkL:    16.26,   // word "submitting" 16.261  (fallback if words not loaded)
-  checkR:    19.09,   // word "working"    19.093
-  matters:   20.24,   // (line removed from the script) — same moment as the closing line
-  line:      20.24,   // "The best system in the world..." 20.24
+  clutterIn: 3.67,    // "Many ticketing systems are designed primarily..." 3.67
+  cleanIn:   8.82,    // "BoldDesk is simple, clean, and user-friendly..." 8.82
+  approach:  8.82,    // the clean card comes forward as the clutter recedes
+  simple:    9.58,    // word "simple" 9.583
+  figures:   13.09,   // "...easy for employees of all technical skill levels..." 13.09
+  checkL:    13.09,   // word "employees" 13.091
+  checkR:    14.88,   // word "levels" 14.876
+  matters:   11.08,   // word "user-friendly" 11.075 — on-screen line
+  line:      11.08,
 };
 
 /* ---------- layout ------------------------------------------------ */
@@ -213,7 +213,7 @@ export function build(container) {
   checkR = checkBadge(root, FIG_RX + fw / 2, FIG_Y - 44);
 
   /* --- the line ------------------------------------------------------- */
-  line = onScreen(root, { text: 'The best system only helps if people want to use it.',
+  line = onScreen(root, { text: 'Simple, clean, and user-friendly.',
                           y: 660, size: 46, t0: T.line, width: 1500 });
 
   card = titleCard(root, { n: 2, title: 'Why BoldDesk?', hold: T.cardHold });

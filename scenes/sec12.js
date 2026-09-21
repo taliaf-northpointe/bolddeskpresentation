@@ -22,28 +22,28 @@ import { stagger, pulse } from '../lib/engine.js';
 
 export const id = 'sec12';
 export const title = 'Why it matters';
-export const dur = 31.6;
+export const dur = 32.0;
 export const visemes = null;
 
 const CUES = loadCues('data/cues-sec12.json');
 
 /* ---------- beats (seconds, local) --------------------------------- */
 const T = {
-  pathIn:   0.6,    // "And I'll come back"            -> the path fades up
+  pathIn:   0.60,    // "And I'll come back"            -> the path fades up
   mailIn:   5.60,   // "moving emails" (5.76)          -> two envelopes on the path
   mailOut:  7.30,   // "another"                       -> and they fade
   lines: [
     8.30,           // "It's about making it easier for people to get help."
-    11.37,          // "And ultimately, it's about helping the people who serve our customers..."
+    11.50,          // "And ultimately, it's about helping the people who serve our customers..."
   ],
-  shift:    17.66,  // "Because whether"               -> list clears, path slides left
+  shift:    17.99,  // "Because whether"               -> list clears, path slides left
   cards: [
-    19.63,          // "borrower"
-    21.00,          // "business partner"
-    22.92,          // "retail customer"
-    25.51,          // "Northpointe employee"
+    19.96,          // "borrower"
+    21.33,          // "business partner"
+    23.25,          // "retail customer"
+    25.83,          // "Northpointe employee"
   ],
-  line:     28.00,  // "we all play a part" (28.18)    -> the closing line, all else recedes
+  line:     28.32,  // "we all play a part" (28.50)    -> the closing line, all else recedes
 };
 
 /* Generic roles. No team is named anywhere in this film. */
