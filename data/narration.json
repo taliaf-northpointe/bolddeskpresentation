@@ -653,24 +653,6 @@
           ]
         },
         {
-          "pause": 0.4,
-          "phrases": [
-            "It's about helping teams communicate faster."
-          ]
-        },
-        {
-          "pause": 0.4,
-          "phrases": [
-            "It's about giving managers visibility into the work their teams are doing."
-          ]
-        },
-        {
-          "pause": 0.4,
-          "phrases": [
-            "It's about making sure requests don't get lost."
-          ]
-        },
-        {
           "pause": 0.5,
           "phrases": [
             "And ultimately, it's about helping the people who serve our customers do their jobs more effectively."
@@ -683,61 +665,7 @@
           ]
         }
       ],
-      "slot": 41.9
-    },
-    {
-      "n": 13,
-      "id": "sec13",
-      "title": "All of us against the problem",
-      "card": "TITLE CARD: All of us against the problem",
-      "nora": false,
-      "chunks": [
-        {
-          "at": 0.8,
-          "phrases": [
-            "And when change feels difficult, I think it's important to remember something:"
-          ]
-        },
-        {
-          "pause": 0.6,
-          "tone": "resolve",
-          "phrases": [
-            "It's all of us against the problem, not against each other."
-          ]
-        },
-        {
-          "pause": 0.6,
-          "phrases": [
-            "We're all trying to accomplish the same thing."
-          ]
-        },
-        {
-          "pause": 0.5,
-          "phrases": [
-            "Serve our customers well."
-          ]
-        },
-        {
-          "pause": 0.4,
-          "phrases": [
-            "Support each other."
-          ]
-        },
-        {
-          "pause": 0.4,
-          "phrases": [
-            "And make it easier to get the right work to the right people at the right time."
-          ]
-        },
-        {
-          "pause": 0.7,
-          "tone": "resolve",
-          "phrases": [
-            "BoldDesk is one way we could help do that."
-          ]
-        }
-      ],
-      "slot": 25.4
+      "slot": 31.6
     },
     {
       "n": 14,

@@ -163,7 +163,7 @@ def html(figs):
     <p>A handful of teams have already started testing it. This handout follows the video and adds real
     screens from the portal.</p>
   </div>
-  <div class="meta">Companion to the video (9:30) · {__import__('datetime').date.today():%B %Y}</div>
+  <div class="meta">Companion to the video (8:54) · {__import__('datetime').date.today():%B %Y}</div>
 </div>
 
 <div class="page">
@@ -294,17 +294,12 @@ def html(figs):
 <div class="page">
   <section>
     <div class="kicker">Why it matters</div>
-    <h2>All of us against the problem</h2>
+    <h2>We all play a part in the customer experience</h2>
     <p>This is not about moving emails from one place to another. It is about making it easier for
-    people to get help, helping teams communicate faster, giving managers visibility, making sure
-    requests do not get lost, and helping the people who serve our customers do their jobs more
-    effectively.</p>
-    <div class="pull">It's all of us against the problem — not against each other.</div>
-    <div class="three">
-      <div class="card"><h3>Serve our customers well.</h3><p>Whether the customer is a borrower, a partner, a retail customer, or a colleague.</p></div>
-      <div class="card"><h3>Support each other.</h3><p>When someone is out, the request stays with the team.</p></div>
-      <div class="card"><h3>Right work, right people, right time.</h3><p>Requests tracked, routed, and visible.</p></div>
-    </div>
+    people to get help, and about helping the people who serve our customers do their jobs more
+    effectively. Whether you work directly with a borrower, support a business partner, serve a retail
+    customer, or help another Northpointe employee behind the scenes, we all play a part in the
+    customer experience.</p>
   </section>
   <section>
     <div class="kicker">The invitation</div>

@@ -3,7 +3,7 @@
 The video, built in code. No Vyond, no Hedra, no subscription, no new
 vendor.
 
-Fourteen sections built to the revision 3 script (9:30). Nora is on camera
+Thirteen sections built to the revision 3 script (8:54). Nora is on camera
 in the open and the close; everything between is motion graphics under her
 voice, each section opened by the title card the script calls for.
 
@@ -13,7 +13,7 @@ lib/engine.js              shared: easing, Nora, the mouth, captions
 lib/ui.js                  shared: email card, ticket card, status chip
 lib/section.js             shared: title card, captions from cue files, on-screen
                            lines, flat figures, edge fades — the section shell
-scenes/sec01.js .. sec14.js   the film, one module per section
+scenes/sec01.js .. sec14.js   the film, one module per section (no sec13: that section was cut)
 scenes/scene01.js .. scene12.js  the revision-2 cut; kept for reference, not mounted
 assets/nora.png            Nora, background removed, 819x1063
 data/narration.json        the script: every section's lines, tones and slot

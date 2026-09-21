@@ -15,7 +15,7 @@ from the audio rather than keyframed by hand.
 index.html        master timeline — every section on one clock
 lib/              engine (easing, Nora, the mouth), UI kit (ticket, email, chips),
                   and section.js (title card, captions, figures — the rev-3 shell)
-scenes/secNN.js   the film: fourteen sections, one module each (revision 3 script)
+scenes/secNN.js   the film: thirteen sections, one module each (revision 3 script)
 scenes/sceneNN.js the earlier twelve-scene cut (revision 2 storyboard); not mounted
 data/             narration.json (the script), Ava's word/cue timings, viseme tracks
 scripts/          synth.py (voice), render.py (frames -> MP4), qa_frames.py (stills)
@@ -28,7 +28,7 @@ Start with **[SCENE01.md](SCENE01.md)**.
 
 ## Status
 
-The film is built to the revision 3 script: fourteen sections, 9:30, Ava
+The film is built to the revision 3 script: thirteen sections, 8:54, Ava
 narrating every line with per-line delivery, captions burned in from her
 actual phrase timings. `python scripts/render.py --cc` renders it to
 `build/film.mp4` with the audio muxed.
