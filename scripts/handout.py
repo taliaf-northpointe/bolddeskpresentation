@@ -252,9 +252,10 @@ def html(figs):
         while that gets sorted, nobody is actually working on it. Picking a category in the portal sends
         your request straight to the right team, first try.</p></div>
       <div class="card"><h3>A little intention goes a long way.</h3>
-        <p>The templates take about 30 seconds and ask you to spell out exactly what you are requesting,
-        which usually means you get exactly that, done right the first time, with no clarifying emails
-        in between.</p></div>
+        <p>Each desk has its own short form with the fields that apply to its requests: the loan number,
+        which application, the request type, and more. About 30 seconds of filling them in gives the
+        agent the details up front, so the request is done right the first time, with no clarifying
+        emails in between.</p></div>
       <div class="card"><h3>You can see your status anytime.</h3>
         <p>Your technician, status, and details are all in the portal at a glance. No follow-up email
         required.</p></div>
