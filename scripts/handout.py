@@ -272,7 +272,7 @@ def html(figs):
   <section>
     <div class="kicker">Visibility</div>
     <h2>A clear picture of the work while it's happening</h2>
-    <div class="two">
+    <div class="{'' if dash else 'two'}">
       <div>
         <p>Managers can have dashboards that show, at a glance:</p>
         <ul>
