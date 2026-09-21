@@ -292,7 +292,6 @@ def html(figs):
         and notes and pick up where things left off.</p>
       </div>
       <div>
-        {fig(s("sec09"), "From the video: a request stays with the team when its owner is out.")}
         {fig(s("sec08"), "From the video: a team overview with sample figures.") if not dash else ""}
       </div>
     </div>
