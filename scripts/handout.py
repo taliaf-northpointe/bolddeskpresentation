@@ -74,7 +74,14 @@ def screens(folder):
         except Exception:
             w, h = 16, 9
         cls = "screen " + ("portrait" if h > w else ("wide" if w / h > 3.5 else ""))
-        figs.append((data_uri(p), cap, cls, stem.lower()))
+        low = stem.lower()
+        if "requester" in low or "employee" in low:
+            portal = "Employee Requester Portal"
+        elif "dashboard" in low:
+            portal = "Agent Portal · Leadership dashboard"
+        else:
+            portal = "Agent Portal"
+        figs.append((data_uri(p), portal, cls, low))
     return figs
 
 
@@ -83,7 +90,7 @@ def fig(uri, caption, cls=""):
     # but are not printed: the handout runs without captions.
     if not uri:
         return f'<figure class="slot {cls}"><div class="ph">Portal screenshot</div></figure>'
-    label = ('<figcaption><span class="real">Real example</span> Directly from our portal</figcaption>'
+    label = (f'<figcaption><span class="real">Real example</span> Directly from our {caption}</figcaption>'
              if "screen" in cls else "")
     return f'<figure class="{cls}"><img src="{uri}">{label}</figure>'
 
@@ -110,6 +117,8 @@ section {{ margin-bottom: 16pt; }}
 .lede {{ font-size: 12.5pt; color: {NAVY}; }}
 .two {{ display: grid; grid-template-columns: 1fr 1fr; gap: 16pt; align-items: start; }}
 .three {{ display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12pt; }}
+.why {{ display: grid; grid-template-columns: 1fr 1fr; gap: 12pt; margin: 8pt 0 14pt; }}
+.why .card:last-child {{ grid-column: 1 / -1; }}
 .card {{ background: #F1F7FA; border-left: 4pt solid {BLUE}; border-radius: 6pt; padding: 10pt 12pt; }}
 .card h3 {{ margin-bottom: 4pt; }}
 .card p {{ margin: 0; font-size: 9.8pt; }}
@@ -158,7 +167,7 @@ def html(figs):
     <div class="rule"></div>
     <div class="hero">{f'<img src="{s("sec01")}">' if s("sec01") else ''}</div>
     <p class="lede">Northpointe is trialing BoldDesk as an Enterprise Support Portal: a better way for teams
-    to manage requests, communicate with the people they support, and provide a better experience for
+    to manage requests, communicate with the employees and customers they support, and provide a better experience for
     our customers.</p>
     <p>A handful of teams have already started testing it. This handout explains the idea and shows
     real screens from the portal.</p>
@@ -169,18 +178,18 @@ def html(figs):
 <div class="page">
   <section>
     <div class="kicker">The platform</div>
-    <h2>Simple for the person asking. Simple for the person working it.</h2>
-    <p>Many ticketing systems are designed primarily with technical teams in mind. BoldDesk is far more
-    approachable. The best system in the world does not help if people do not want to use it.</p>
+    <h2>Simple for the requester. Simple for the agent.</h2>
+    <p>Many ticketing systems are designed primarily with technical teams in mind. BoldDesk is simple,
+    clean, and user-friendly, making it easy for employees of all technical skill levels to use.</p>
   </section>
   <section>
     <div class="kicker">The challenge</div>
     <h2>The work behind the work</h2>
     <div class="two">
       <div>
-        <p>Across Northpointe, many requests live in shared Outlook mailboxes. People search through
-        email threads, forward messages, copy multiple people, and try to work out who owns each
-        request. When someone is out of the office, it is even harder to know where a request stands.</p>
+        <p>Across Northpointe, many requests live in shared Outlook mailboxes. Employees search through
+        email threads, forward messages, copy several colleagues, and try to work out who owns each
+        request. When an agent is out of the office, it is even harder to know where a request stands.</p>
         <p>The result is extra back-and-forth, longer wait times, and a great deal of effort spent
         behind the scenes just to keep track of the work itself.</p>
         <div class="pull">While the employee waits, their customer waits too.</div>
@@ -199,14 +208,19 @@ def html(figs):
 <div class="page">
   <section>
     <div class="kicker">What changes, and what doesn't</div>
-    <h2>Nothing changes for the person emailing you</h2>
+    <h2>Customers open a ticket the same way. Their experience gets better.</h2>
     <div class="two">
       <div>
-        <p>Teams keep their existing support email addresses. Each email becomes a ticket behind the
-        scenes, where it can be tracked, assigned, documented, and measured. For the customer, the
-        experience stays simple. For the team, the process becomes far more organized.</p>
+        <p>Nothing changes in how a customer opens a ticket. Teams keep their existing support email
+        addresses, and external customers keep emailing them exactly as they do today. What changes is
+        the experience: behind the scenes, each email becomes a ticket that is tracked, assigned,
+        documented, and measured, so the customer gets better and faster service without learning
+        anything new. For the agents, the work becomes far more organized.</p>
+        <p>Email works for Northpointe employees too, but we encourage them to use the portal, which is
+        for internal employees only. It captures more information up front, which helps the agent help
+        them faster. The next page explains why.</p>
         <h3>One place for everything</h3>
-        <p>The portal gives employees one place to open requests and to see the ones already open with
+        <p>The portal is for Northpointe employees only. It gives them one place to open requests and to see the ones already open with
         teams using BoldDesk, without sending another email for an update. It is mobile friendly and
         does not require a VPN: bookmark it on a phone, sign in with the same work account used for
         Outlook and Teams, and submit a request between meetings.</p>
@@ -224,6 +238,37 @@ def html(figs):
 
 <div class="page">
   <section>
+    <div class="kicker">Why the portal beats email</div>
+    <h2>For you, and for our technicians</h2>
+    <p>Yes, emailing still opens a ticket. But a ticket is only as good as the request inside it.
+    Here is what going through the portal does better.</p>
+    <div class="why">
+      <div class="card"><h3>Your question doesn't get lost in a thread.</h3>
+        <p>A forwarded chain that says "see below" means a technician has to dig through the whole
+        conversation just to find the actual ask before they can start helping. The portal has you state
+        what you need in your own words, and a clear ask gets a fast answer.</p></div>
+      <div class="card"><h3>No more "who's got this?"</h3>
+        <p>When a request is copied to several teams at once, someone has to work out who owns it, and
+        while that gets sorted, nobody is actually working on it. Picking a category in the portal sends
+        your request straight to the right team, first try.</p></div>
+      <div class="card"><h3>A little intention goes a long way.</h3>
+        <p>The templates take about 30 seconds and ask you to spell out exactly what you are requesting,
+        which usually means you get exactly that, done right the first time, with no clarifying emails
+        in between.</p></div>
+      <div class="card"><h3>You can see your status anytime.</h3>
+        <p>Your technician, status, and details are all in the portal at a glance. No follow-up email
+        required.</p></div>
+      <div class="card"><h3>Every clear ticket helps your technicians.</h3>
+        <p>Clean, categorized tickets show us what is breaking most often, so we can fix root causes for
+        the whole bank. And every minute not spent untangling an email chain is a minute spent solving
+        problems. Maybe yours.</p></div>
+    </div>
+    <div class="pull">Same request, less waiting. Everybody wins.</div>
+  </section>
+</div>
+
+<div class="page">
+  <section>
     <div class="kicker">Visibility</div>
     <h2>A clear picture of the work while it's happening</h2>
     <div class="two">
@@ -231,7 +276,7 @@ def html(figs):
         <p>Managers can have dashboards that show, at a glance:</p>
         <ul>
           <li>How many requests are open, waiting on the customer, or closed</li>
-          <li>How much work each person has</li>
+          <li>How much work each agent has</li>
           <li>Whether requests are answered, and resolved, within the expected time</li>
         </ul>
         <p>That helps identify bottlenecks and move resources where they are needed, and it gives
@@ -242,7 +287,7 @@ def html(figs):
           <div class="card"><h3>Each team's own SLA</h3><p>fitted to the work it does</p></div>
         </div>
         <p>Visibility also creates accountability. When requests are tracked and SLAs are visible,
-        customers are not left wondering. When someone is out, the rest of the team can see the history
+        requesters are not left wondering. When an agent is out, the rest of the team can see the history
         and notes and pick up where things left off.</p>
       </div>
       <div>
@@ -266,11 +311,11 @@ def html(figs):
         the tools teams already use instead of duplicating work between systems.</p>
         <div class="chips"><span>Automated responses</span><span>Routing</span><span>Assignment</span>
         <span>Document handling</span><span>Repetitive tasks</span></div>
-        <p>Every time we automate something repetitive, we give people back time for the work that
+        <p>Every time we automate something repetitive, we give agents back time for the work that
         actually needs a person.</p>
         <h3>And down the road…</h3>
         <p>BoldDesk has an AI connector that could summarize a long ticket conversation so a manager or
-        teammate understands it quickly. That is a future possibility, and one we would evaluate
+        agent understands it quickly. That is a future possibility, and one we would evaluate
         carefully from a security and data-governance perspective.</p>
       </div>
       <div>
@@ -295,7 +340,7 @@ def html(figs):
     <div class="kicker">Why it matters</div>
     <h2>We all play a part in the customer experience</h2>
     <p>This is not about moving emails from one place to another. It is about making it easier for
-    people to get help, and about helping the people who serve our customers do their jobs more
+    employees to get help, and about helping the employees who serve our customers do their jobs more
     effectively. Whether you work directly with a borrower, support a business partner, serve a retail
     customer, or help another Northpointe employee behind the scenes, we all play a part in the
     customer experience.</p>
@@ -307,7 +352,7 @@ def html(figs):
     was on it? One universally great experience: literally a one-stop shop for support across the
     company. We are still exploring what this could look like, but the possibilities are exciting:
     better tracking, better communication, more visibility, more automation, and a better experience
-    for the people asking for help, which means a better experience for the customers we are all here
+    for the requesters asking for help, which means a better experience for the customers we are all here
     to serve.</p>
     {fig(s("sec14"), "From the video: the close.", "small")}
     <div class="footer">Why BoldDesk? · BoldDesk is in trial; vendor review is ongoing. Illustrations use sample figures; portal screens show test data.</div>

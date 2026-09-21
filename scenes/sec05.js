@@ -1,12 +1,14 @@
 /* ===================================================================
-   sec05 — "Nothing changes for the person emailing you"      40.3s
+   sec05 — "Nothing changes for the person emailing you"      54.8s
 
    Adapted from scene05. The person asking keeps emailing the address
    they always have; behind the centre line that email becomes a
    ticket whose rows appear only on the words that name them. The same
    state is then labelled twice — "Awaiting your reply" for the person,
    "Waiting for Customer Response" for the team — and one curve joins
-   the two. Simple outside, organized inside.
+   the two. Simple outside, organized inside. Then the point for
+   employees: email still works, but the portal (which takes the reply
+   card's place) captures more up front and gets them help faster.
 
    Every number below is read from data/words-sec05.json /
    data/cues-sec05.json (where Ava actually says the phrase) and kept
@@ -22,7 +24,7 @@ import { emailCard, ticketCard, chip, panelLabel, TONE } from '../lib/ui.js';
 
 export const id = 'sec05';
 export const title = 'Nothing changes for the person emailing you';
-export const dur = 40.3;
+export const dur = 54.8;
 export const visemes = null;
 
 const CUES = loadCues('data/cues-sec05.json');
@@ -33,24 +35,29 @@ const T = {
   mailIn:    3.1,    // the requester's email arrives on the left
   behind:    5.51,   // "behind the scenes"          -> right panel label
   person:    8.20,   // "the person asking"          -> left panel label
-  address:  12.59,   // "support email addresses"    -> "support@ (same address)" chip
-  check:    13.33,   // "addresses"                  -> small check
-  fly:      14.81,   // "The email"                  -> crosses the centre line
-  become:   15.73,   // "becomes a ticket"           -> and is a ticket
-  tracked:  18.02,   // "tracked"                    -> status row
-  assigned: 18.99,   // "assigned"                   -> assignee row
-  documented: 19.99, // "documented"                 -> activity history
-  measured: 21.08,   // "measured"                   -> resolution-due row
-  reply:    23.02,   // "for the customer"           -> a plain reply lands
-  replyChip: 24.90,  // "stay simple"                -> "Awaiting your reply"
-  team:     26.58,   // "For the team"               -> "Waiting for Customer Response"
-  curve:    28.23,   // "becomes much more organized"-> one curve joins the two
-  line:     31.21,   // "that creates an opportunity"-> on-screen line
+  address:  15.44,   // "support email addresses"    -> "support@ (same address)" chip
+  check:    15.80,   // "addresses"                  -> small check
+  external: 16.92,   // "external customers"         -> "External customers still email" chip
+  fly:      23.94,   // "that email"                 -> crosses the centre line
+  become:   24.70,   // "becomes a ticket"           -> and is a ticket
+  tracked:  25.67,   // "tracked"                    -> status row
+  assigned: 26.67,   // "assigned"                   -> assignee row
+  documented: 27.70, // "documented"                 -> activity history
+  measured: 28.79,   // "measured"                   -> resolution-due row
+  reply:    30.04,   // "So what changes for the customer" -> a plain reply lands
+  replyChip: 33.60,  // "the service they get"       -> "Awaiting your reply"
+  team:     36.56,   // "And for the agents"         -> "Waiting for Customer Response"
+  curve:    39.68,   // "organized"                  -> one curve joins the two
+  line:     34.79,   // "better, and faster"         -> on-screen line
+  employees: 41.26,  // "Email works for Northpointe employees too" -> reply gives way
+  portal:   45.71,   // "portal"                     -> the portal card takes its place
+  info:     50.15,   // "more information up front"  -> its fields fill
+  faster:   53.16,   // "faster"                     -> check + chip
 };
 
 let root, card, cc, tint, divider, labelL, labelR,
-    mail, addrChip, addrCheck, flyer, ticket, reply, replyChip,
-    linkSvg, linkPath, linkNote, line;
+    mail, addrChip, addrCheck, extChip, flyer, ticket, reply, replyChip,
+    linkSvg, linkPath, linkNote, line, line2, portal, portalRows = [], portalDone;
 
 export function build(container) {
   root = container;
@@ -86,6 +93,12 @@ export function build(container) {
   svgNode('circle', { cx: 12, cy: 12, r: 11, fill: BLUE }, addrCheck);
   svgNode('path', { d: 'M6.5 12.5l3.5 3.5 7.5-8', fill: 'none', stroke: '#fff',
     'stroke-width': 2.6, 'stroke-linecap': 'round', 'stroke-linejoin': 'round' }, addrCheck);
+
+  /* external customers keep emailing — a chip under the card */
+  extChip = node('div', { style: {
+    position: 'absolute', left: '32px', bottom: '-22px', opacity: 0,
+  }}, mail.el);
+  chip(extChip, 'External customers still email, exactly as today', 'open', 17);
 
   /* the plain reply that arrives later — still just an email */
   reply = emailCard(root, {
@@ -125,8 +138,34 @@ export function build(container) {
     letterSpacing: '.04em', opacity: 0, whiteSpace: 'nowrap',
   }}, root);
 
-  /* --- the line ---------------------------------------------------- */
-  line = onScreen(root, { text: 'Simple outside. Organized inside.', y: 56, size: 46, t0: T.line });
+  /* --- the portal card, for employees: takes the reply's place -------- */
+  portal = node('div', { style: {
+    position: 'absolute', left: '120px', top: '560px', width: '700px',
+    background: '#fff', borderRadius: '16px', border: '3px solid rgba(0,134,177,.35)',
+    boxShadow: '0 18px 44px rgba(14,46,60,.14)', padding: '24px 32px 26px', opacity: 0,
+  }}, root);
+  const ph = node('div', { style: { display: 'flex', alignItems: 'center', gap: '14px', marginBottom: '16px' }}, portal);
+  node('div', { text: 'PORTAL', style: { fontSize: '17px', letterSpacing: '.18em', color: BLUE, fontWeight: 700 }}, ph);
+  chip(ph, 'Northpointe employees only', 'open', 16);
+  ['Group', 'Application', 'Request type', 'What you need'].forEach(lbl => {
+    const r = node('div', { style: {
+      display: 'flex', alignItems: 'center', gap: '16px', padding: '9px 0',
+      borderTop: '1px solid rgba(22,67,86,.10)',
+    }}, portal);
+    node('div', { text: lbl, style: { width: '200px', fontSize: '20px', color: 'rgba(14,46,60,.55)' }}, r);
+    const bar = node('div', { style: {
+      height: '14px', width: '0px', borderRadius: '7px', background: 'rgba(0,134,177,.35)',
+    }}, r);
+    portalRows.push(bar);
+  });
+  portalDone = node('div', { style: { position: 'absolute', right: '28px', top: '22px', opacity: 0 }}, portal);
+  chip(portalDone, 'Help, faster', 'open', 18);
+
+  /* --- the lines ---------------------------------------------------- */
+  line = onScreen(root, { text: 'Same email. Better, faster service.', y: 56, size: 46,
+                          t0: T.line, t1: T.employees - 0.2 });
+  line2 = onScreen(root, { text: 'For employees: the portal. Internal only.', y: 56, size: 46,
+                           t0: T.portal });
 
   card = titleCard(root, { n: 5, title: 'Nothing changes for the person emailing you' });
   cc = captions(root);
@@ -194,8 +233,14 @@ export function render(t) {
   ticket.rows.due.style.opacity = msr;
   ticket.rows.due.style.transform = `translateX(${lerp(-14, 0, easeOut(msr))}px)`;
 
+  /* external customers keep emailing */
+  const ex = span(t, T.external, T.external + 0.5);
+  extChip.style.opacity = ex;
+  extChip.style.transform = `translateY(${lerp(8, 0, easeOut(ex))}px)`;
+
   /* --- the requester gets an ordinary email back --------------------- */
-  const rp = span(t, T.reply, T.reply + 0.7);
+  const rpOut = span(t, T.employees - 0.2, T.employees + 0.5);
+  const rp = span(t, T.reply, T.reply + 0.7) * (1 - rpOut);
   reply.el.style.opacity = rp;
   reply.el.style.transform = `translateY(${lerp(26, 0, easeOut(rp))}px)`;
   reply.footer.style.opacity = String(span(t, T.replyChip, T.replyChip + 0.5));
@@ -215,13 +260,26 @@ export function render(t) {
   ticket.rows.statusChip.style.transform = `scale(${1 + bump * 0.10})`;
   replyChip.style.transform = `scale(${1 + bump * 0.10})`;
 
-  const cv = span(t, T.curve, T.curve + 0.7);
+  const cv = span(t, T.curve, T.curve + 0.7) * (1 - rpOut);
   linkPath.setAttribute('stroke-opacity', String(cv * 0.85));
   /* the note gives way to the on-screen line — one phrase at a time */
   linkNote.style.opacity = String(span(t, T.curve + 0.3, T.curve + 0.9) * (1 - span(t, T.line, T.line + 0.4)));
 
-  /* --- the line -------------------------------------------------------- */
+  /* --- for employees: the portal, in the reply's place ------------------ */
+  const po = span(t, T.portal, T.portal + 0.7);
+  portal.style.opacity = po;
+  portal.style.transform = `translateY(${lerp(26, 0, easeOut(po))}px) scale(${lerp(0.96, 1, easeBack(po))})`;
+  portalRows.forEach((bar, i) => {
+    const u = easeOut(stagger(t, T.info, 0.22, 0.6, i));
+    bar.style.width = (u * [220, 300, 260, 380][i]) + 'px';
+  });
+  const fd = span(t, T.faster, T.faster + 0.45);
+  portalDone.style.opacity = fd;
+  portalDone.style.transform = `scale(${lerp(0.7, 1, easeBack(fd))})`;
+
+  /* --- the lines -------------------------------------------------------- */
   line.update(t);
+  line2.update(t);
 
   cc.update(t, CUES);
   return `mail ${mi.toFixed(2)} ticket ${bc.toFixed(2)} two ${tw.toFixed(2)}`;

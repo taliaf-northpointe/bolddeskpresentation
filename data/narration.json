@@ -266,35 +266,41 @@
         {
           "pause": 0.6,
           "phrases": [
-            "Teams can continue using their existing support email addresses."
+            "Nothing changes in how a customer opens a ticket. Teams keep their existing support email addresses, and external customers can still email them for support, exactly as they do today."
           ]
         },
         {
           "pause": 0.5,
           "phrases": [
-            "The email becomes a ticket behind the scenes, where it can be tracked, assigned, documented, and measured."
+            "Behind the scenes, that email becomes a ticket that can be tracked, assigned, documented, and measured."
           ]
         },
         {
           "pause": 0.6,
           "phrases": [
-            "So for the customer, the experience can stay simple."
+            "So what changes for the customer isn't how they ask. It's the service they get: better, and faster."
           ]
         },
         {
           "pause": 0.4,
           "phrases": [
-            "For the team, the process becomes much more organized."
+            "And for the agents, the work becomes much more organized."
           ]
         },
         {
-          "pause": 0.6,
+          "pause": 0.7,
           "phrases": [
-            "And that creates an opportunity for better and faster communication without asking the person on the other end to learn an entirely new way of working."
+            "Email works for Northpointe employees too. But we'd encourage them to use the portal, which is for internal employees only."
+          ]
+        },
+        {
+          "pause": 0.4,
+          "phrases": [
+            "It captures more information up front, and that helps the agent help them faster."
           ]
         }
       ],
-      "slot": 40.3
+      "slot": 54.8
     },
     {
       "n": 6,
