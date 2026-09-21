@@ -118,19 +118,13 @@
           ]
         },
         {
-          "pause": 0.7,
-          "phrases": [
-            "And that matters."
-          ]
-        },
-        {
           "pause": 0.5,
           "phrases": [
-            "Because the best system in the world doesn't help us if people don't want to use it."
+            "The best system in the world doesn't help us if people don't want to use it."
           ]
         }
       ],
-      "slot": 27.5
+      "slot": 25.0
     },
     {
       "n": 3,

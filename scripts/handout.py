@@ -171,8 +171,7 @@ def html(figs):
     <div class="kicker">The platform</div>
     <h2>Simple for the person asking. Simple for the person working it.</h2>
     <p>Many ticketing systems are designed primarily with technical teams in mind. BoldDesk is far more
-    approachable, and that matters. The best system in the world does not help if people do not want to
-    use it.</p>
+    approachable. The best system in the world does not help if people do not want to use it.</p>
   </section>
   <section>
     <div class="kicker">The challenge</div>

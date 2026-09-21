@@ -21,7 +21,7 @@ import { pulse, stagger } from '../lib/engine.js';
 
 export const id = 'sec02';
 export const title = 'Why BoldDesk?';
-export const dur = 27.5;
+export const dur = 25.0;
 export const visemes = null;                  // voice-over only
 
 const CUES  = loadCues('data/cues-sec02.json');
@@ -37,8 +37,8 @@ const T = {
   figures:   15.00,   // "It's easy for the person submitting a request..." 15.00
   checkL:    16.26,   // word "submitting" 16.261  (fallback if words not loaded)
   checkR:    19.09,   // word "working"    19.093
-  matters:   20.59,   // "And that matters." — hold
-  line:      22.37,   // "Because the best system in the world..." 22.37
+  matters:   20.24,   // (line removed from the script) — same moment as the closing line
+  line:      20.24,   // "The best system in the world..." 20.24
 };
 
 /* ---------- layout ------------------------------------------------ */

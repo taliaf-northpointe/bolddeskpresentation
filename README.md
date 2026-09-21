@@ -28,7 +28,7 @@ Start with **[SCENE01.md](SCENE01.md)**.
 
 ## Status
 
-The film is built to the revision 3 script: thirteen sections, 8:54, Ava
+The film is built to the revision 3 script: thirteen sections, 8:51, Ava
 narrating every line with per-line delivery, captions burned in from her
 actual phrase timings. `python scripts/render.py --cc` renders it to
 `build/film.mp4` with the audio muxed.
