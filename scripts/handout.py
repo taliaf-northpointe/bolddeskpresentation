@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-handout.py — the PDF handout that travels with the video.
+handout.py — the standalone PDF handout (also travels with the video).
 
 Builds an HTML document in the film's palette, drops in stills from the
 film and real screenshots of the portal, and prints it to PDF with the
@@ -160,10 +160,10 @@ def html(figs):
     <p class="lede">Northpointe is trialing BoldDesk as an Enterprise Support Portal: a better way for teams
     to manage requests, communicate with the people they support, and provide a better experience for
     our customers.</p>
-    <p>A handful of teams have already started testing it. This handout follows the video and adds real
-    screens from the portal.</p>
+    <p>A handful of teams have already started testing it. This handout explains the idea and shows
+    real screens from the portal.</p>
   </div>
-  <div class="meta">Companion to the video (8:54) · {__import__('datetime').date.today():%B %Y}</div>
+  <div class="meta">Northpointe Bank · {__import__('datetime').date.today():%B %Y}</div>
 </div>
 
 <div class="page">
@@ -311,7 +311,7 @@ def html(figs):
     for the people asking for help, which means a better experience for the customers we are all here
     to serve.</p>
     {fig(s("sec14"), "From the video: the close.", "small")}
-    <div class="footer">Why BoldDesk? · BoldDesk is in trial; vendor review is ongoing. Figures shown in the video are samples.</div>
+    <div class="footer">Why BoldDesk? · BoldDesk is in trial; vendor review is ongoing. Illustrations use sample figures; portal screens show test data.</div>
   </section>
 </div>
 </body></html>"""
