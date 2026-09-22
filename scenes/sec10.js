@@ -41,15 +41,15 @@ const T = {
   linkBack: 20.80,   // "and link can then come back"   -> link chip travels back
   onTicket: 22.42,   // "into the BoldDesk ticket"      -> lands as a linked row
   keep:     23.82,   // "keeping the two systems connected" -> connecting line stays
-  tools:    30.14,   // "connect the tools teams already use" -> unnamed tools link in
-  dupIn:    32.25,   // "instead of making people duplicate" -> "typed twice" ghost
-  dupOut:   33.63,   // "duplicate"                     -> and it fades
-  autoIn:   37.15,   // "opportunities for automated"   -> Automation panel forward
-  chips: [38.69, 39.77, 40.32, 41.23, 43.17],   // responses, routing, assignment, document, repetitive
-  recede:   45.35,   // "every time we automate"        -> chips and cards recede
-  person:   46.22,   // "automate something repetitive" -> figure steps forward
-  giving:   48.24,   // "giving people back time"       -> the clock winds back
-  line:     49.57,   // "to work on the things..."      -> on-screen line
+  tools:    30.16,   // "connect the tools teams already use" -> unnamed tools link in
+  dupIn:    32.27,   // "instead of making people duplicate" -> "typed twice" ghost
+  dupOut:   33.66,   // "duplicate"                     -> and it fades
+  autoIn:   37.19,   // "opportunities for automated"   -> Automation panel forward
+  chips: [38.73, 39.81, 40.36, 41.27, 43.21],   // responses, routing, assignment, document, repetitive
+  recede:   45.39,   // "every time we automate"        -> chips and cards recede
+  person:   46.26,   // "automate something repetitive" -> figure steps forward
+  giving:   48.28,   // "giving people back time"       -> the clock winds back
+  line:     49.61,   // "to work on the things..."      -> on-screen line
 };
 
 const CHIPS = [

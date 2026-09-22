@@ -391,7 +391,7 @@
         {
           "at": 0.8,
           "phrases": [
-            "And then there's visibility for the people leading these teams."
+            "And then there's visibility for the managers leading these teams."
           ]
         },
         {
@@ -479,7 +479,7 @@
           ]
         }
       ],
-      "slot": 60.0
+      "slot": 60.4
     },
     {
       "n": 9,
@@ -556,7 +556,7 @@
         {
           "pause": 0.6,
           "phrases": [
-            "That's one example, but the bigger opportunity is being able to connect the tools teams already use instead of making people duplicate their work between systems."
+            "That's one example, but the bigger opportunity is being able to connect the tools teams already use instead of making teams duplicate their work between systems."
           ]
         },
         {

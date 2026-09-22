@@ -27,37 +27,37 @@ import { chip } from '../lib/ui.js';
 
 export const id = 'sec08';
 export const title = 'Visibility';
-export const dur = 60.0;
+export const dur = 60.4;
 export const visemes = null;
 
 const CUES = loadCues('data/cues-sec08.json');
 
 /* ---------- beats (seconds, local) --------------------------------- */
 const T = {
-  cardOut:   3.00,   // title card (hold 2.40 + 0.60 out) has left the frame
-  frameIn:   3.00,   // "visibility for the people leading" -> manager + empty frame
-  tiles:     5.58,   // "dashboards"                        -> six tile outlines
-  chipIn:    6.20,   // "that show"                         -> "Sample figures" chip
-  glance:    8.52,   // "glance"                            -> manager looks at it
-  q1:        9.92,   // "How many requests are open?"       -> Open
-  q2:       11.99,   // "How many are waiting on the customer?" -> Waiting on customer
-  q3:       14.17,   // "How many have been closed?"        -> Closed
-  q4:       16.06,   // "How much work does each person have?" -> Workload bars
-  q5:       18.69,   // "Are requests being answered within…"  -> Response within target
-  q6:       22.08,   // "And are they being resolved within…"  -> Resolution within target
-  armDown:  25.63,   // "That visibility gives managers"    -> arm relaxes
-  line1:    29.73,   // "a clear picture"                   -> on-screen line
-  line1Out: 41.48,   // just before the dashboard rises
-  spot:     33.65,   // "bottlenecks"                       -> one bar turns amber
-  issues:   34.47,   // "workload issues"                   -> second nudge
-  spread:   36.99,   // "move resources"                    -> the work redistributes
-  settled:  38.38,   // "needed"                            -> amber gone
-  shrink:   41.73,   // "establish measurable"              -> dashboard shrinks and rises
-  optA:     45.00,   // "Maybe that's a common standard"    -> option card A
-  optB:     48.24,   // "Maybe each team has its own SLA"   -> option card B
-  check:    53.77,   // "either approach"                   -> a check on BOTH at once
-  back:     55.22,   // "The important part"                -> dashboard returns behind
-  line2:    57.53,   // "actually see the results"          -> on-screen line
+  cardOut:   3.28,   // title card (hold 2.60 + 0.60 out) has left the frame
+  frameIn:   3.28,   // "visibility for the people leading" -> manager + empty frame
+  tiles:     5.99,   // "dashboards"                        -> six tile outlines
+  chipIn:    6.61,   // "that show"                         -> "Sample figures" chip
+  glance:    8.93,   // "glance"                            -> manager looks at it
+  q1:        10.33,   // "How many requests are open?"       -> Open
+  q2:       12.40,   // "How many are waiting on the customer?" -> Waiting on customer
+  q3:       14.58,   // "How many have been closed?"        -> Closed
+  q4:       16.47,   // "How much work does each person have?" -> Workload bars
+  q5:       19.10,   // "Are requests being answered within…"  -> Response within target
+  q6:       22.48,   // "And are they being resolved within…"  -> Resolution within target
+  armDown:  26.04,   // "That visibility gives managers"    -> arm relaxes
+  line1:    30.13,   // "a clear picture"                   -> on-screen line
+  line1Out: 41.89,   // just before the dashboard rises
+  spot:     34.05,   // "bottlenecks"                       -> one bar turns amber
+  issues:   34.87,   // "workload issues"                   -> second nudge
+  spread:   37.40,   // "move resources"                    -> the work redistributes
+  settled:  38.79,   // "needed"                            -> amber gone
+  shrink:   42.14,   // "establish measurable"              -> dashboard shrinks and rises
+  optA:     45.40,   // "Maybe that's a common standard"    -> option card A
+  optB:     48.64,   // "Maybe each team has its own SLA"   -> option card B
+  check:    54.18,   // "either approach"                   -> a check on BOTH at once
+  back:     55.63,   // "The important part"                -> dashboard returns behind
+  line2:    57.93,   // "actually see the results"          -> on-screen line
 };
 
 /* Illustrative. Every value invented; the panel is labelled as such. */
