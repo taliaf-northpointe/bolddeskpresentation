@@ -596,7 +596,7 @@
         {
           "pause": 0.6,
           "phrases": [
-            "That's a future possibility, and something we'd want to evaluate carefully from a security and data-governance perspective."
+            "That's a future possibility, with the approval from our AI Use Case Review Committee, of course."
           ]
         },
         {
@@ -618,7 +618,7 @@
           ]
         }
       ],
-      "slot": 33.2
+      "slot": 31.4
     },
     {
       "n": 12,

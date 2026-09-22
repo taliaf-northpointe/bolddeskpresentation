@@ -5,7 +5,8 @@
    "AI connector" a small labelled plug appears beside it; on
    "summarizing" the thread compresses into a three-line summary card
    tagged "Future possibility", and a manager glances at it. The tag
-   pulses once on "future possibility"; a shield and two chips land on
+   pulses once on "future possibility"; a shield and two chips (the AI Use
+   Case Review Committee, approval first) land on
    "security" and "data-governance". Then three small cards from earlier
    sections line up under "Today", the summary card shrinks to join
    them, and the line runs on into two faint empty outlines.
@@ -27,7 +28,7 @@ import { chip } from '../lib/ui.js';
 
 export const id = 'sec11';
 export const title = 'And down the road…';
-export const dur = 33.2;
+export const dur = 31.4;
 export const visemes = null;
 
 const CUES = loadCues('data/cues-sec11.json');
@@ -41,15 +42,15 @@ const T = {
   squash:    7.48,   // "summarizing"           -> the thread compresses
   summary:   8.09,   //                          -> three-line card, tagged
   manager:  9.97,   // "manager"               -> a manager glances at it
-  tagPulse: 16.84,   // "future possibility"    -> the tag pulses once
-  shield:   21.22,   // "security"              -> shield + "Security review"
-  govern:   22.34,   // "data-governance"       -> "Data governance"
-  step:     27.35,   // "We're not just looking at…" -> the card rises, the rest steps aside
-  today:    28.61,   // "platform"              -> three small cards line up
-  todayLab: 29.48,   // "today"                 -> the "Today" label
-  join:     30.44,   // "We're looking at what it could grow into." -> summary joins the line
-  outlines: 31.13,   //                          -> two faint empty outlines
-  line:     31.38,   // "grow into"             -> "Room to grow."
+  tagPulse: 16.61,   // "future possibility"    -> the tag pulses once
+  shield:   18.49,   // "approval"              -> shield + "AI Use Case Review Committee"
+  govern:   20.92,   // "Committee"             -> "Approval first"
+  step:     25.53,   // "We're not just looking at…" -> the card rises, the rest steps aside
+  today:    26.79,   // "platform"              -> three small cards line up
+  todayLab: 27.66,   // "today"                 -> the "Today" label
+  join:     28.62,   // "We're looking at what it could grow into." -> summary joins the line
+  outlines: 29.31,   //                          -> two faint empty outlines
+  line:     29.56,   // "grow into"             -> "Room to grow."
 };
 
 const REPLIES = 16;                 // rows drawn in the thread
@@ -180,8 +181,8 @@ export function build(container) {
     fill: 'rgba(0,134,177,.10)', stroke: BLUE, 'stroke-width': 2.2, 'stroke-linejoin': 'round' }, shieldIcon);
   svgNode('path', { d: 'M11 16l4 4 7-8', fill: 'none', stroke: BLUE,
     'stroke-width': 2.4, 'stroke-linecap': 'round', 'stroke-linejoin': 'round' }, shieldIcon);
-  chipSec = chip(shieldRow, 'Security review', 'open', 22);
-  chipGov = chip(shieldRow, 'Data governance', 'open', 22);
+  chipSec = chip(shieldRow, 'AI Use Case Review Committee', 'open', 22);
+  chipGov = chip(shieldRow, 'Approval first', 'open', 22);
   chipSec.style.transformOrigin = '0% 50%';
   chipGov.style.transformOrigin = '0% 50%';
 

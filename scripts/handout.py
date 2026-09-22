@@ -317,8 +317,8 @@ def html(figs):
         actually needs a person.</p>
         <h3>And down the road…</h3>
         <p>BoldDesk has an AI connector that could summarize a long ticket conversation so a manager or
-        agent understands it quickly. That is a future possibility, and one we would evaluate
-        carefully from a security and data-governance perspective.</p>
+        agent understands it quickly. That is a future possibility, with the approval of our AI Use Case
+        Review Committee, of course.</p>
       </div>
       <div>
         {fig(s("sec10"), "From the video: a ticket becomes a linked project task and comes back connected.")}
