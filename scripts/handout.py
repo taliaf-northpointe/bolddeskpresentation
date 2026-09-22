@@ -191,7 +191,7 @@ def html(figs):
       <div>
         <p>Across Northpointe, many requests live in shared Outlook mailboxes. Employees search through
         email threads, forward messages, copy several colleagues, and try to work out who owns each
-        request. When an agent is out of the office, it is even harder to know where a request stands.</p>
+        request. When a team member is out of the office, it is even harder to know where a request stands.</p>
         <p>The result is extra back-and-forth, longer wait times, and a great deal of effort spent
         behind the scenes just to keep track of the work itself.</p>
         <div class="pull">While the employee waits, their customer waits too.</div>
@@ -217,7 +217,7 @@ def html(figs):
         addresses, and external customers keep emailing them exactly as they do today. What changes is
         the experience: behind the scenes, each email becomes a ticket that is tracked, assigned,
         documented, and measured, so the customer gets better and faster service without learning
-        anything new. For the agents, the work becomes far more organized.</p>
+        anything new. For our team members, the work becomes far more organized.</p>
         <p>Email works for Northpointe employees too, but we encourage them to use the portal, which is
         for internal employees only. It captures more information up front, which helps the agent help
         them faster. The next page explains why.</p>
@@ -290,7 +290,7 @@ def html(figs):
           <div class="card"><h3>Each team's own SLA</h3><p>fitted to the work it does</p></div>
         </div>
         <p>Visibility also creates accountability. When requests are tracked and SLAs are visible,
-        requesters are not left wondering. When an agent is out, the rest of the team can see the history
+        requesters are not left wondering. When a team member is out, the rest of the team can see the history
         and notes and pick up where things left off.</p>
       </div>
       <div>

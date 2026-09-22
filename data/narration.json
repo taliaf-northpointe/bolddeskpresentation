@@ -155,7 +155,7 @@
         {
           "pause": 0.7,
           "phrases": [
-            "And when an agent is out of the office, it can become even harder to know where something stands or what has already been done."
+            "And when a team member is out of the office, it can become even harder to know where something stands or what has already been done."
           ]
         },
         {
@@ -165,7 +165,7 @@
           ]
         }
       ],
-      "slot": 41.5
+      "slot": 41.6
     },
     {
       "n": 4,
@@ -283,7 +283,7 @@
         {
           "pause": 0.4,
           "phrases": [
-            "And for the agents, the work becomes much more organized."
+            "And for our team members, the work becomes much more organized."
           ]
         },
         {
@@ -299,7 +299,7 @@
           ]
         }
       ],
-      "slot": 54.8
+      "slot": 55.1
     },
     {
       "n": 6,
@@ -309,16 +309,10 @@
       "nora": false,
       "chunks": [
         {
-          "at": 0.8,
-          "phrases": [
-            "There is also a portal, for Northpointe employees only."
-          ]
-        },
-        {
-          "pause": 0.5,
           "phrases": [
             "The portal gives Northpointe employees one place to open new requests and see the requests they already have open with teams using BoldDesk."
-          ]
+          ],
+          "at": 3.2
         },
         {
           "pause": 0.5,
@@ -351,7 +345,7 @@
           ]
         }
       ],
-      "slot": 60.2
+      "slot": 59.1
     },
     {
       "n": 7,
@@ -509,7 +503,7 @@
         {
           "pause": 0.6,
           "phrases": [
-            "And when an agent is out of the office, the rest of the team can see the ticket history and notes and pick up where things left off."
+            "And when a team member is out of the office, the rest of the team can see the ticket history and notes and pick up where things left off."
           ]
         },
         {
@@ -525,7 +519,7 @@
           ]
         }
       ],
-      "slot": 28.9
+      "slot": 29.0
     },
     {
       "n": 10,

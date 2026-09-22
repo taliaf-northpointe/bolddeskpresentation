@@ -35,7 +35,7 @@ import { chip } from '../lib/ui.js';
 
 export const id = 'sec03';
 export const title = 'The shared mailbox';
-export const dur = 41.5;
+export const dur = 41.6;
 export const visemes = null;
 
 const CUES = loadCues('data/cues-sec03.json');
@@ -91,11 +91,11 @@ const T = {
   scroll0:  19.79,          // "through a long chain"                 19.79
   scroll1:  21.90,          // "...what the actual"                   21.74
   question: 22.17,          // "question"                             22.17
-  ooo:      24.98,          // "out"                                  24.98
-  oooChip:  25.37,          // "office"                               25.37
-  unknown:  27.99,          // "know where something stands"          27.99
-  dim:      32.42,          // "The result"                           32.42
-  line:     33.81,          // "extra back-and-forth"                 33.81
+  ooo:      24.99,          // "out"                                  24.99
+  oooChip:  25.39,          // "office"                               25.39
+  unknown:  28.03,          // "know where something stands"          28.03
+  dim:      32.50,          // "The result"                           32.50
+  line:     33.89,          // "extra back-and-forth"                 33.89
 };
 
 let root, cc, panel, head, unread, list, inner, rows = [], fwdGhosts = [], ccChips = [],

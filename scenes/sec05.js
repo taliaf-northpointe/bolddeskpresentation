@@ -24,15 +24,15 @@ import { emailCard, ticketCard, chip, panelLabel, TONE } from '../lib/ui.js';
 
 export const id = 'sec05';
 export const title = 'Nothing changes for the person emailing you';
-export const dur = 54.8;
+export const dur = 55.1;
 export const visemes = null;
 
 const CUES = loadCues('data/cues-sec05.json');
 
 /* ---------- beats (seconds, local) --------------------------------- */
 const T = {
-  cardOut:   3.0,    // title card (hold 2.4 + 0.6 out) has left the frame
-  mailIn:    3.1,    // the requester's email arrives on the left
+  cardOut:   3.00,    // title card (hold 2.40 + 0.60 out) has left the frame
+  mailIn:    3.10,    // the requester's email arrives on the left
   behind:    5.51,   // "behind the scenes"          -> right panel label
   person:    8.20,   // "the person asking"          -> left panel label
   address:  15.44,   // "support email addresses"    -> "support@ (same address)" chip
@@ -47,12 +47,12 @@ const T = {
   reply:    30.04,   // "So what changes for the customer" -> a plain reply lands
   replyChip: 33.60,  // "the service they get"       -> "Awaiting your reply"
   team:     36.56,   // "And for the agents"         -> "Waiting for Customer Response"
-  curve:    39.68,   // "organized"                  -> one curve joins the two
+  curve:    39.89,   // "organized"                  -> one curve joins the two
   line:     34.79,   // "better, and faster"         -> on-screen line
-  employees: 41.26,  // "Email works for Northpointe employees too" -> reply gives way
-  portal:   45.71,   // "portal"                     -> the portal card takes its place
-  info:     50.15,   // "more information up front"  -> its fields fill
-  faster:   53.16,   // "faster"                     -> check + chip
+  employees: 41.52,  // "Email works for Northpointe employees too" -> reply gives way
+  portal:   45.97,   // "portal"                     -> the portal card takes its place
+  info:     50.41,   // "more information up front"  -> its fields fill
+  faster:   53.43,   // "faster"                     -> check + chip
 };
 
 let root, card, cc, tint, divider, labelL, labelR,

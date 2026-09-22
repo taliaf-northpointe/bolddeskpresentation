@@ -23,7 +23,7 @@ import { ticketCard, chip, TONE } from '../lib/ui.js';
 
 export const id = 'sec09';
 export const title = 'Better communication. Better accountability. Better customer experience.';
-export const dur = 28.9;
+export const dur = 29.0;
 export const visemes = null;
 
 const CUES = loadCues('data/cues-sec09.json');
@@ -44,15 +44,15 @@ const T = {
   flip:      8.13,   // "make sure"                 -> "Awaiting your reply" becomes "In progress" + check
   relax:     8.64,   // "customers aren't left wondering" -> a small relaxed head tilt
   focus:    12.78,   // "And when someone"          -> the requester's view recedes a little
-  ooo:      13.82,   // "out"                       -> the owner fades to a ghost
-  oooChip:  14.17,   // "office"                    -> "Out of office" chip
-  slide:    15.71,   // "the rest of the team"      -> the ticket slides to the teammate
-  swap:     16.26,   //                                assignee changes as it lands
-  history:  17.10,   // "history"                   -> activity opens, rows one at a time
-  pickup:   18.82,   // "pick up"                   -> the teammate takes it
-  line1:    21.31,   // "The goal isn't to make people work harder."  -> "Not harder."
-  line1Out: 24.12,
-  line2:    24.42,   // "It's to make it easier..."                    -> "Easier to work together."
+  ooo:      13.84,   // "out"                       -> the owner fades to a ghost
+  oooChip:  14.19,   // "office"                    -> "Out of office" chip
+  slide:    15.75,   // "the rest of the team"      -> the ticket slides to the teammate
+  swap:     16.31,   //                                assignee changes as it lands
+  history:  17.16,   // "history"                   -> activity opens, rows one at a time
+  pickup:   18.91,   // "pick up"                   -> the teammate takes it
+  line1:    21.42,   // "The goal isn't to make people work harder."  -> "Not harder."
+  line1Out: 24.23,
+  line2:    24.53,   // "It's to make it easier..."                    -> "Easier to work together."
 };
 
 let root, card, cc, ticket, sla, ownerName, owner, mate, oooChip,
