@@ -1,0 +1,771 @@
+{
+  "_comment": [
+    "Team Version of the script (Talia, 2026-09-24). Same section ids as data/narration.json; scenes/team/ holds the retimed scene modules."
+  ],
+  "voice": "en-US-AvaNeural",
+  "rate": "-4%",
+  "scenes": [
+    {
+      "n": 1,
+      "id": "sec01",
+      "title": "Open",
+      "card": "OPEN — Nora on screen",
+      "nora": true,
+      "chunks": [
+        {
+          "phrases": [
+            "Hi, I'm Nora.",
+            "You might know me as your friendly help desk assistant.",
+            "And if we haven't met yet, it's nice to meet you!"
+          ],
+          "at": 0.6,
+          "tone": "greeting"
+        },
+        {
+          "phrases": [
+            "Today, I'm here to tell you a little bit about BoldDesk."
+          ],
+          "pause": 0.7
+        },
+        {
+          "phrases": [
+            "BoldDesk is a support platform designed to give teams a better way to manage requests, communicate with the employees and customers they support, and keep track of the work happening across their team."
+          ],
+          "pause": 0.7
+        },
+        {
+          "phrases": [
+            "The idea is One Northpointe Support Experience."
+          ],
+          "pause": 0.6,
+          "tone": "resolve"
+        },
+        {
+          "phrases": [
+            "Here's the basic idea: an email sent to a support team becomes a ticket.",
+            "The team member working that ticket is the agent, and they have everything they need in one place."
+          ],
+          "pause": 0.7
+        },
+        {
+          "phrases": [
+            "So, why BoldDesk? And how can it help teams across Northpointe?"
+          ],
+          "pause": 0.7
+        },
+        {
+          "phrases": [
+            "Let's take a look."
+          ],
+          "pause": 0.5,
+          "tone": "bright"
+        }
+      ],
+      "slot": 47.7
+    },
+    {
+      "n": 2,
+      "id": "sec02",
+      "title": "Why BoldDesk?",
+      "card": "TITLE CARD: Why BoldDesk?",
+      "nora": false,
+      "chunks": [
+        {
+          "phrases": [
+            "Many ticketing systems are designed primarily with technical teams in mind."
+          ],
+          "at": 0.8
+        },
+        {
+          "phrases": [
+            "BoldDesk is simple, clean, and user-friendly, making it easy for employees of all technical skill levels to use."
+          ],
+          "pause": 0.5
+        },
+        {
+          "phrases": [
+            "And that's important because support isn't just an IT function.",
+            "Teams all across Northpointe are answering questions, handling requests, working with documents, solving problems, and supporting other employees and customers every day."
+          ],
+          "pause": 0.7
+        },
+        {
+          "phrases": [
+            "BoldDesk gives those teams a way to manage that work without having to completely change how they communicate with the people they support."
+          ],
+          "pause": 0.6
+        }
+      ],
+      "slot": 37.6
+    },
+    {
+      "n": 3,
+      "id": "sec03",
+      "title": "The shared mailbox",
+      "card": "CUT TO: Shared mailbox / email animation",
+      "nora": false,
+      "chunks": [
+        {
+          "phrases": [
+            "As we've talked with teams across Northpointe, we've seen a common challenge."
+          ],
+          "at": 0.5
+        },
+        {
+          "phrases": [
+            "Requests are often living in shared Outlook mailboxes."
+          ],
+          "pause": 0.6
+        },
+        {
+          "phrases": [
+            "Employees are searching through email threads. Forwarding messages. CC'ing multiple colleagues.",
+            "Trying to figure out who owns something.",
+            "Looking back through a long chain to figure out what the actual question was."
+          ],
+          "pause": 0.6
+        },
+        {
+          "phrases": [
+            "And when a team member is out of the office, it can become even harder to know where something stands or what has already been done."
+          ],
+          "pause": 0.7
+        },
+        {
+          "phrases": [
+            "The result can be extra back-and-forth, longer wait times, and a lot of work happening behind the scenes just to keep track of the work itself."
+          ],
+          "pause": 0.7
+        },
+        {
+          "phrases": [
+            "BoldDesk changes that by turning those emails into trackable work."
+          ],
+          "pause": 0.7
+        },
+        {
+          "phrases": [
+            "Instead of a request getting buried in an inbox, it becomes a ticket with an owner, a status, a history, and all of the information related to that request in one place."
+          ],
+          "pause": 0.5
+        }
+      ],
+      "slot": 57.5
+    },
+    {
+      "n": 4,
+      "id": "sec04",
+      "title": "Better experience for everyone",
+      "card": "TITLE CARD: Better experience for everyone",
+      "nora": false,
+      "chunks": [
+        {
+          "phrases": [
+            "And this isn't just an internal efficiency issue."
+          ],
+          "at": 0.8
+        },
+        {
+          "phrases": [
+            "Every one of us supports a customer in some way."
+          ],
+          "pause": 0.6
+        },
+        {
+          "phrases": [
+            "That might be an external business partner."
+          ],
+          "pause": 0.5
+        },
+        {
+          "phrases": [
+            "It might be a borrower."
+          ],
+          "pause": 0.4
+        },
+        {
+          "phrases": [
+            "It might be a retail banking customer."
+          ],
+          "pause": 0.4
+        },
+        {
+          "phrases": [
+            "Or it might be another Northpointe employee."
+          ],
+          "pause": 0.4
+        },
+        {
+          "phrases": [
+            "And that last one matters more than we sometimes realize."
+          ],
+          "pause": 0.7
+        },
+        {
+          "phrases": [
+            "Because when we help our internal teams get what they need faster, we're helping them serve their customers faster."
+          ],
+          "pause": 0.5
+        },
+        {
+          "phrases": [
+            "Imagine someone in Sales is working with a borrower and suddenly can't access a system they need."
+          ],
+          "pause": 0.8
+        },
+        {
+          "phrases": [
+            "If that request turns into multiple emails back and forth just to figure out which application they need help with, that's time."
+          ],
+          "pause": 0.5
+        },
+        {
+          "phrases": [
+            "And while they're waiting, their customer is waiting too."
+          ],
+          "pause": 0.6
+        },
+        {
+          "phrases": [
+            "A better support experience internally can have a very real impact externally."
+          ],
+          "pause": 0.8
+        }
+      ],
+      "slot": 52.6
+    },
+    {
+      "n": 5,
+      "id": "sec05",
+      "title": "Nothing changes for the person emailing you",
+      "card": "TITLE CARD: Nothing changes for the person emailing you",
+      "nora": false,
+      "chunks": [
+        {
+          "phrases": [
+            "One thing I really like about BoldDesk is that we can improve what happens behind the scenes without making things harder for the person asking for help."
+          ],
+          "at": 0.8
+        },
+        {
+          "phrases": [
+            "Nothing changes in how a customer opens a ticket. Teams keep their existing support email addresses, and external customers can still email them for support, exactly as they do today."
+          ],
+          "pause": 0.6
+        },
+        {
+          "phrases": [
+            "Behind the scenes, that email becomes a ticket that can be tracked, assigned, documented, and measured."
+          ],
+          "pause": 0.5
+        },
+        {
+          "phrases": [
+            "So what changes for the customer isn't how they ask. It's the service they get: better, and faster."
+          ],
+          "pause": 0.6
+        },
+        {
+          "phrases": [
+            "And for our team members, the work becomes much more organized."
+          ],
+          "pause": 0.4
+        },
+        {
+          "phrases": [
+            "Email works for Northpointe employees too. But we'd encourage them to use the portal, which is for internal employees only."
+          ],
+          "pause": 0.7
+        },
+        {
+          "phrases": [
+            "It captures more information up front, and that helps the agent help them faster."
+          ],
+          "pause": 0.4
+        }
+      ],
+      "slot": 55.1
+    },
+    {
+      "n": 6,
+      "id": "sec06",
+      "title": "One place for everything",
+      "card": "TITLE CARD: One place for everything",
+      "nora": false,
+      "chunks": [
+        {
+          "phrases": [
+            "The portal gives Northpointe employees one place to open new requests and see the requests they already have open with teams using BoldDesk."
+          ],
+          "at": 3.2
+        },
+        {
+          "phrases": [
+            "They can see where something stands without having to send another email asking for an update."
+          ],
+          "pause": 0.5
+        },
+        {
+          "phrases": [
+            "And the portal is mobile friendly and doesn't require a VPN, which is especially useful for employees who aren't sitting at a desk all day."
+          ],
+          "pause": 0.6
+        },
+        {
+          "phrases": [
+            "For example, someone in Sales could bookmark the portal on their phone, log in with the same account they already use for Outlook and Teams, and submit a request while they're between meetings or out working with customers."
+          ],
+          "pause": 0.6
+        },
+        {
+          "phrases": [
+            "Each desk has its own short form, with fields like the loan number and the application."
+          ],
+          "pause": 0.7
+        },
+        {
+          "phrases": [
+            "That may add 30 seconds to a minute up front to give us the information we need. But that small amount of effort can save much more time later by reducing the back-and-forth needed to get the request worked."
+          ],
+          "pause": 0.5
+        },
+        {
+          "phrases": [
+            "For team leaders, that means your team is getting better information at the beginning instead of having to spend time tracking down the basics later."
+          ],
+          "pause": 0.7
+        }
+      ],
+      "slot": 67.5
+    },
+    {
+      "n": 7,
+      "id": "sec07",
+      "title": "Knowledge that works for everyone",
+      "card": "TITLE CARD: Knowledge that works for everyone",
+      "nora": false,
+      "chunks": [
+        {
+          "phrases": [
+            "The portal can also give us something else that's really valuable: a shared knowledge base."
+          ],
+          "at": 0.8
+        },
+        {
+          "phrases": [
+            "Every team can contribute articles, helpful tips, common answers, and self-service information based on what they know."
+          ],
+          "pause": 0.6
+        },
+        {
+          "phrases": [
+            "So instead of answering the same question over and over, a team can answer it once and make that knowledge available to everyone."
+          ],
+          "pause": 0.6
+        },
+        {
+          "phrases": [
+            "What one team knows can become something the whole company can use."
+          ],
+          "pause": 0.7
+        },
+        {
+          "phrases": [
+            "And over time, that can reduce repetitive questions and give employees another way to get the information they need without having to wait for someone to respond."
+          ],
+          "pause": 0.7
+        }
+      ],
+      "slot": 37.3
+    },
+    {
+      "n": 8,
+      "id": "sec08",
+      "title": "Visibility",
+      "card": "TITLE CARD: Visibility",
+      "nora": false,
+      "chunks": [
+        {
+          "phrases": [
+            "And then there's visibility for the managers leading these teams."
+          ],
+          "at": 0.8
+        },
+        {
+          "phrases": [
+            "Managers can have dashboards that show what's happening across their teams at a glance."
+          ],
+          "pause": 0.5
+        },
+        {
+          "phrases": [
+            "How many requests are open?"
+          ],
+          "pause": 0.6
+        },
+        {
+          "phrases": [
+            "How many are waiting on the customer?"
+          ],
+          "pause": 0.35
+        },
+        {
+          "phrases": [
+            "How many have been closed?"
+          ],
+          "pause": 0.35
+        },
+        {
+          "phrases": [
+            "How much work does each agent have?"
+          ],
+          "pause": 0.35
+        },
+        {
+          "phrases": [
+            "Are requests being answered within the expected time?"
+          ],
+          "pause": 0.35
+        },
+        {
+          "phrases": [
+            "And are they being resolved within the expected time?"
+          ],
+          "pause": 0.35
+        },
+        {
+          "phrases": [
+            "That visibility gives managers something we don't always have today: a clear picture of the work while it's happening."
+          ],
+          "pause": 0.8
+        },
+        {
+          "phrases": [
+            "It can help identify bottlenecks, workload issues, and opportunities to move resources where they're needed."
+          ],
+          "pause": 0.5
+        },
+        {
+          "phrases": [
+            "It can also help answer questions that are difficult to answer when the work is spread across an inbox."
+          ],
+          "pause": 0.7
+        },
+        {
+          "phrases": [
+            "How much work is the team actually receiving?"
+          ],
+          "pause": 0.6
+        },
+        {
+          "phrases": [
+            "Where are requests getting stuck?"
+          ],
+          "pause": 0.35
+        },
+        {
+          "phrases": [
+            "Is one person carrying most of the workload?"
+          ],
+          "pause": 0.35
+        },
+        {
+          "phrases": [
+            "Are there certain types of requests taking significantly longer than others?"
+          ],
+          "pause": 0.35
+        },
+        {
+          "phrases": [
+            "And are we meeting the service expectations we've set?"
+          ],
+          "pause": 0.35
+        },
+        {
+          "phrases": [
+            "BoldDesk gives team leaders the information to actually see those things."
+          ],
+          "pause": 0.8,
+          "tone": "resolve"
+        }
+      ],
+      "slot": 68.3
+    },
+    {
+      "n": 9,
+      "id": "sec09",
+      "title": "Better communication. Better accountability. Better customer experience.",
+      "card": "TITLE CARD: Better communication. Better accountability. Better customer experience.",
+      "nora": false,
+      "chunks": [
+        {
+          "phrases": [
+            "That visibility also creates accountability."
+          ],
+          "at": 0.8
+        },
+        {
+          "phrases": [
+            "When requests are tracked and SLAs are visible, it's easier to make sure requesters aren't left wondering what happened to their request."
+          ],
+          "pause": 0.5
+        },
+        {
+          "phrases": [
+            "And when a team member is out of the office, the rest of the team can see the ticket history and notes and pick up where things left off."
+          ],
+          "pause": 0.6
+        },
+        {
+          "phrases": [
+            "There's also a clear record of what has already been communicated and what work has been completed."
+          ],
+          "pause": 0.6
+        },
+        {
+          "phrases": [
+            "That makes handoffs easier and reduces the chance that someone has to start over because the history was sitting in one person's inbox."
+          ],
+          "pause": 0.5
+        },
+        {
+          "phrases": [
+            "The goal isn't to make team members work harder."
+          ],
+          "pause": 0.7
+        },
+        {
+          "phrases": [
+            "It's to make it easier for them to do the work they're already trying to do."
+          ],
+          "pause": 0.4
+        }
+      ],
+      "slot": 43.2
+    },
+    {
+      "n": 10,
+      "id": "sec10",
+      "title": "Built to connect",
+      "card": "TITLE CARD: Built to connect",
+      "nora": false,
+      "chunks": [
+        {
+          "phrases": [
+            "And BoldDesk doesn't have to stand alone."
+          ],
+          "at": 0.8
+        },
+        {
+          "phrases": [
+            "It can connect with other platforms and automate repetitive work."
+          ],
+          "pause": 0.5
+        },
+        {
+          "phrases": [
+            "For example, we've tested an integration with ClickUp."
+          ],
+          "pause": 0.6
+        },
+        {
+          "phrases": [
+            "A ticket can be pushed into ClickUp as a project task with the information carried over automatically.",
+            "The ClickUp number and link can then come back into the BoldDesk ticket, keeping the two systems connected."
+          ],
+          "pause": 0.5
+        },
+        {
+          "phrases": [
+            "That's one example, but the bigger opportunity is being able to connect the tools teams already use instead of making teams duplicate their work between systems."
+          ],
+          "pause": 0.6
+        },
+        {
+          "phrases": [
+            "There are also opportunities for automated responses, routing, assignment, document handling, and other repetitive tasks."
+          ],
+          "pause": 0.6
+        },
+        {
+          "phrases": [
+            "And every time we automate something repetitive, we're giving agents back time to work on the things that actually need a person."
+          ],
+          "pause": 0.6
+        }
+      ],
+      "slot": 52.4
+    },
+    {
+      "n": 11,
+      "id": "sec11",
+      "title": "And down the road…",
+      "card": "TITLE CARD: And down the road…",
+      "nora": false,
+      "chunks": [
+        {
+          "phrases": [
+            "There's even room to think about what's next."
+          ],
+          "at": 0.8
+        },
+        {
+          "phrases": [
+            "BoldDesk has an AI connector that could potentially allow things like summarizing a long ticket conversation so a manager or agent could quickly understand what's happening without reading through dozens of replies."
+          ],
+          "pause": 0.5
+        },
+        {
+          "phrases": [
+            "That's a future possibility, with the appropriate Northpointe approval, of course."
+          ],
+          "pause": 0.6
+        }
+      ],
+      "slot": 22.0
+    },
+    {
+      "n": 12,
+      "id": "sec12",
+      "title": "Why it matters",
+      "card": "CUT TO: Customer / sales / employee animation",
+      "nora": false,
+      "chunks": [
+        {
+          "phrases": [
+            "And I'll come back to the reason all of this matters."
+          ],
+          "at": 0.5
+        },
+        {
+          "phrases": [
+            "This isn't really about moving emails from one place to another."
+          ],
+          "pause": 0.6
+        },
+        {
+          "phrases": [
+            "It's about making it easier for employees to get help."
+          ],
+          "pause": 0.5
+        },
+        {
+          "phrases": [
+            "It's about giving team members a better way to manage the work coming into their teams."
+          ],
+          "pause": 0.4
+        },
+        {
+          "phrases": [
+            "And it's about giving team leaders the visibility they need to understand what's happening, identify where help is needed, and make better decisions about their team's workload."
+          ],
+          "pause": 0.4
+        },
+        {
+          "phrases": [
+            "Ultimately, it's about helping the employees who serve our customers do their jobs more effectively."
+          ],
+          "pause": 0.5
+        },
+        {
+          "phrases": [
+            "Because whether you're working directly with a borrower, supporting a business partner, working with a retail customer, or helping another Northpointe employee behind the scenes, we all play a part in the customer experience."
+          ],
+          "pause": 0.7
+        }
+      ],
+      "slot": 46.3
+    },
+    {
+      "n": 14,
+      "id": "sec14",
+      "title": "Closing",
+      "card": "CLOSING — Nora on screen",
+      "nora": true,
+      "chunks": [
+        {
+          "phrases": [
+            "BoldDesk gives Northpointe a way to bring that support work into one organized experience."
+          ],
+          "at": 0.6
+        },
+        {
+          "phrases": [
+            "Better tracking."
+          ],
+          "pause": 0.6
+        },
+        {
+          "phrases": [
+            "Better communication."
+          ],
+          "pause": 0.35
+        },
+        {
+          "phrases": [
+            "More visibility."
+          ],
+          "pause": 0.35
+        },
+        {
+          "phrases": [
+            "More accountability."
+          ],
+          "pause": 0.35
+        },
+        {
+          "phrases": [
+            "More automation."
+          ],
+          "pause": 0.35
+        },
+        {
+          "phrases": [
+            "And a better experience for the people asking for help."
+          ],
+          "pause": 0.5
+        },
+        {
+          "phrases": [
+            "For team leaders, it means less time trying to piece together what's happening in an inbox and more visibility into the work your team is actually doing."
+          ],
+          "pause": 0.6
+        },
+        {
+          "phrases": [
+            "And for the employees and customers we support, it means a more consistent experience when they need help."
+          ],
+          "pause": 0.5
+        },
+        {
+          "phrases": [
+            "That's the Why BoldDesk."
+          ],
+          "pause": 0.8,
+          "tone": "resolve"
+        },
+        {
+          "phrases": [
+            "I'm Nora."
+          ],
+          "pause": 0.9,
+          "tone": "close"
+        },
+        {
+          "phrases": [
+            "Thanks for listening."
+          ],
+          "pause": 0.4,
+          "tone": "close"
+        },
+        {
+          "phrases": [
+            "And I'll see you at the help desk!"
+          ],
+          "pause": 0.4
+        }
+      ],
+      "slot": 45.5
+    }
+  ]
+}

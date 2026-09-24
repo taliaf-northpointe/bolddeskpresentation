@@ -32,7 +32,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
 FRAMES = os.path.join(ROOT, "build", "frames")
 OUT_DIR = os.path.join(ROOT, "build")
-WAV_FOR = lambda n: os.path.join(ROOT, "assets", f"{n}.wav")
+WAV_FOR = lambda n, v=None: os.path.join(ROOT, "assets", *([v] if v else []), f"{n}.wav")
 
 
 def main():
@@ -46,6 +46,8 @@ def main():
     ap.add_argument("--keep-frames", action="store_true")
     ap.add_argument("--png", action="store_true",
                     help="lossless PNG frames (slow). Default is JPEG q95 via CDP, ~3x faster")
+    ap.add_argument("--variant", default=None,
+                    help="script variant, e.g. team: scenes/<variant>/, data/<variant>/, assets/<variant>/")
     ap.add_argument("--scene", type=int, default=None,
                     help="render one scene in isolation, e.g. --scene 2")
     a = ap.parse_args()
@@ -82,6 +84,8 @@ def main():
     url = f"http://127.0.0.1:{port}/index.html?mode=render"
     if a.cc:
         url += "&cc=1"
+    if a.variant:
+        url += f"&variant={a.variant}"
     if a.scene:
         url += f"&scene={a.scene}"
 
@@ -143,8 +147,8 @@ def main():
     # one scene: name the output and its audio after the scene's own id
     # (sec03 -> build/sec03.mp4 + assets/sec03.wav); the film is film.*
     name = scene_ids[0] if a.scene and scene_ids else "film"
-    out = os.path.join(OUT_DIR, name + ".mp4")
-    wav = WAV_FOR(name)
+    out = os.path.join(OUT_DIR, name + (f"-{a.variant}" if a.variant else "") + ".mp4")
+    wav = WAV_FOR(name, a.variant)
     if os.path.exists(wav):
         # a partial render (--start) must take its audio from the same offset
         cmd += (["-ss", f"{a.start:.3f}"] if a.start else []) +                ["-i", wav, "-c:a", "aac", "-b:a", "192k", "-shortest"]

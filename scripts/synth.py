@@ -511,6 +511,8 @@ def mux_previews(rows):
 # ---------------------------------------------------------------- main
 def main():
     ap = argparse.ArgumentParser(description=__doc__.split("\n\n")[0])
+    ap.add_argument("--variant", default=None,
+                    help="script variant: reads data/<variant>/narration.json, writes data/<variant>/ and assets/<variant>/")
     ap.add_argument("--engine", choices=["edge", "azure"], default="edge")
     ap.add_argument("--scene", type=int, action="append",
                     help="scene number; repeatable. 71 is the optional 7A")
@@ -521,6 +523,12 @@ def main():
                     help="mux the voice onto samples/*-draft-silent.mp4 into build/")
     a = ap.parse_args()
 
+    global ASSETS, DATA, NARRATION
+    if a.variant:
+        DATA = os.path.join(DATA, a.variant)
+        ASSETS = os.path.join(ASSETS, a.variant)
+        NARRATION = os.path.join(DATA, "narration.json")
+        os.makedirs(DATA, exist_ok=True)
     with open(NARRATION, encoding="utf-8") as f:
         nar = json.load(f)
     voice = a.voice or os.environ.get("NORA_VOICE") or nar["voice"]

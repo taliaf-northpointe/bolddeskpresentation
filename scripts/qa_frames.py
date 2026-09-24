@@ -42,6 +42,7 @@ def main():
     ap.add_argument("--scene", type=int, required=True)
     ap.add_argument("--at", default=None, help="comma-separated seconds")
     ap.add_argument("--cc", action="store_true")
+    ap.add_argument("--variant", default=None, help="script variant, e.g. team")
     ap.add_argument("--full", action="store_true", help="keep frames at full 1920x1080 (for print)")
     a = ap.parse_args()
     os.makedirs(OUT, exist_ok=True)
@@ -66,6 +67,8 @@ def main():
     url = f"http://127.0.0.1:{port}/index.html?mode=render&scene={a.scene}"
     if a.cc:
         url += "&cc=1"
+    if a.variant:
+        url += f"&variant={a.variant}"
 
     errors = []
     with sync_playwright() as pw:
@@ -94,7 +97,7 @@ def main():
             t = max(0, min(t, dur - 0.01))
             page.evaluate("t => window.__setTime(t)", t)
             extra = page.evaluate("document.getElementById('dbg').textContent")
-            path = os.path.join(OUT, f"{info['id']}-{t:05.1f}.png")
+            path = os.path.join(OUT, f"{info['id']}{'-' + a.variant if a.variant else ''}-{t:05.1f}.png")
             page.screenshot(path=path, scale="css", clip={"x": 0, "y": 0, "width": 1920, "height": 1080})
             # half-size for quick looks, when Pillow is around
             try:

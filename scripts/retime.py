@@ -111,17 +111,21 @@ def main():
     ap.add_argument("--old", required=True, help="folder holding the previous cues-*.json files")
     ap.add_argument("--scene", action="append", required=True, help="section id, e.g. sec09; repeatable")
     ap.add_argument("--dry", action="store_true")
+    ap.add_argument("--variant", default=None,
+                    help="retime scenes/<variant>/ against data/<variant>/ cues and narration")
     a = ap.parse_args()
 
-    nar = json.load(open(os.path.join(ROOT, "data", "narration.json"), encoding="utf-8"))
+    data_dir = os.path.join(ROOT, "data", *([a.variant] if a.variant else []))
+    scenes_dir = os.path.join(ROOT, "scenes", *([a.variant] if a.variant else []))
+    nar = json.load(open(os.path.join(data_dir, "narration.json"), encoding="utf-8"))
     slots = {s["id"]: s["slot"] for s in nar["scenes"]}
 
     for sid in a.scene:
         old = json.load(open(os.path.join(a.old, f"cues-{sid}.json")))
-        new = json.load(open(os.path.join(ROOT, "data", f"cues-{sid}.json")))
+        new = json.load(open(os.path.join(data_dir, f"cues-{sid}.json")))
         pts, pairs = anchors(old, new)
         f = make_map(pts)
-        path = os.path.join(ROOT, "scenes", f"{sid}.js")
+        path = os.path.join(scenes_dir, f"{sid}.js")
         ch = retime(path, f, slots[sid], a.dry)
         unmatched_old = [i for i in range(len(old)) if i not in {p[0] for p in pairs}]
         unmatched_new = [j for j in range(len(new)) if j not in {p[1] for p in pairs}]
